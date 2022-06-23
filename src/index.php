@@ -64,7 +64,7 @@ include("header.php");
 </div>
 </section>
 <!--*******************-->
-<section id="icon" class="py-5 text-center bg-image2">
+<section id="icon" class="py-2 text-center bg-image2">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
