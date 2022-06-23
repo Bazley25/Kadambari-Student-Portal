@@ -1,6 +1,5 @@
 <?php
 include("db.php");
-
 $sql= "SELECT * FROM news ";
 $result = mysqli_query($conn,$sql);
 ?>
