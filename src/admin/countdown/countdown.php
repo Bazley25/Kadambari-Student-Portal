@@ -104,6 +104,10 @@
 
       countdown();
       setInterval(countdown, 1000);
+
+      if (time_count === 0) {
+    stopTimer();
+  }
     </script>
   </body>
 </html>

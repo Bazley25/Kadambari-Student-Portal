@@ -139,6 +139,40 @@ $result = mysqli_query($conn,$sql);
                   <p class="input_sms text-warning" id="trxid_error"></p>
               </div>
             </div>
+        <div class="form-group  m-o clearfix">
+          <table width="100%" border="1" cellpadding="2" cellspacing="1">
+              <tbody>
+                  <tr>
+                      <td width="25%" align="left" valign="middle">
+                          National ID
+                      </td>
+                      <td width="25%" align="left" valign="middle">
+                          1475775854
+                      </td>
+                      <td width="25%" align="left" valign="middle">
+                          Passport ID
+                      </td>
+                      <td width="25%" align="left" valign="middle">
+                          N/A
+                      </td>
+                  </tr>
+                  <tr>
+                      <td width="25%" align="left" valign="middle">
+                          Birth Registration                                                              </td>
+                      <td width="25%" align="left" valign="middle">
+                          N/A
+                      </td>
+                      <td width="25%" align="left" valign="middle">
+                          Merital status
+                      </td>
+                      <td width="25%" align="left" valign="middle">
+                          Single
+                      </td>
+                  </tr>
+
+              </tbody>
+          </table>
+            </div>
 <!--  End Payment section -->
 
               <!-- gender part start -->
