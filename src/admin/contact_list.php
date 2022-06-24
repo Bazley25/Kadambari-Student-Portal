@@ -49,7 +49,7 @@ $result = mysqli_query($conn,$sql);
 <!-- ************************************************************************************************************* -->
                       <tbody>
                          <?php while($row = mysqli_fetch_assoc($result)) {?>
-                          <tr width="60px" heidth="40px">
+                          <tr >
                               <td ><?= $row['fname']?></td>
                               <td ><?= $row['lname']?></td>
                               <td ><?= $row['email']?></td>
@@ -60,8 +60,8 @@ $result = mysqli_query($conn,$sql);
 
                               <td><?php echo date('d/m/Y h:i a',strtotime($row["date"]));?></td>
 <!-- **************************************************************************************************************************** -->
-                              <td><a href="view_contact.php?id=<?php echo $row['id'];?>" class="btn btn-info m-0"><i class="fas fa-eye"></i> View</a>
-                              <a href="delete_contact.php?id=<?php echo $row['id'];?>" class="btn btn-danger m-0" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i> Delete</a>
+                              <td><a href="view_contact.php?id=<?php echo $row['id'];?>" class="btn btn-info sm"><i class="fas fa-eye "></i> View</a>
+                              <a href="delete_contact.php?id=<?php echo $row['id'];?>" class="btn btn-danger sm" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i> Delete</a>
                             </td>
 <!-- ******************************************************************************** -->
                           </tr>
