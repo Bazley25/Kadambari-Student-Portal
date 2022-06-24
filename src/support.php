@@ -62,8 +62,11 @@ table tr td a:hover, a:active {
     <div class="container">
       <div class="row">
         <div class="col-md-6 m-auto text-center text-light">
-          <h1 class="text-light">Need Support?</h1>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.</p>
+          <!-- <h1 class="text-light">Need Support?</h1>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.</p> -->
+          <?php
+          include("admin/countdown/countdown.php");
+           ?>
         </div>
       </div>
     </div>

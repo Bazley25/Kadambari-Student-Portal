@@ -30,6 +30,7 @@
       .main_content > h2 {
         font-size: 1.3rem;
         text-transform: uppercase;
+        
       }
       .countdown {
         display: flex;
