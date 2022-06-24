@@ -17,19 +17,14 @@ $result = mysqli_query($conn,$sql);
   <link rel="stylesheet" href="../css/uikit.min.css">
   <link rel="stylesheet" href="../css/slick.css">
   <link rel="stylesheet" href="../css/slick-theme.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="../css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-
-
-  <link rel="stylesheet" href="../css/webfonts/fa-brands-400.ttf">
-  <link rel="stylesheet" href="../css/fontawsome.min.css">
-
-  <link rel="stylesheet" href="../scss/tables.scss">
   <link rel="stylesheet" href="../css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="../css/responsive.dataTables.min.css">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/0b5a974696.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/bootstrap.css">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../scss/style.scss">
   <link rel="shortcut icon" type="image/x-icon" href="../favicon/khs.png">
   <title>কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০</title>
 </head>
@@ -61,6 +56,9 @@ $result = mysqli_query($conn,$sql);
         </li>
         <li class="nav-item">
           <a class="nav-link" href="entrycount.php" target="_blank">Entry List </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="countdown_post.php" >contdown submit </a>
         </li>
         <li class="nav-item ">
         <a class="nav-link" href="logout.php">log out</a>

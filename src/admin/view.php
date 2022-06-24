@@ -24,14 +24,15 @@ $std= mysqli_fetch_assoc($result);
     <title>All View</title>
   </head>
   <body>
-<div class="container">
+    <div class="container-fluid bg-secondary ">
+      <div class="container bg-info text-white">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md">
           <a href="index.php" class="btn btn-info mt-5">Back</a>
       </div>
-        <div class="col-md-10">
+        <div class="col-md-12">
 
-           <h1 class="mt-2">Student Details</h1>
+           <h1 class="mt-2 text-center">Student Details</h1>
            <br>
            <!-- sms -->
            <div class="">
@@ -41,9 +42,9 @@ $std= mysqli_fetch_assoc($result);
              </div>
              <?php }?>
            </div>
-            <table class="table table-bordered  mt-3" >
+            <table class="table table-bordered  mt-3 text-white" >
                 <tr>
-                    <th>ID</th>
+                    <th>User ID</th>
                     <td><?php echo $std['string']?></td>
                 </tr>
                 <tr>
@@ -113,6 +114,7 @@ $std= mysqli_fetch_assoc($result);
             </table>
         </div>
     </div>
+</div>
 </div>
     <script src="../js/jquery-slim.min.js" ></script>
     <script src="../js/popper.min.js"></script>

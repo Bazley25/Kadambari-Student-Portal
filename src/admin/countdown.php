@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,10 +17,11 @@
       }
       body {
         font-family: "Open Sans", sans-serif;
-
+        /* background-color: darkgray; */
       }
 
       .main_content {
+        /* height: 50vh; */
         width: 100%;
         display: flex;
         justify-content: center;
@@ -28,7 +31,7 @@
       }
 
       .main_content > h2 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         text-transform: uppercase;
       }
       .countdown {
@@ -38,7 +41,6 @@
 
       .countdown > div {
         width: 70px;
-
         background-color: rgb(0, 0, 0, 0.5);
         margin: 4px;
         box-shadow: 2px 3px 5px rgb(0, 0, 0, 0.25);
@@ -55,29 +57,29 @@
   </head>
   <body>
     <div class="main_content">
-      <h2>পদ্মা সেতুর উদ্বোধন আর মাত্র</h2>
+      <h4> gfgdgd</h4>
       <div class="countdown">
         <div>
-          <span>Days</span>
           <div id="days"></div>
+          <span>Days</span>
         </div>
         <div>
-          <span>Hours</span>
           <div id="hours"></div>
+          <span>Hours</span>
         </div>
         <div>
-          <span>Minites</span>
           <div id="minutes"></div>
+          <span>Minites</span>
         </div>
         <div>
-          <span>secounds</span>
           <div id="secounds"></div>
+          <span>secounds</span>
         </div>
       </div>
     </div>
 
     <script>
-      const final_date = "25 Dec 2022";
+      const final_date = "26 Jun 2022";
       const daysdiv = document.getElementById("days");
       const hoursdiv = document.getElementById("hours");
       const minutesdiv = document.getElementById("minutes");
@@ -104,6 +106,9 @@
 
       countdown();
       setInterval(countdown, 1000);
+
+
+  }
     </script>
   </body>
 </html>

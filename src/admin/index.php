@@ -22,7 +22,7 @@ $total_count= mysqli_num_rows($count_result);
 ?>
 <!--******** Important ******************* -->
 
-
+<div class="container-fluid ">
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
@@ -129,6 +129,7 @@ $total_count= mysqli_num_rows($count_result);
                   </div>
         </div>
     </div>
+</div>
 </div>
 <br>
 <?php
