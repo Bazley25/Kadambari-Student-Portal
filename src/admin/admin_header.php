@@ -58,7 +58,7 @@ $result = mysqli_query($conn,$sql);
           <a class="nav-link" href="entrycount.php" target="_blank">Entry List </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="countdown_post.php" >contdown submit </a>
+          <a class="nav-link" href="countdown_post.php" >countdown </a>
         </li>
         <li class="nav-item ">
         <a class="nav-link" href="logout.php">log out</a>

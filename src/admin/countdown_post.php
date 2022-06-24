@@ -118,7 +118,7 @@ $countdown_post = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                 <div class="form-group">
                     <div class="btn">
-                        <button type="submit" name="submit" class="btn btn-outline-primary"><i class="fa fa-paper-plane" aria-hidden="true"> submit</i></button>
+                        <button type="submit" name="submit" class="btn btn-outline-primary"><i class="fa fa-paper-plane" aria-hidden="true"> Submit</i></button>
                     </div>
                 </div>
             </form>

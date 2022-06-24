@@ -30,7 +30,7 @@
       .main_content > h2 {
         font-size: 1.3rem;
         text-transform: uppercase;
-        
+
       }
       .countdown {
         display: flex;
@@ -56,7 +56,7 @@
   </head>
   <body>
     <div class="main_content">
-      <h2>পদ্মা সেতুর উদ্বোধন আর মাত্র</h2>
+      <h2> কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন আর মাত্র </h2>
       <div class="countdown">
         <div>
           <span>Days</span>
