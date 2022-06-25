@@ -1,4 +1,24 @@
 
+<?php
+include("db.php");
+session_start();
+if(!isset($_SESSION['login'])){
+header("location:login.php");
+}
+
+
+// $sql= "SELECT * FROM news";
+$sql= "SELECT * FROM countdowns ORDER BY countdowns . date DESC";
+$result = mysqli_query($conn,$sql);
+// Notice Show Code Start
+
+$countdown_post = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+?>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,11 +37,10 @@
       }
       body {
         font-family: "Open Sans", sans-serif;
-        /* background-color: darkgray; */
+
       }
 
       .main_content {
-        /* height: 50vh; */
         width: 100%;
         display: flex;
         justify-content: center;
@@ -31,8 +50,9 @@
       }
 
       .main_content > h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         text-transform: uppercase;
+
       }
       .countdown {
         display: flex;
@@ -41,6 +61,7 @@
 
       .countdown > div {
         width: 70px;
+
         background-color: rgb(0, 0, 0, 0.5);
         margin: 4px;
         box-shadow: 2px 3px 5px rgb(0, 0, 0, 0.25);
@@ -57,29 +78,29 @@
   </head>
   <body>
     <div class="main_content">
-      <h4> gfgdgd</h4>
+      <h2> কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন আর মাত্র </h2>
       <div class="countdown">
         <div>
-          <div id="days"></div>
           <span>Days</span>
+          <div id="days"></div>
         </div>
         <div>
-          <div id="hours"></div>
           <span>Hours</span>
+          <div id="hours"></div>
         </div>
         <div>
-          <div id="minutes"></div>
           <span>Minites</span>
+          <div id="minutes"></div>
         </div>
         <div>
-          <div id="secounds"></div>
           <span>secounds</span>
+          <div id="secounds"></div>
         </div>
       </div>
     </div>
 
     <script>
-      const final_date = "26 Jun 2022";
+      const final_date = "25 Dec 2022";
       const daysdiv = document.getElementById("days");
       const hoursdiv = document.getElementById("hours");
       const minutesdiv = document.getElementById("minutes");
@@ -106,9 +127,6 @@
 
       countdown();
       setInterval(countdown, 1000);
-
-
-  }
     </script>
   </body>
 </html>

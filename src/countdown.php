@@ -1,3 +1,20 @@
+
+<?php
+include("db.php");
+
+
+
+// $sql= "SELECT * FROM news";
+$sql= "SELECT * FROM countdowns ORDER BY countdowns . date DESC";
+$result = mysqli_query($conn,$sql);
+// Notice Show Code Start
+
+// $countdown_post = mysqli_fetch_all($result, MYSQLI_ASSOC);
+// // print_r($countdown_post);
+// // die();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -56,7 +73,13 @@
   </head>
   <body>
     <div class="main_content">
-      <h2> কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন আর মাত্র </h2>
+      <?php
+
+      while($row = mysqli_fetch_assoc($result)) {
+        ?>
+       <h2> <?php echo $row['title'];?> </h2>
+      <?php } ?>
+
       <div class="countdown">
         <div>
           <span>Days</span>

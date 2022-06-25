@@ -75,7 +75,7 @@ include("header.php");
             </div>
             <div class="col-md-4">
                 <?php
-                include("admin/countdown/countdown.php");
+                include("countdown.php");
                  ?>
             </div>
             <div class="col-md-4">
