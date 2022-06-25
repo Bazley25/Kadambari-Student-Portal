@@ -78,6 +78,7 @@ $result = mysqli_query($conn,$sql);
       while($row = mysqli_fetch_assoc($result)) {
         ?>
        <h2> <?php echo $row['title'];?> </h2>
+
       <?php } ?>
 
       <div class="countdown">
@@ -99,9 +100,10 @@ $result = mysqli_query($conn,$sql);
         </div>
       </div>
     </div>
-
+<?php $date_time = date('d m Y h:i',strtotime($row['end_date']));?>
     <script>
-      const final_date = "25 Dec 2022";
+      const final_date = " <?php echo $date_time ?> ";
+      // const final_date = "25 Dec 2022 23:59";
       const daysdiv = document.getElementById("days");
       const hoursdiv = document.getElementById("hours");
       const minutesdiv = document.getElementById("minutes");
