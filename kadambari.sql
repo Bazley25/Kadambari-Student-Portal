@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2022 at 01:03 PM
+-- Generation Time: Jun 27, 2022 at 01:46 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -65,7 +65,7 @@ CREATE TABLE `countdowns` (
 --
 
 INSERT INTO `countdowns` (`id`, `title`, `end_date`, `date`) VALUES
-(14, 'কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন আর মাত্র ', '2022-06-27 23:59:00', '2022-06-25 12:59:46');
+(15, 'কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন আর মাত্র ', '2022-12-25 01:23:00', '2022-06-27 01:23:56');
 
 -- --------------------------------------------------------
 
@@ -86,8 +86,8 @@ CREATE TABLE `news` (
 
 INSERT INTO `news` (`id`, `title`, `news_description`, `date`) VALUES
 (28, 'welcome', 'কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০ এ আপনাকে স্বাগতম ***  আপনি  একবারই রেজিস্ট্রেশন করতে পারবেন। যদি কোন প্রকার ভুল করে থাকেন তবে আপনার তথ্য আপডেড করার জন্য ইমেইল করুন: shubhamandal70@gmail.com', '2021-09-27 21:24:41'),
-(34, 'dfgfdgdf', 'gdgfdgdfgdfgdgdfgdfgdfgdfgdfgfdgdfgfdgdfg', '2022-06-19 23:15:03'),
-(35, 'ttttttrtrert', 'etertertertcvbcbcbcbcvb\r\ncdgdgdgdfdgdfgdfgdfgdf\r\nchghgfhfhfh', '2022-06-19 23:15:59');
+(34, 'dgdfgfdgdfgdfddf', 'ghghghgghgghghghggghghhghhhgghg', '2022-06-27 01:20:02'),
+(35, 'dadasa', 'bgbgbgbgg', '2022-06-27 01:05:52');
 
 -- --------------------------------------------------------
 
@@ -280,7 +280,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `countdowns`
 --
 ALTER TABLE `countdowns`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `news`
