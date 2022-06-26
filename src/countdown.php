@@ -2,16 +2,10 @@
 <?php
 include("db.php");
 
-
-
-// $sql= "SELECT * FROM news";
+// $sql= "SELECT * FROM countdowns";
 $sql= "SELECT * FROM countdowns ORDER BY countdowns . date DESC";
 $result = mysqli_query($conn,$sql);
-// Notice Show Code Start
-
-// $countdown_post = mysqli_fetch_all($result, MYSQLI_ASSOC);
-// // print_r($countdown_post);
-// // die();
+// $date_input = mysqli_fetch_array($result, MYSQL_ARRAY);
 
 ?>
 
@@ -36,6 +30,7 @@ $result = mysqli_query($conn,$sql);
       }
 
       .main_content {
+        height :100%;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -78,7 +73,7 @@ $result = mysqli_query($conn,$sql);
       while($row = mysqli_fetch_assoc($result)) {
         ?>
        <h2> <?php echo $row['title'];?> </h2>
-
+       <input type="hidden" name="end-date" id="end-date" value="<?php echo $row['end_date']; ?>">
       <?php } ?>
 
       <div class="countdown">
@@ -100,10 +95,11 @@ $result = mysqli_query($conn,$sql);
         </div>
       </div>
     </div>
-<?php $date_time = date('d m Y h:i',strtotime($row['end_date']));?>
+
     <script>
-      const final_date = " <?php echo $date_time ?> ";
-      // const final_date = "25 Dec 2022 23:59";
+      
+      
+      const final_date = document.getElementById('end-date').value;
       const daysdiv = document.getElementById("days");
       const hoursdiv = document.getElementById("hours");
       const minutesdiv = document.getElementById("minutes");
@@ -114,22 +110,36 @@ $result = mysqli_query($conn,$sql);
         const currentdate = new Date();
 
         const time_count = (expect_date - currentdate) / 1000;
+        let days = Math.floor(time_count / 3600 / 24);
+        let hours = Math.floor((time_count / 3600) % 24);
+        let minutes = Math.floor((time_count / 60) % 60);
+        let seconds = Math.floor(time_count) % 60;
+          console.log(time_count);
+          if (time_count <=0) {
+            
+            daysdiv.innerHTML = "0 0";
+            hoursdiv.innerHTML = "0 0";
+            minutesdiv.innerHTML = "0 0";
+            secoundsdiv.innerHTML = "0 0";
+              clearInterval(time);
+          
+          return;
+        }
+        
+        
 
-        const days = Math.floor(time_count / 3600 / 24);
-        const hours = Math.floor((time_count / 3600) % 24);
-        const minutes = Math.floor((time_count / 60) % 60);
-        const seconds = Math.floor(time_count) % 60;
+        console.log(days, hours, minutes, secounds);
 
         daysdiv.innerHTML = days;
         hoursdiv.innerHTML = hours;
         minutesdiv.innerHTML = minutes;
         secoundsdiv.innerHTML = seconds;
 
-        console.log(days, hours, minutes, secounds);
       }
 
       countdown();
-      setInterval(countdown, 1000);
+     var time = setInterval(countdown, 1000);
+    
     </script>
   </body>
 </html>
