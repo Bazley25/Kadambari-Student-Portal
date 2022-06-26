@@ -73,7 +73,7 @@ $result = mysqli_query($conn,$sql);
       while($row = mysqli_fetch_assoc($result)) {
         ?>
        <h2> <?php echo $row['title'];?> </h2>
-       <input type="hidden" name="end-date" id="end-date" value="<?php echo $row['end_date']; ?>">
+       <input type="hidden" name="end_date" id="end-date" value="<?php echo $row['end_date']; ?>">
       <?php } ?>
 
       <div class="countdown">
@@ -97,8 +97,6 @@ $result = mysqli_query($conn,$sql);
     </div>
 
     <script>
-      
-      
       const final_date = document.getElementById('end-date').value;
       const daysdiv = document.getElementById("days");
       const hoursdiv = document.getElementById("hours");
@@ -116,17 +114,15 @@ $result = mysqli_query($conn,$sql);
         let seconds = Math.floor(time_count) % 60;
           console.log(time_count);
           if (time_count <=0) {
-            
+
             daysdiv.innerHTML = "0 0";
             hoursdiv.innerHTML = "0 0";
             minutesdiv.innerHTML = "0 0";
             secoundsdiv.innerHTML = "0 0";
               clearInterval(time);
-          
+
           return;
         }
-        
-        
 
         console.log(days, hours, minutes, secounds);
 
@@ -139,7 +135,7 @@ $result = mysqli_query($conn,$sql);
 
       countdown();
      var time = setInterval(countdown, 1000);
-    
+
     </script>
   </body>
 </html>

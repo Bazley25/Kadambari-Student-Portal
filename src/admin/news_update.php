@@ -11,8 +11,9 @@ $news_description =$_POST['news_description'];
 
 
 
+
   if(isset($_POST['update'])){
-    $update_query = "UPDATE news SET  title='$title', news_description='$news_description'  WHERE id=$id";
+    $update_query = "UPDATE news SET  title='$title', news_description='$news_description', date=now()  WHERE id=$id";
     $result = mysqli_query($conn,$update_query);
     $_SESSION['update_news']=1;
      header('location:news_post.php');

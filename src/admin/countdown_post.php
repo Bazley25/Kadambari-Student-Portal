@@ -6,7 +6,6 @@ if(!isset($_SESSION['login'])){
 header("location:login.php");
 }
 
-
 // $sql= "SELECT * FROM news";
 $sql= "SELECT * FROM countdowns ORDER BY countdowns . date DESC";
 $result = mysqli_query($conn,$sql);
@@ -40,7 +39,7 @@ $countdown_post = mysqli_fetch_all($result, MYSQLI_ASSOC);
             </div>
           <?php }?>
           </div>
-              <h4 class="mb-4 text-center">News </h4>
+              <h4 class="mb-4 text-center">Countdown Set Page </h4>
               <div class="row">
                 <div class="table-responsive table--no-card m-b-30" >
                 <table class="table table-bordered" id="myTable">
@@ -68,7 +67,7 @@ $countdown_post = mysqli_fetch_all($result, MYSQLI_ASSOC);
                           <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
                         </button>
                               <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                <a class="dropdown-item" href="countdown_edite.php?id=<?php echo $post['id'];?>"><i class="fas fa-edit"></i> Edit</a>
+                                <a class="dropdown-item" href="countdown_edite.php?id=<?php echo $countdown['id'];?>"><i class="fas fa-edit"></i> Edit</a>
                                 <a class="dropdown-item btn btn-danger m-0" onclick="return confirm('Are You Sure?')" href="countdown_delete.php?id=<?php echo $countdown['id'];?>"><i class="far fa-trash-alt"></i> Delete</a>
                                 </div>
                               </div>
