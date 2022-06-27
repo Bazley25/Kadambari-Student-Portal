@@ -13,12 +13,6 @@ $result = mysqli_query($conn,$sql);
 $std= mysqli_fetch_assoc($result);
 ?>
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

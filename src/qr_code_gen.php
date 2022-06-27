@@ -1,9 +1,7 @@
 <?php
 include('librery/phpqrcode/qrlib.php');
     // how to save PNG codes to server
-
     $tempDir = "qr_code_images/";
-
     $codeContents = 'Shubha Mandal Developer';
 
     // we need to generate filename somehow,
