@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2022 at 06:16 AM
+-- Generation Time: Jun 28, 2022 at 05:44 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -135,6 +135,7 @@ CREATE TABLE `students` (
   `gender` varchar(20) NOT NULL,
   `image` varchar(100) NOT NULL,
   `qr_image` varchar(50) NOT NULL,
+  `barcode_image` varchar(255) NOT NULL,
   `string` varchar(50) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `status` varchar(50) NOT NULL
@@ -144,18 +145,20 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `name`, `father_name`, `mother_name`, `email`, `dob`, `exam`, `last_edu`, `village`, `mobile`, `blood`, `bkash`, `taka`, `trxid`, `gender`, `image`, `qr_image`, `string`, `date`, `status`) VALUES
-(141, 'Shubha Mandal', 'dfgdggd', 'dfgfdgdfgdfg', 'shubhamandal70@gmail.com', '1998-02-17 00:00:00', '2021', 'sfdsfs', 'village', '01923451794', 'AB+', '01923453099', 50, 'AAAAAAA2', 'Male', '141.jpg', '141.png', 'Q1ICZAO4\n', '2022-01-17 11:36:04', 'pending'),
-(142, 'Shubha Mandal', 'dfgdggd', 'dfgfdgdfgdfg', 'shubhamandal70@gmail.com', '2006-02-17 00:00:00', '2021', 'sfdsfs', 'village', '01323451945', 'A+', '01923453099', 50, 'AAAAAAA2', 'Male', '142.jpg', '142.png', 'HU3SMNCY', '2022-01-17 13:07:24', 'pending'),
-(143, 'Shubha Mandal', 'dfgdggd', 'dfgfdgdfgdfg', 'shubhamandal70@gmail.com', '1997-02-17 00:00:00', '2021', 'Honours ', 'village', '01384459758', 'A+', '01923453099', 50, 'AAAAAAA2', 'Female', '143.jpg', '143.png', 'OCD09LUG\n', '2022-01-17 13:35:04', 'approved'),
-(154, 'Shubha Mandal', 'dfgdggd', 'dfgfdgdfgdfg', 'shubhamandal70@gmail.com', '1994-02-25 00:00:00', '2021', 'sfdsfs', 'village', '018228239125', 'AB+', '01923453099', 50, 'AAAAAAA2', 'Male', '154.jpg', '154.png', 'AP5T6S2O', '2022-01-25 11:55:11', ''),
-(156, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1993-09-18 00:00:00', '2011', 'bsc in cse', 'test village', '01822823912', 'B+', '+8801822823912', 5000, 'ASDFGJHV14', 'Male', '156.jpg', '156.png', '6VDMWO35', '2022-06-18 23:25:18', 'pending'),
-(157, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1978-01-19 00:00:00', '2011', 'bsc in cse', 'test village', '01822823913', 'A+', '01822823912', 5000, 'ASDFGJHV14', 'Male', '157.jpg', '157.png', '14CPXIQW', '2022-06-19 21:06:53', 'pending'),
-(159, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1982-01-19 00:00:00', '2011', 'bsc in cse', 'village test', '01822823915', 'AB+', '01822823912', 500000, 'ASDFGJHV14', 'Female', '159.jpg', '159.png', '2XGDENM1', '2022-06-19 21:20:52', 'pending'),
-(160, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1990-01-20 00:00:00', '2011', 'bsc in cse', 'test village', '01822823911', 'A+', '01822823912', 5000, 'AS1254NJSD', 'Male', '160.jpg', '160.png', 'FMO7158E', '2022-06-20 20:45:30', 'pending'),
-(161, 'Shubha Mandal', 'sddsfdsfd', 'nnnnnnn', 'shubhamandal70@gmail.com', '1980-01-20 00:00:00', '2012', 'bsc in cse', 'test village', '01822823922', 'AB+', '01822823912', 5000, 'ASDFGJHV14', 'Male', '161.jpg', '161.png', 'AKUV4309', '2022-06-20 21:49:10', 'pending'),
-(162, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1990-02-22 00:00:00', '2011', 'bsc in cse', 'test village', '01822823988', 'O+', '01822823912', 1000, 'AS1254NJSD', 'Male', '162.jpg', '162.png', 'VSZF7W03', '2022-06-22 00:29:43', 'pending'),
-(163, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1985-01-27 00:00:00', '2011', 'bsc in cse', 'test village', '01741607170', 'AB+', '01822823912', 5000, 'AS1254NJSD', 'Male', '163.jpg', '163.png', 'RS9Q6I84', '2022-06-27 20:26:19', 'pending');
+INSERT INTO `students` (`id`, `name`, `father_name`, `mother_name`, `email`, `dob`, `exam`, `last_edu`, `village`, `mobile`, `blood`, `bkash`, `taka`, `trxid`, `gender`, `image`, `qr_image`, `barcode_image`, `string`, `date`, `status`) VALUES
+(141, 'Shubha Mandal', 'dfgdggd', 'dfgfdgdfgdfg', 'shubhamandal70@gmail.com', '1998-02-17 00:00:00', '2021', 'sfdsfs', 'village', '01923451794', 'AB+', '01923453099', 50, 'AAAAAAA2', 'Male', '141.jpg', '141.png', '0', 'Q1ICZAO4\n', '2022-01-17 11:36:04', 'pending'),
+(142, 'Shubha Mandal', 'dfgdggd', 'dfgfdgdfgdfg', 'shubhamandal70@gmail.com', '2006-02-17 00:00:00', '2021', 'sfdsfs', 'village', '01323451945', 'A+', '01923453099', 50, 'AAAAAAA2', 'Male', '142.jpg', '142.png', '0', 'HU3SMNCY', '2022-01-17 13:07:24', 'pending'),
+(143, 'Shubha Mandal', 'dfgdggd', 'dfgfdgdfgdfg', 'shubhamandal70@gmail.com', '1997-02-17 00:00:00', '2021', 'Honours ', 'village', '01384459758', 'A+', '01923453099', 50, 'AAAAAAA2', 'Female', '143.jpg', '143.png', '0', 'OCD09LUG\n', '2022-01-17 13:35:04', 'approved'),
+(154, 'Shubha Mandal', 'dfgdggd', 'dfgfdgdfgdfg', 'shubhamandal70@gmail.com', '1994-02-25 00:00:00', '2021', 'sfdsfs', 'village', '018228239125', 'AB+', '01923453099', 50, 'AAAAAAA2', 'Male', '154.jpg', '154.png', '0', 'AP5T6S2O', '2022-01-25 11:55:11', ''),
+(156, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1993-09-18 00:00:00', '2011', 'bsc in cse', 'test village', '01822823912', 'B+', '+8801822823912', 5000, 'ASDFGJHV14', 'Male', '156.jpg', '156.png', '0', '6VDMWO35', '2022-06-18 23:25:18', 'pending'),
+(157, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1978-01-19 00:00:00', '2011', 'bsc in cse', 'test village', '01822823913', 'A+', '01822823912', 5000, 'ASDFGJHV14', 'Male', '157.jpg', '157.png', '0', '14CPXIQW', '2022-06-19 21:06:53', 'pending'),
+(159, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1982-01-19 00:00:00', '2011', 'bsc in cse', 'village test', '01822823915', 'AB+', '01822823912', 500000, 'ASDFGJHV14', 'Female', '159.jpg', '159.png', '0', '2XGDENM1', '2022-06-19 21:20:52', 'pending'),
+(160, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1990-01-20 00:00:00', '2011', 'bsc in cse', 'test village', '01822823911', 'A+', '01822823912', 5000, 'AS1254NJSD', 'Male', '160.jpg', '160.png', '0', 'FMO7158E', '2022-06-20 20:45:30', 'pending'),
+(161, 'Shubha Mandal', 'sddsfdsfd', 'nnnnnnn', 'shubhamandal70@gmail.com', '1980-01-20 00:00:00', '2012', 'bsc in cse', 'test village', '01822823922', 'AB+', '01822823912', 5000, 'ASDFGJHV14', 'Male', '161.jpg', '161.png', '0', 'AKUV4309', '2022-06-20 21:49:10', 'pending'),
+(162, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1990-02-22 00:00:00', '2011', 'bsc in cse', 'test village', '01822823988', 'O+', '01822823912', 1000, 'AS1254NJSD', 'Male', '162.jpg', '162.png', '0', 'VSZF7W03', '2022-06-22 00:29:43', 'pending'),
+(163, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1985-01-27 00:00:00', '2011', 'bsc in cse', 'test village', '01741607170', 'AB+', '01822823912', 5000, 'AS1254NJSD', 'Male', '163.jpg', '163.png', '0', 'RS9Q6I84', '2022-06-27 20:26:19', 'pending'),
+(164, 'demo solr search', 'dfgdggd', 'ytyty', 'xda@gmai.com', '1993-02-28 00:00:00', '2021', 'sfdsfs', 'sdfsdfsdfsdfsd', '01323453099', 'AB+', '01923453099', 50, 'AAAA10AAA2', 'Male', '164.jpg', '164.png', '0', '7K2F3U4Y', '2022-06-28 12:39:44', 'pending'),
+(170, 'demo solr search', 'dfgdggd', 'dfgfdgdfgdfg', 'xda@gmai.com', '1999-01-28 00:00:00', '2021', 'sfdsfs', 'sdfsdfsdfsdfsd', '01923450149', 'A+', '01923453099', 50, 'AAAA10AAA2', 'Male', '170.jpg', '170.png', '170.png', 'B4GHP528', '2022-06-28 15:20:27', 'pending');
 
 -- --------------------------------------------------------
 
@@ -189,7 +192,9 @@ INSERT INTO `total_entry_counts` (`id`, `security_code`, `name`, `father_name`, 
 (59, 'Q1ICZAO4', 'Shubha Mandal', 'SHAMVU MANDAL', 'FULMALA MANDAL', 'shubhamandal70@gmail.com', '1990-10-23 00:00:00', '2019', 'honours', 'UTTAR JATRABARI', '+8801822823912', 'A+', 'Male', '0', '2022-02-02 03:18:42'),
 (60, 'OCD09LUG', 'Shubha Mandal', 'KASHINATH MANDAL', 'FULMALA MANDAL', 'shubhamandal70@gmail.com', '1987-02-23 00:00:00', '2019', 'honours', 'UTTAR JATRABARI', '+8801822823914', 'AB+', 'Male', '0', '2022-02-02 03:20:28'),
 (61, 'HU3SMNCY', 'BARNA MANDAL', 'KASHINATH MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '2004-02-23 00:00:00', '2019', 'honours', 'UTTAR JATRABARI', '+8801822823913', 'A+', 'Male', '0', '2022-05-17 09:19:30'),
-(62, '2XGDENM1', 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1982-01-19 00:00:00', '2011', 'bsc in cse', 'village test', '01822823915', 'AB+', 'Female', '0', '2022-06-20 14:48:58');
+(62, '2XGDENM1', 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1982-01-19 00:00:00', '2011', 'bsc in cse', 'village test', '01822823915', 'AB+', 'Female', '0', '2022-06-20 14:48:58'),
+(63, 'B4GHP528', 'demo solr search', 'dfgdggd', 'dfgfdgdfgdfg', 'xda@gmai.com', '1999-01-28 00:00:00', '2021', 'sfdsfs', 'sdfsdfsdfsdfsd', '01923450149', 'A+', 'Male', '0', '2022-06-28 09:36:25'),
+(64, 'C9S0TXQN', 'demo solr search', 'dfgdggd', 'ytyty', 'xda@gmai.com', '1996-03-28 00:00:00', '2021', 'sfdsfs', 'sdfsdfsdfsdfsd', '01323453088', 'AB+', 'Male', '4', '2022-06-28 09:38:51');
 
 -- --------------------------------------------------------
 
@@ -299,13 +304,13 @@ ALTER TABLE `notice`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT for table `total_entry_counts`
 --
 ALTER TABLE `total_entry_counts`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `users`
