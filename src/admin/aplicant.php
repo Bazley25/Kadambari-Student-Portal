@@ -1,12 +1,27 @@
 
+<?php
 
+session_start();
+if(!isset($_SESSION['login'])){
+header("location:login.php");
+}
+include("admin_header.php");
+include("../db.php");
+// ****************************************************
+$id= $_GET['id'];
+$sql= "SELECT *FROM students where id = $id";
+$result = mysqli_query($conn,$sql);
+$std= mysqli_fetch_assoc($result);
+?>
+<!-- ******************************************************************* -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="shortcut icon" type="image/png" href="../favicon/khs.png">
+  <title>All View</title>
 </head>
 <body>
     <table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -26,10 +41,10 @@
                                                                 <tr>
                                                                     <td width="100%" align="center" valign="middle">
                                                                         <font color="white">
-                                                                            <font size="2">
-                                                                                Government of the People's Republic of Bangladesh
+                                                                            <font size="4">
+                                                                                কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০
                                                                                 <br>
-                                                                                <font color="white">
+                                                                                <!-- <font color="white">
                                                                                     <font size="4">
                                                                                         <b>
                                                                                             Taxes Zone-8, Dhaka
@@ -45,7 +60,7 @@
                                                                                             </font>
                                                                                         </font>
                                                                                     </font>
-                                                                                </font>
+                                                                                </font> -->
                                                                             </font>
                                                                         </font>
                                                                     </td>
@@ -75,7 +90,7 @@
                                                         <table width="100%" border="0"  cellpadding="5" cellspacing="0">
                                                             <tbody>
                                                                 <tr>
-                                                                    <td width="50%" align="left" valign="middle" bgcolor="#EAEAEA">	User ID:AQ74DPPX </td>
+                                                                    <td width="50%" align="left" valign="middle" bgcolor="#EAEAEA">	User ID: <?php echo $std['string']?> </td>
                                                                     <td width="50%" align="left" valign="middle" bgcolor="#EAEAEA"> <span>
                                                                         Ref: 2Sa-5/Circular/Ka:O:-8/2021-2022/855, Dated:21 November,2021
                                                                     </span></td>
@@ -87,101 +102,111 @@
                                                 <!-- next  -->
                                                 <tr>
                                                     <td height="25" align="left" valign="middle"  bgcolor="#FFFFFF">
-                                                        <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                                                        <table width="100%" border="0" cellpadding="2" cellspacing="0">
                                                             <tbody>
                                                                 <tr>
                                                                     <td width="25%" align="center" valign="middle">
-                                                                        <img src="11.jpg" width="150" height="150" border="1" alt="">
+                                                                        <!-- <img src="11.jpg" width="150" height="150" border="1" alt=""> -->
+                                                                        <img src="../uploads/<?php echo $std['image']?>" width="150" height="150" border="1" alt="Aplicant Image">
+                                                                        <img src="../barcode_images/<?php echo $std['barcode_image']?>" width="140px" height="50px">
                                                                     </td>
                                                                     <td width="75%" align="center" valign="top">
                                                                         <table width="100%" border="1" cellpadding="2" cellspacing="1"  >
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td width="34%" align="left" valign="middle" class="black11" >
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
                                                                                         Student Name
-                                                                                    </td>
-                                                                                    <td width="66%" align="left" valign="middle" class="black11">
-                                                                                        Shubha Mandal
+                                                                                    </th>
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
+                                                                                        <?php echo $std['name']?>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td width="34%" align="left" valign="middle" class="black11" >
-                                                                                        Student Name
-                                                                                    </td>
-                                                                                    <td width="66%" align="left" valign="middle" class="black11">
-                                                                                        Shubha Mandal
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td width="34%" align="left" valign="middle" class="black11" >
-                                                                                        Student Name
-                                                                                    </td>
-                                                                                    <td width="66%" align="left" valign="middle" class="black11">
-                                                                                        Shubha Mandal
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
+                                                                                         Father Name
+                                                                                    </th>
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
+                                                                                      <?php echo $std['father_name']?>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td width="34%" align="left" valign="middle" class="black11" >
-                                                                                        Student Name
-                                                                                    </td>
-                                                                                    <td width="66%" align="left" valign="middle" class="black11">
-                                                                                        Shubha Mandal
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td width="34%" align="left" valign="middle" class="black11" >
-                                                                                        Student Name
-                                                                                    </td>
-                                                                                    <td width="66%" align="left" valign="middle" class="black11">
-                                                                                        Shubha Mandal
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
+                                                                                        Mother's Name
+                                                                                    </th>
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
+                                                                                        <?php echo $std['mother_name']?>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td width="34%" align="left" valign="middle" class="black11" >
-                                                                                        Student Name
-                                                                                    </td>
-                                                                                    <td width="66%" align="left" valign="middle" class="black11">
-                                                                                        Shubha Mandal
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td width="34%" align="left" valign="middle" class="black11" >
-                                                                                        Student Name
-                                                                                    </td>
-                                                                                    <td width="66%" align="left" valign="middle" class="black11">
-                                                                                        Shubha Mandal
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
+                                                                                        Student Email
+                                                                                    </th>
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
+                                                                                        <?php echo $std['email']?>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td width="34%" align="left" valign="middle" class="black11" >
-                                                                                        Student Name
-                                                                                    </td>
-                                                                                    <td width="66%" align="left" valign="middle" class="black11">
-                                                                                        Shubha Mandal
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td width="34%" align="left" valign="middle" class="black11" >
-                                                                                        Student Name
-                                                                                    </td>
-                                                                                    <td width="66%" align="left" valign="middle" class="black11">
-                                                                                        Shubha Mandal
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
+                                                                                        Date Of Birth
+                                                                                    </th>
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
+                                                                                        <?php echo date('d-M-Y',strtotime($std['dob']));?> ["DD-M-YY"]
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td width="34%" align="left" valign="middle" class="black11" >
-                                                                                        Student Name
-                                                                                    </td>
-                                                                                    <td width="66%" align="left" valign="middle" class="black11">
-                                                                                        Shubha Mandal
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
+                                                                                        SSC Passing Year
+                                                                                    </th>
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
+                                                                                        <?php echo $std['exam']?>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td width="34%" align="left" valign="middle" class="black11" >
-                                                                                        Student Name
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
+                                                                                        Last Eduction Level
+                                                                                    </th>
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
+                                                                                        <?php echo $std['last_edu']?>
                                                                                     </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
+                                                                                        Village Name
+                                                                                    </th>
                                                                                     <td width="66%" align="left" valign="middle" class="black11">
-                                                                                        Shubha Mandal
+                                                                                        <?php echo $std['village']?>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
+                                                                                        Student's Mobile No
+                                                                                    </th>
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
+                                                                                        <?php echo $std['mobile']?>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
+                                                                                        Blood Group
+                                                                                    </th>
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
+                                                                                        <?php echo $std['blood']?>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
+                                                                                        Gender
+                                                                                    </th>
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
+                                                                                        <?php echo $std['gender']?>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th width="34%" align="left" valign="middle" class="black11 pl-2" >
+                                                                                        Apply Date
+                                                                                    </th>
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
+                                                                                        <?php echo date('d-M-y h:i A',strtotime($std["date"]));?>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -248,15 +273,15 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td width="25%" align="left" valign="middle"> Care Of</td>
-                                                                    <td width="25%" align="left" valign="middle"> Shubha Mandal </td>
-                                                                    <td width="25%" align="left" valign="middle"> Care Of</td>
-                                                                    <td width="25%" align="left" valign="middle"> Shubha Mandal </td>
+                                                                    <td width="25%" align="left" valign="middle"> <?php echo $std['father_name']?></td>
+                                                                    <td width="25%" align="left" valign="middle"> Care Of </td>
+                                                                    <td width="25%" align="left" valign="middle"> <?php echo $std['father_name']?> </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td width="25%" align="left" valign="middle"> Care Of</td>
-                                                                    <td width="25%" align="left" valign="middle"> Shubha Mandal </td>
-                                                                    <td width="25%" align="left" valign="middle"> Care Of</td>
-                                                                    <td width="25%" align="left" valign="middle"> Shubha Mandal </td>
+                                                                    <td width="25%" align="left" valign="middle"> Village</td>
+                                                                    <td width="25%" align="left" valign="middle"> <?php echo $std['village']?> </td>
+                                                                    <td width="25%" align="left" valign="middle"> Village</td>
+                                                                    <td width="25%" align="left" valign="middle"> <?php echo $std['village']?> </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td width="25%" align="left" valign="middle"> Care Of</td>
@@ -400,7 +425,7 @@
                                                 <!-- next -->
                                                 <tr>
                                                     <td align="right" valign="middle" bgcolor="#FFFFFF">
-                                                        <img src="qr_code.png" width="150" height="150" alt="">
+                                                        <img src="../qr_code_images/<?php echo $std['qr_image']?>" width="150" height="150" alt="">
                                                     </td>
                                                 </tr>
                                                 <!-- next -->

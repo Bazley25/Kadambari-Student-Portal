@@ -42,75 +42,91 @@ $std= mysqli_fetch_assoc($result);
              </div>
              <?php }?>
            </div>
-            <table class="table table-bordered  mt-3 text-white" >
-                <tr>
-                    <th>User ID</th>
-                    <td><?php echo $std['string']?></td>
-                </tr>
-                <tr>
-                    <th>Student Name</th>
-                    <td><?php echo $std['name']?></td>
-                </tr>
-<!-- *********************************************** -->
-                <tr>
-                    <th>Father Name</th>
-                    <td><?php echo $std['father_name']?></td>
-                </tr>
-<!-- *********************************************** -->
-                <tr>
-                    <th>Mother Name</th>
-                    <td><?php echo $std['mother_name']?></td>
-                </tr>
-<!-- *********************************************** -->
-                 <tr>
-                    <th>Student Email</th>
-                    <td><?php echo $std['email']?></td>
-                </tr>
-                 <tr>
-                    <th>Date Of Birth</th>
-                    <td><?php echo date('d-M-Y',strtotime($std['dob']));?></td>
-                </tr>
-<!-- *********************************************** -->
-                 <tr>
-                    <th>SSC Exam Year</th>
-                    <td><?php echo $std['exam']?></td>
-                </tr>
-<!-- *********************************************** -->
-                 <tr>
-                    <th>Last Eduction Level</th>
-                    <td><?php echo $std['last_edu']?></td>
-                </tr>
-                 <tr>
-                    <th>Village Name</th>
-                    <td><?php echo $std['village']?></td>
-                </tr>
-<!-- *********************************************** -->
-                 <tr>
-                    <th>Student Mobile</th>
-                    <td><?php echo $std['mobile']?></td>
-                </tr>
-<!-- *********************************************** -->
-                 <tr>
-                    <th>Blood Group</th>
-                    <td><?php echo $std['blood']?></td>
-                </tr>
-  <!-- *********************************************** -->
-                 <tr>
-                    <th>Gender</th>
-                    <td><?php echo $std['gender']?></td>
-                </tr>
-                 <tr>
-                    <th>Apply Date</th>
-                    <td><?php echo date('d-M-y h:i A',strtotime($std["date"]));?></td>
-                </tr>
-<!-- *********************************************** -->
-                 <tr>
-                    <th>Student Picture</th>
-                    <td><img src="../uploads/<?php echo $std['image']?>" width="200px" height="200px">
-                          <img src="../qr_code_images/<?php echo $std['qr_image']?>" width="200px" height="200px">
-                    </td>
 
+            <table class=" width="100%" border="0" cellpadding="5" cellspacing="0"  >
+              <tbody>
+                <tr>
+                    <td width="25%" align="center" valign="middle">
+                    <img src="../uploads/<?php echo $std['image']?>" width="200px" height="200px">
+                    <img src="../barcode_images/<?php echo $std['barcode_image']?>" width="100px" height="30px">
+                  </td>
+                  <td width="75%" align="center" valign="top">
+                    <table width="100%" border="1" cellpadding="2" cellspacing="1" table table-bordered  mt-3 text-white" >
+                        <tbody>
+                    <tr>
+                        <th>User ID</th>
+                        <td><?php echo $std['string']?></td>
+                    </tr>
+                    <tr>
+                        <th>Student Name</th>
+                        <td><?php echo $std['name']?></td>
+                    </tr>
+    <!-- *********************************************** -->
+                    <tr>
+                        <th>Father Name</th>
+                        <td><?php echo $std['father_name']?></td>
+                    </tr>
+    <!-- *********************************************** -->
+                    <tr>
+                        <th>Mother Name</th>
+                        <td><?php echo $std['mother_name']?></td>
+                    </tr>
+    <!-- *********************************************** -->
+                     <tr>
+                        <th>Student Email</th>
+                        <td><?php echo $std['email']?></td>
+                    </tr>
+                     <tr>
+                        <th>Date Of Birth</th>
+                        <td><?php echo date('d-M-Y',strtotime($std['dob']));?></td>
+                    </tr>
+    <!-- *********************************************** -->
+                     <tr>
+                        <th>SSC Exam Year</th>
+                        <td><?php echo $std['exam']?></td>
+                    </tr>
+    <!-- *********************************************** -->
+                     <tr>
+                        <th>Last Eduction Level</th>
+                        <td><?php echo $std['last_edu']?></td>
+                    </tr>
+                     <tr>
+                        <th>Village Name</th>
+                        <td><?php echo $std['village']?></td>
+                    </tr>
+    <!-- *********************************************** -->
+                     <tr>
+                        <th>Student Mobile</th>
+                        <td><?php echo $std['mobile']?></td>
+                    </tr>
+    <!-- *********************************************** -->
+                     <tr>
+                        <th>Blood Group</th>
+                        <td><?php echo $std['blood']?></td>
+                    </tr>
+      <!-- *********************************************** -->
+                     <tr>
+                        <th>Gender</th>
+                        <td><?php echo $std['gender']?></td>
+                    </tr>
+                     <tr>
+                        <th>Apply Date</th>
+                        <td><?php echo date('d-M-y h:i A',strtotime($std["date"]));?></td>
+                    </tr>
+    <!-- *********************************************** -->
+                     <tr>
+                        <th>Student Picture</th>
+                        <td>
+                          <img src="../qr_code_images/<?php echo $std['qr_image']?>" width="200px" height="200px">
+                        </td>
+
+                    </tr>
+
+                  </tbody>
+              </table>
+                  </td>
                 </tr>
+
             </table>
         </div>
     </div>

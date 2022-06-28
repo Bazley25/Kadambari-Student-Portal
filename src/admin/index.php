@@ -113,7 +113,7 @@ $total_count= mysqli_num_rows($count_result);
                                       <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                      <a class="dropdown-item" href="view.php?id=<?php echo $row['id'];?>"><i class="fas fa-eye"></i> View</a>
+                                      <a class="dropdown-item" href="aplicant.php?id=<?php echo $row['id'];?>"><i class="fas fa-eye"></i> View</a>
                                       <a class="dropdown-item" href="person_details.php?id=<?php echo $row['id'];?>"><i class="fas fa-download"></i> Download</a>
                                       <a class="dropdown-item" href="edit.php?id=<?php echo $row['id'];?>"><i class="fas fa-edit"></i> Edit</a>
                                       <a class="dropdown-item" onclick="return confirm('Are You Sure?')" href="delete.php?id=<?php echo $row['id'];?>"><i class="far fa-trash-alt"></i> Delete</a>

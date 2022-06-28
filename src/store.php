@@ -5,6 +5,7 @@ session_start();
 // }
 include("db.php");
 include('librery/phpqrcode/qrlib.php');
+include('librery/barcode/vendor/autoload.php');
 
  $name=($_POST['name']);
  $father_name= ($_POST['father_name']);
@@ -64,7 +65,7 @@ list($width, $height, $type, $attr) = getimagesize($uploaded_file);
          //  'Mobile '=> $mobile,
          //    /* Add here all the data you need*/
          //  ];
-         $codeContents = $random_string . ":". $name . ":". $father_name .":" . $mother_name .":". $email .":". $dob .":". $exam .":". $last_edu .":". $village .":". $mobile .":". $blood .":". $gender.":". $user_image;
+         $codeContents = $random_string . ":". $name . ":". $father_name .":" . $mother_name .":". $email .":". $dob .":". $exam .":". $last_edu .":". $village .":". $mobile .":". $blood .":". $gender;
          // $codeContents = array('Name' => $name,
          //                        'Father Name '=>$father_name,
          //                        'Mother Name'=> $mother_name,
@@ -83,7 +84,13 @@ list($width, $height, $type, $attr) = getimagesize($uploaded_file);
 
          // qr code end
 
-         $update = "UPDATE students SET image='$file_name', qr_image='$qr_file_Name', string='$random_string' WHERE id=$last_id";
+         // barcode start
+         $barcode_file_name = $last_id.'.png';
+         $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+         file_put_contents("barcode_images/".$barcode_file_name, $generator->getBarcode($random_string . "/" . $name . "/" .$father_name . "/" .$exam, $generator::TYPE_CODE_128,1,80));
+         // barcode end
+
+         $update = "UPDATE students SET image='$file_name', qr_image='$qr_file_Name', barcode_image='$barcode_file_name', string='$random_string' WHERE id=$last_id";
          $photo_uploaded = mysqli_query($conn,$update);
          }else{
            $_SESSION['errorpicsize']=1;
