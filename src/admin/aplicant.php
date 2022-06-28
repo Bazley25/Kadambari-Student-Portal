@@ -108,7 +108,7 @@ $std= mysqli_fetch_assoc($result);
                                                                     <td width="25%" align="center" valign="middle">
                                                                         <!-- <img src="11.jpg" width="150" height="150" border="1" alt=""> -->
                                                                         <img src="../uploads/<?php echo $std['image']?>" width="150" height="150" border="1" alt="Aplicant Image">
-                                                                        <img src="../barcode_images/<?php echo $std['barcode_image']?>" width="140px" height="50px">
+                                                                        <img src="../barcode_images/<?php echo $std['barcode_image']?>" width="160px" height="80px">
                                                                     </td>
                                                                     <td width="75%" align="center" valign="top">
                                                                         <table width="100%" border="1" cellpadding="2" cellspacing="1"  >
@@ -173,7 +173,7 @@ $std= mysqli_fetch_assoc($result);
                                                                                     <th width="34%" align="left" valign="middle" class="black11 pl-2" >
                                                                                         Village Name
                                                                                     </th>
-                                                                                    <td width="66%" align="left" valign="middle" class="black11">
+                                                                                    <td width="66%" align="left" valign="middle" class="black11 pl-2">
                                                                                         <?php echo $std['village']?>
                                                                                     </td>
                                                                                 </tr>
@@ -223,29 +223,29 @@ $std= mysqli_fetch_assoc($result);
                                                         <table width="100%" border="1" cellpadding="2" cellspacing="1">
                                                             <tbody>
                                                                 <tr>
-                                                                    <td width="25%" align="left" valign="middle">
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2">
                                                                         National ID
                                                                     </td>
-                                                                    <td width="25%" align="left" valign="middle">
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2">
                                                                         1475775854
                                                                     </td>
-                                                                    <td width="25%" align="left" valign="middle">
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2">
                                                                         Passport ID
                                                                     </td>
-                                                                    <td width="25%" align="left" valign="middle">
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2">
                                                                         N/A
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td width="25%" align="left" valign="middle">
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2">
                                                                         Birth Registration   </td>
-                                                                    <td width="25%" align="left" valign="middle">
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2">
                                                                         N/A
                                                                     </td>
-                                                                    <td width="25%" align="left" valign="middle">
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2">
                                                                         Merital status
                                                                     </td>
-                                                                    <td width="25%" align="left" valign="middle">
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2">
                                                                         Single
                                                                     </td>
                                                                 </tr>
@@ -266,16 +266,16 @@ $std= mysqli_fetch_assoc($result);
                                                         <table width="100%" border="1" cellpadding="2" cellspacing="1" class="black10">
                                                             <tbody>
                                                                 <tr bgcolor="#CCCCCC">
-                                                                    <td width="25%" align="left" valign="middle"> Mailing/Present Address</td>
-                                                                    <td width="25%" align="left" valign="middle"> </td>
-                                                                    <td width="25%" align="left" valign="middle"> Permanent Address</td>
-                                                                    <td width="25%" align="left" valign="middle"> </td>
+                                                                    <td width="25%" align="left" valign="middle"  class=" pl-2"> Mailing/Present Address</td>
+                                                                    <td width="25%" align="left" valign="middle"  class=" pl-2"> </td>
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2"> Permanent Address</td>
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2"> </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td width="25%" align="left" valign="middle"> Care Of</td>
-                                                                    <td width="25%" align="left" valign="middle"> <?php echo $std['father_name']?></td>
-                                                                    <td width="25%" align="left" valign="middle"> Care Of </td>
-                                                                    <td width="25%" align="left" valign="middle"> <?php echo $std['father_name']?> </td>
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2"> Care Of</td>
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2"> <?php echo $std['father_name']?></td>
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2"> Care Of </td>
+                                                                    <td width="25%" align="left" valign="middle" class=" pl-2"> <?php echo $std['father_name']?> </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td width="25%" align="left" valign="middle"> Village</td>

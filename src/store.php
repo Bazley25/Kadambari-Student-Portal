@@ -87,7 +87,7 @@ list($width, $height, $type, $attr) = getimagesize($uploaded_file);
          // barcode start
          $barcode_file_name = $last_id.'.png';
          $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
-         file_put_contents("barcode_images/".$barcode_file_name, $generator->getBarcode($random_string . "/" . $name . "/" .$father_name . "/" .$exam, $generator::TYPE_CODE_128,1,80));
+         file_put_contents("barcode_images/".$barcode_file_name, $generator->getBarcode($random_string . "/" . $name . "/" .$father_name . "/" .$exam, $generator::TYPE_CODE_128,1,100));
          // barcode end
 
          $update = "UPDATE students SET image='$file_name', qr_image='$qr_file_Name', barcode_image='$barcode_file_name', string='$random_string' WHERE id=$last_id";
