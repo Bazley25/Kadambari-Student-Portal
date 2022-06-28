@@ -90,7 +90,7 @@ $std= mysqli_fetch_assoc($result);
                                                         <table width="100%" border="0"  cellpadding="5" cellspacing="0">
                                                             <tbody>
                                                                 <tr>
-                                                                    <td width="50%" align="left" valign="middle" bgcolor="#EAEAEA">	User ID: <?php echo $std['string']?> </td>
+                                                                    <th width="50%" align="left" valign="middle" bgcolor="#EAEAEA">	User ID: <?php echo $std['string']?> </th>
                                                                     <td width="50%" align="left" valign="middle" bgcolor="#EAEAEA"> <span>
                                                                         Ref: 2Sa-5/Circular/Ka:O:-8/2021-2022/855, Dated:21 November,2021
                                                                     </span></td>
@@ -256,9 +256,9 @@ $std= mysqli_fetch_assoc($result);
                                                 </tr>
                                                 <!-- next -->
                                                 <tr>
-                                                    <td width="100%" align="left" valign="top" bgcolor="white">
+                                                    <th width="100%" align="left" valign="top" bgcolor="white" >
                                                         Address Information:
-                                                    </td>
+                                                    </th>
                                                 </tr>
                                                 <!-- address -->
                                                 <tr>
