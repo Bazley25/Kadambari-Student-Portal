@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2022 at 01:46 AM
+-- Generation Time: Jun 28, 2022 at 06:16 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -154,7 +154,8 @@ INSERT INTO `students` (`id`, `name`, `father_name`, `mother_name`, `email`, `do
 (159, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1982-01-19 00:00:00', '2011', 'bsc in cse', 'village test', '01822823915', 'AB+', '01822823912', 500000, 'ASDFGJHV14', 'Female', '159.jpg', '159.png', '2XGDENM1', '2022-06-19 21:20:52', 'pending'),
 (160, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1990-01-20 00:00:00', '2011', 'bsc in cse', 'test village', '01822823911', 'A+', '01822823912', 5000, 'AS1254NJSD', 'Male', '160.jpg', '160.png', 'FMO7158E', '2022-06-20 20:45:30', 'pending'),
 (161, 'Shubha Mandal', 'sddsfdsfd', 'nnnnnnn', 'shubhamandal70@gmail.com', '1980-01-20 00:00:00', '2012', 'bsc in cse', 'test village', '01822823922', 'AB+', '01822823912', 5000, 'ASDFGJHV14', 'Male', '161.jpg', '161.png', 'AKUV4309', '2022-06-20 21:49:10', 'pending'),
-(162, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1990-02-22 00:00:00', '2011', 'bsc in cse', 'test village', '01822823988', 'O+', '01822823912', 1000, 'AS1254NJSD', 'Male', '162.jpg', '162.png', 'VSZF7W03', '2022-06-22 00:29:43', 'pending');
+(162, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1990-02-22 00:00:00', '2011', 'bsc in cse', 'test village', '01822823988', 'O+', '01822823912', 1000, 'AS1254NJSD', 'Male', '162.jpg', '162.png', 'VSZF7W03', '2022-06-22 00:29:43', 'pending'),
+(163, 'Shubha Mandal', 'SHAMVU MANDAL', 'nnnnnnn', 'shubhamandal70@gmail.com', '1985-01-27 00:00:00', '2011', 'bsc in cse', 'test village', '01741607170', 'AB+', '01822823912', 5000, 'AS1254NJSD', 'Male', '163.jpg', '163.png', 'RS9Q6I84', '2022-06-27 20:26:19', 'pending');
 
 -- --------------------------------------------------------
 
@@ -298,7 +299,7 @@ ALTER TABLE `notice`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
 -- AUTO_INCREMENT for table `total_entry_counts`
