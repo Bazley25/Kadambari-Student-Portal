@@ -52,7 +52,6 @@ $result = mysqli_query($conn,$sql);
                 <label for="name">Name <span class="text-white">(According To SSC Registration)</span> <span class="text-denger">*</span></label>
                 <input type="text" class="form-control"  name="name" id="name"  placeholder="Enter Your Name According To SSC Registration">
               <p class="input_sms text-warning" id="name_error" ></p>
-
             </div>
             <div class="form-group">
                 <label for="father_name">Father's Name <span class="text-white">(According To SSC Registration)</span> <span class="text-denger">*</span></label>
@@ -64,13 +63,12 @@ $result = mysqli_query($conn,$sql);
                 <input type="text" class="form-control"  name="mother_name" id="mother_name" placeholder="Enter Your Mother's Name According To SSC Registration">
                 <p class="input_sms text-warning" id="mother_name_error"></p>
             </div>
-
             <div class="form-group">
                 <label for="email">Email <span class="text-white">(Optional)</span></label>
                 <input type="email" class="form-control"  name="email" id="email" placeholder="Enter Your Email Address">
                 <p class="input_sms text-warning" id="email_error"></p>
             </div>
-
+              <!-- removed clearfix tag brom below -->
             <div class="form-group  m-o clearfix">
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="dob">Date Of Birth<span class="text-denger">*</span></label>
@@ -88,20 +86,16 @@ $result = mysqli_query($conn,$sql);
                   <p class="input_sms text-warning" id="last_edu_error"></p>
               </div>
             </div>
-
             <div class="form-group m-0 clearfix">
               <div class="form-group col-md-4 float-left ml-0 pl-0 village">
                   <label for="village">Enter Your Village Nmae <span class="text-denger">*</span></label>
                   <input type="text" class="form-control"  name="village" id="village" placeholder="Enter Your Village Name">
                   <p class="input_sms text-warning" id="village_error" ></p>
-
               </div>
               <div class="form-group col-md-4 float-left ml-0 pl-0 mobile">
-
                   <label for="mobile">Enter Your Mobile Number <span class="text-denger">*</span></label>
                   <input type="number_format" class="form-control"  name="mobile" id="mobile" placeholder="Enter Your 11 Digits Mobile Number">
                   <p class="input_sms text-warning" id="mobile_error" style=".error_number{color:red;}"></p>
-
               </div>
               <div class="form-group col-md-4 float-left mr-0 pr-0 blood">
                   <label for="blood">Select Your Blood Group <span class="text-denger">*</span></label>
@@ -119,67 +113,70 @@ $result = mysqli_query($conn,$sql);
                   <p class="input_sms text-warning" id="blood_error"></p>
               </div>
             </div>
-
-
 <!--  Start Payment section -->
-        <div class="form-group  m-o clearfix">
-              <div class="form-group col-md-4 float-left ml-0 pl-0">
-                  <label for="bkash">Bkash Mobile Number <span class="text-denger">*</span></label>
-                  <input type="number_format" class="form-control"  name="bkash" id="bkash" placeholder="Enter Your Bkash Number ">
-                  <p class="input_sms text-warning d-inline" id="bkash_error"></p>
-              </div>
-              <div class="form-group col-md-4 float-left ml-0 pl-0">
-                  <label for="taka">Amount <span class="text-denger">*</span></label>
-                  <input type="number_format" class="form-control"  name="taka" id="taka" placeholder="Enter Amount Of Taka ">
-                  <p class="input_sms text-warning d-inline" id="taka_error"></p>
-              </div>
-              <div class="form-group col-md-4 float-left mr-0 pr-0">
-                  <label for="trxid">Bkash Tranjection ID <span class="text-denger">*</span></label>
-                  <input type="text" class="form-control"  name="trxid" id="trxid" placeholder="Enter Bkash Transection ID">
-                  <p class="input_sms text-warning" id="trxid_error"></p>
-              </div>
-            </div>
-        
-<!--  End Payment section -->
-
-              <!-- gender part start -->
-                              <section class="gender">
-                                    <div class="form-group  m-o ">
-                                      <div class="col-form-label col-sm-2 pt-0">Select Gender <span class="text-denger">*</span></div>
-                                      <div class="col-sm-10">
-                                        <div class="form-check">
-                                          <input class="form-check-input" type="radio"  name="gender" id="male"  value="Male" >
-                                          <label class="form-check-label" for="male">Male</label>
-                                        </div>
-                                        <div class="form-check">
-                                          <input class="form-check-input" type="radio"  name="gender" id="female" value="Female">
-                                          <label class="form-check-label" for="female">Female </label>
-                                          <p class="input_sms text-warning" id="gender_error"></p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </section>
-              <!-- Gender Part End -->
-              <!-- photo Part start -->
-            <section class="photo">
-                <div class="row">
-                    <div class="form-group col-md-8">
-                <label for="image">Photo <span class="text-denger">*</span> <span style="color:white;">[Photo Sholud be JPG Format And 300<span>&times;</span>300 Pixels and not more than 100KB]</span></label><br>
-                <label for="imagepreview">Image Preview</label>
-                <img id="preimge" width="100" height="100" class="p-1">
-                <script type="text/javascript">
-                  function loadfile(event) {
-                    var output = document.getElementById('preimge');
-                    output.src=URL.createObjectURL(event.target.files[0]);
-                  }
-                </script>
-                <input type="file" class="form-control"  name="image" id="image" onchange="loadfile(event)">
-
-                <p class="input_sms text-warning" id="photo_error"></p>
-            </div>
+          <div class="form-group  m-o clearfix">
+                <div class="form-group col-md-4 float-left ml-0 pl-0">
+                    <label for="bkash">Bkash Mobile Number <span class="text-denger">*</span></label>
+                    <input type="number_format" class="form-control"  name="bkash" id="bkash" placeholder="Enter Your Bkash Number ">
+                    <p class="input_sms text-warning d-inline" id="bkash_error"></p>
                 </div>
-            </section>
-            <!-- photo Part End -->
+                <div class="form-group col-md-4 float-left ml-0 pl-0">
+                    <label for="taka">Amount <span class="text-denger">*</span></label>
+                    <input type="number_format" class="form-control"  name="taka" id="taka" placeholder="Enter Amount Of Taka ">
+                    <p class="input_sms text-warning d-inline" id="taka_error"></p>
+                </div>
+                <div class="form-group col-md-4 float-left mr-0 pr-0">
+                    <label for="trxid">Bkash Tranjection ID <span class="text-denger">*</span></label>
+                    <input type="text" class="form-control"  name="trxid" id="trxid" placeholder="Enter Bkash Transection ID">
+                    <p class="input_sms text-warning" id="trxid_error"></p>
+                </div>
+              </div>
+<!--  End Payment section -->
+              <!-- gender part start -->
+                <div class="form-group  m-o clearfix">
+                  <div class="col-md-4 float-left">
+                    <div class="col-form-label  pt-0">Select Gender <span class="text-denger">*</span></div>
+                    <div class="form-check float-left mr-2">
+                      <input class="form-check-input" type="radio"  name="gender" id="male"  value="Male" >
+                      <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check float-left ml-2">
+                      <input class="form-check-input" type="radio"  name="gender" id="female" value="Female">
+                      <label class="form-check-label" for="female">Female </label>
+                      <p class="input_sms text-warning" id="gender_error"></p>
+                    </div>
+                  </div>
+                  <!-- Gender Part End -->
+                  <!-- capcha Start -->
+                  <div class="form-group col-4 float-left">
+                    <label>Captcha Code</label>
+                    <img src="capcha.php" class="form-control" alt="PHP Captcha">
+                  </div>
+                  <div class="form-group col-4 float-left">
+                    <label>Enter Captcha</label>
+                    <input type="text" class="form-control" name="captcha" id="capcha">
+                    <p class="input_sms text-warning" id="capcha_error"></p>
+                  </div>
+                  <!-- capcha end -->
+              </div>
+
+
+                  <!-- photo Part start -->
+            <div class="form-group col-md-12">
+                     <label for="image">Photo <span class="text-denger">*</span> <span style="color:white;">[Photo Sholud be JPG Format And 300<span>&times;</span>300 Pixels and not more than 100KB]</span></label><br>
+                     <label for="imagepreview">Image Preview</label>
+                     <img src="img/default_user.png" alt="Avatar"  id="preimge" width="100" height="100" class="p-1 avatar">
+                     <script type="text/javascript">
+                       function loadfile(event) {
+                         var output = document.getElementById('preimge');
+                         output.src=URL.createObjectURL(event.target.files[0]);
+                       }
+                     </script>
+                     <br>
+                 <input type="file"   name="image" id="image" onchange="loadfile(event)">
+                 <p class="input_sms text-warning" id="photo_error"></p>
+                 </div>
+                  <!-- photo Part End -->
                 <!-- Start Button section-->
                 <div class="btn ">
                     <div class="row">
@@ -216,6 +213,7 @@ include("footer.php");
             var bkash=document.getElementById('bkash');
             var taka=document.getElementById('taka');
             var trxid=document.getElementById('trxid');
+            var capcha=document.getElementById('capcha');
 
             // **** gender part Start *************************************
             var radios = document.getElementsByName("gender");
@@ -492,6 +490,22 @@ include("footer.php");
         }else{
           document.getElementById('gender_error').innerHTML="";
         }
+
+        if(capcha.value==''){
+            document.getElementById('capcha_error').innerHTML="** Please Enter Captcha Code **";
+
+            capcha.focus();
+            return false;
+        }
+      //   if(regex_traxid.test(trxid.value) === false) {
+      //  document.getElementById('trxid_error').innerHTML="** Invalid Transection ID **";
+      //  trxid.focus();
+      //  return false;
+      // }
+        else{
+          document.getElementById('capcha_error').innerHTML="";
+        }
+
 
             if(image.value==''){
               document.getElementById('photo_error').innerHTML="Please Upload Your Photo 300<span>&times;</span>300 Pixels! And File Format must be JPG And Not more than 100 KB";
