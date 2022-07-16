@@ -136,11 +136,11 @@ $result = mysqli_query($conn,$sql);
                 <div class="form-group  m-o clearfix">
                   <div class="col-md-4 float-left">
                     <div class="col-form-label  pt-0">Select Gender <span class="text-denger">*</span></div>
-                    <div class="form-check float-left mr-2">
+                    <div class="form-check float-left mr-4">
                       <input class="form-check-input" type="radio"  name="gender" id="male"  value="Male" >
                       <label class="form-check-label" for="male">Male</label>
                     </div>
-                    <div class="form-check float-left ml-2">
+                    <div class="form-check float-left ml-4">
                       <input class="form-check-input" type="radio"  name="gender" id="female" value="Female">
                       <label class="form-check-label" for="female">Female </label>
                       <p class="input_sms text-warning" id="gender_error"></p>
@@ -150,7 +150,9 @@ $result = mysqli_query($conn,$sql);
                   <!-- capcha Start -->
                   <div class="form-group col-4 float-left">
                     <label>Captcha Code</label>
-                    <img src="capcha.php" class="form-control" alt="PHP Captcha">
+                    <img src="capcha.php" class="form-control "  alt="PHP Captcha" id="capcha_code"  >
+                    <!-- <img src="img/refresh-icon.png" class="form-group" width="30px" height="30px" style="border-redius:10%;" alt="PHP Captcha" id="captcha_code" onClick="Document.getElementById('capcha').src = 'chapcha.php?' + Math.random()"> -->
+                    <!-- <input type="hidden" class="form-control" name="capcha_code" id="capcha_code" src="capcha.php"> -->
                   </div>
                   <div class="form-group col-4 float-left">
                     <label>Enter Captcha</label>
@@ -214,6 +216,7 @@ include("footer.php");
             var taka=document.getElementById('taka');
             var trxid=document.getElementById('trxid');
             var capcha=document.getElementById('capcha');
+            var capcha_code=document.getElementById('capcha_code');
 
             // **** gender part Start *************************************
             var radios = document.getElementsByName("gender");
@@ -493,18 +496,17 @@ include("footer.php");
 
         if(capcha.value==''){
             document.getElementById('capcha_error').innerHTML="** Please Enter Captcha Code **";
-
             capcha.focus();
             return false;
         }
-      //   if(regex_traxid.test(trxid.value) === false) {
-      //  document.getElementById('trxid_error').innerHTML="** Invalid Transection ID **";
-      //  trxid.focus();
-      //  return false;
-      // }
-        else{
-          document.getElementById('capcha_error').innerHTML="";
-        }
+        if(capcha_code.value != capcha.value) {
+       document.getElementById('capcha_error').innerHTML="** Invalid Captcha Code **";
+       capcha.focus();
+       return false;
+      }
+        // else{
+        //   document.getElementById('capcha_error').innerHTML="";
+        // }
 
 
             if(image.value==''){
