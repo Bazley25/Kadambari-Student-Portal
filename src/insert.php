@@ -196,7 +196,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td class="form-group">Division</td>
                     <td>
                       <?php
-                      echo "<select class='form-control'>";
+                      echo "<select class='form-control' id='division'>";
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($divisions_queries)) {
@@ -210,11 +210,11 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td class="form-group">District</td>
                     <td>
                       <?php
-                      echo "<select class='form-control'>";
+                      echo "<select class='form-control' id='district'>";
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($districts_queries)) {
-                          echo "<option value='$row[2]'>$row[2]</option>";
+                          echo "<option value='$row[1]'>$row[2]</option>";
                         }
                       echo "<select>";
                        ?>
@@ -225,7 +225,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td>Upzilla</td>
                     <td>
                       <?php
-                      echo "<select class='form-control'>";
+                      echo "<select class='form-control' id='thana'>";
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($thana_queries)) {
@@ -263,7 +263,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td class="form-group">Division</td>
                     <td>
                       <?php
-                      echo "<select class='form-control'>";
+                      echo "<select class='form-control' id='pdivision'>";
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($pdivisions_queries)) {
@@ -277,7 +277,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td class="form-group">District</td>
                     <td>
                       <?php
-                      echo "<select class='form-control'>";
+                      echo "<select class='form-control' id='pdistrict'>";
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($pdistricts_queries)) {
@@ -291,7 +291,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td>Upzilla</td>
                     <td>
                       <?php
-                      echo "<select class='form-control'>";
+                      echo "<select class='form-control' id='pthana' name='pthanas'>";
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($pthana_queries)) {
@@ -696,6 +696,13 @@ include("footer.php");
             }
 
             }
+
+    //         // Present District
+    // if (division.selectedIndex <= 0) {
+    //     alert("Please Select Division in the Present Address.");
+    //     division.focus();
+    //     return false;
+    // }
     </script>
 
     <script
