@@ -68,7 +68,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                   <legend style="color:white ">
                     Fill Up The Form Bellow!
                   </legend>
-                  <div class="form-group  ">
+                  <div class="form-group  m-o clearfix">
                 <div class="form-group col-md-4 float-left ml-0 pl-0">
                 <label for="name">Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
                 <input type="text" class="form-control"  name="name" id="name"  placeholder="Enter Your Name ">
@@ -91,7 +91,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
             </div> -->
             </div>
               <!-- removed clearfix tag brom below -->
-            <div class="form-group  ">
+            <div class="form-group  m-o clearfix">
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="dob">Date Of Birth<span class="text-denger">*</span></label>
                   <input type="date"  class="form-control"  name="dob" id="dob" value="<?php echo date('Y-m-d')?>">
@@ -108,7 +108,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                   <p class="input_sms text-warning" id="last_edu_error"></p>
               </div>
             </div>
-            <div class="form-group  ">
+            <div class="form-group  m-o clearfix">
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="last_edu_ins">Last Educational Institute Name<span class="text-denger">*</span></label>
                   <input type="text"  class="form-control"  name="last_edu_ins" id="last_edu_ins" placeholder="Enter Your Last Educational Institute Name">
@@ -125,7 +125,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                   <p class="input_sms text-warning" id="workpalce_error"></p>
               </div>
             </div>
-            <div class="form-group ">
+            <div class="form-group m-o clearfix">
               <div class="form-group col-md-4 float-left ml-0 pl-0 ">
                   <label for="email">Email Address <span class="text-denger">*</span></label>
                   <input type="email" class="form-control"  name="email" id="email" placeholder="Enter Your Email Address">
@@ -158,7 +158,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
               </div>
             </div>
 <!--  Start Payment section -->
-          <div class="form-group  ">
+          <div class="form-group  m-o clearfix">
                 <div class="form-group col-md-4 float-left ml-0 pl-0">
                     <label for="bkash">Bkash Mobile Number <span class="text-denger">*</span></label>
                     <input type="number_format" class="form-control"  name="bkash" id="bkash" placeholder="Enter Your Bkash Number ">
