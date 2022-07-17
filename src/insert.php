@@ -72,17 +72,17 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <div class="form-group col-md-4 float-left ml-0 pl-0">
                     <label for="name">Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
                     <input type="text" class="form-control"  name="name" id="name"  placeholder="Enter Your Name ">
-                  <p class="input_sms text-warning d-inline" id="name_error" ></p>
+                  <p class="input_sms text-warning " id="name_error" ></p>
                   </div>
                   <div class="form-group col-md-4 float-left ml-0 pl-0">
                     <label for="father_name">Father's Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
                     <input type="text" class="form-control"  name="father_name" id="father_name" placeholder="Enter Your Father's Name">
-                    <p class="input_sms text-warning d-inline" id="father_name_error"></p>
+                    <p class="input_sms text-warning" id="father_name_error"></p>
                     </div>
                     <div class="form-group col-md-4 float-left ml-0 pl-0">
                     <label for="mother_name">Mother's Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
                     <input type="text" class="form-control"  name="mother_name" id="mother_name" placeholder="Enter Your Mother's Name">
-                    <p class="input_sms text-warning d-inline" id="mother_name_error"></p>
+                    <p class="input_sms text-warning " id="mother_name_error"></p>
                     </div>
                     <!-- <div class="form-group col-md-4 float-left ml-0 pl-0">
                     <label for="email">Email <span class="text-white">(Optional)</span></label>
@@ -95,29 +95,29 @@ $pthana_queries = mysqli_query($conn,$pthana);
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="dob">Date Of Birth<span class="text-denger">*</span></label>
                   <input type="date"  class="form-control"  name="dob" id="dob" value="<?php echo date('Y-m-d')?>">
-                  <p class="input_sms text-warning d-inline" id="dob_error"></p>
+                  <p class="input_sms text-warning " id="dob_error"></p>
               </div>
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="exam">SSC Eaxm Year <span class="text-denger">*</span></label>
                   <input type="text" class="form-control"  name="exam" id="exam" placeholder="Enter Your SSC Exam Year">
-                  <p class="input_sms text-warning d-inline" id="exam_error"></p>
+                  <p class="input_sms text-warning " id="exam_error"></p>
               </div>
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="last_edu">Last Education Level <span class="text-denger">*</span></label>
                   <input type="text" class="form-control"  name="last_edu" id="last_edu" placeholder="Enter Your Last Education Level">
-                  <p class="input_sms text-warning d-inline"  id="last_edu_error"></p>
+                  <p class="input_sms text-warning "  id="last_edu_error"></p>
               </div>
             </div>
             <div class="form-group  m-o clearfix">
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="last_edu_ins">Last Educational Institute Name<span class="text-denger">*</span></label>
                   <input type="text"  class="form-control"  name="last_edu_ins" id="last_edu_ins" placeholder="Enter Your Last Educational Institute Name">
-                  <p class="input_sms text-warning d-inline" id="last_edu_ins_error"></p>
+                  <p class="input_sms text-warning " id="last_edu_ins_error"></p>
               </div>
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="ocupation">Ocupation <span class="text-denger">*</span></label>
                   <input type="text" class="form-control"  name="occupation" id="occupation" placeholder="Enter Your Ocupation">
-                  <p class="input_sms text-warning d-inline" id="ocupation_error"></p>
+                  <p class="input_sms text-warning " id="ocupation_error"></p>
               </div>
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="workpalce">Workplase Address <span class="text-denger">*</span></label>
@@ -136,12 +136,12 @@ $pthana_queries = mysqli_query($conn,$pthana);
                   <input type="text" class="form-control"  name="village" id="village" placeholder="Enter Your Village Name">
                   <p class="input_sms text-warning" id="village_error" ></p>
               </div> -->
-              <div class="form-group col-md-4 float-left ml-0 pl-0 mobile">
+              <div class="form-group col-md-4 float-left ml-0 pl-0 ">
                   <label for="mobile">Mobile Number <span class="text-denger">*</span></label>
                   <input type="number_format" class="form-control"  name="mobile" id="mobile" placeholder="Enter Your 11 Digits Mobile Number">
                   <p class="input_sms text-warning" id="mobile_error" style=".error_number{color:red;}"></p>
               </div>
-              <div class="form-group col-md-4 float-left ml-0 pl-0 blood">
+              <div class="form-group col-md-4 float-left ml-0 pl-0 ">
                   <label for="blood">Select Your Blood Group <span class="text-denger">*</span></label>
                   <select id="blood" name="blood" class="form-control" >
                     <option value="" selected>Select One</option>
