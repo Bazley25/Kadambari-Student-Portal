@@ -35,6 +35,10 @@
 
 /* .form-group {
   margin-bottom: 1rem; } */
+  
+  .form-group {
+      margin-bottom: 0;
+  }
 
 .slick-prev:before, .slick-next:before {
   color: #000; }

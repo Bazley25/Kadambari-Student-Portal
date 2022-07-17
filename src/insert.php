@@ -69,26 +69,26 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     Fill Up The Form Bellow!
                   </legend>
                   <div class="form-group  m-o clearfix">
-                <div class="form-group col-md-4 float-left ml-0 pl-0">
-                <label for="name">Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
-                <input type="text" class="form-control"  name="name" id="name"  placeholder="Enter Your Name ">
-              <p class="input_sms text-warning" id="name_error" ></p>
-            </div>
-            <div class="form-group col-md-4 float-left ml-0 pl-0">
-                <label for="father_name">Father's Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
-                <input type="text" class="form-control"  name="father_name" id="father_name" placeholder="Enter Your Father's Name">
-                <p class="input_sms text-warning" id="father_name_error"></p>
-            </div>
-            <div class="form-group col-md-4 float-left ml-0 pl-0">
-                <label for="mother_name">Mother's Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
-                <input type="text" class="form-control"  name="mother_name" id="mother_name" placeholder="Enter Your Mother's Name">
-                <p class="input_sms text-warning" id="mother_name_error"></p>
-            </div>
-            <!-- <div class="form-group col-md-4 float-left ml-0 pl-0">
-                <label for="email">Email <span class="text-white">(Optional)</span></label>
-                <input type="email" class="form-control"  name="email" id="email" placeholder="Enter Your Email Address">
-                <p class="input_sms text-warning" id="email_error"></p>
-            </div> -->
+                    <div class="form-group col-md-4 float-left ml-0 pl-0">
+                    <label for="name">Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
+                    <input type="text" class="form-control"  name="name" id="name"  placeholder="Enter Your Name ">
+                  <p class="input_sms text-warning d-inline" id="name_error" ></p>
+                  </div>
+                  <div class="form-group col-md-4 float-left ml-0 pl-0">
+                    <label for="father_name">Father's Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
+                    <input type="text" class="form-control"  name="father_name" id="father_name" placeholder="Enter Your Father's Name">
+                    <p class="input_sms text-warning d-inline" id="father_name_error"></p>
+                    </div>
+                    <div class="form-group col-md-4 float-left ml-0 pl-0">
+                    <label for="mother_name">Mother's Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
+                    <input type="text" class="form-control"  name="mother_name" id="mother_name" placeholder="Enter Your Mother's Name">
+                    <p class="input_sms text-warning d-inline" id="mother_name_error"></p>
+                    </div>
+                    <!-- <div class="form-group col-md-4 float-left ml-0 pl-0">
+                    <label for="email">Email <span class="text-white">(Optional)</span></label>
+                    <input type="email" class="form-control"  name="email" id="email" placeholder="Enter Your Email Address">
+                    <p class="input_sms text-warning" id="email_error"></p>
+                </div> -->
             </div>
               <!-- removed clearfix tag brom below -->
             <div class="form-group  m-o clearfix">
@@ -105,7 +105,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="last_edu">Last Education Level <span class="text-denger">*</span></label>
                   <input type="text" class="form-control"  name="last_edu" id="last_edu" placeholder="Enter Your Last Education Level">
-                  <p class="input_sms text-warning" id="last_edu_error"></p>
+                  <p class="input_sms text-warning d-inline"  id="last_edu_error"></p>
               </div>
             </div>
             <div class="form-group  m-o clearfix">
