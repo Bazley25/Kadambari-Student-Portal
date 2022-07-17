@@ -311,8 +311,8 @@ $pthana_queries = mysqli_query($conn,$pthana);
 
 <!-- Address part end -->
               <!-- gender part start -->
-                <div class="form-group  m-o clearfix">
-                  <div class="col-md-4 float-left">
+                <div class="form-group   clearfix">
+                  <div class="col-md-4 float-left mt-3">
                     <div class="col-form-label  pt-0">Select Gender <span class="text-denger">*</span></div>
                     <div class="form-check float-left mr-4">
                       <input class="form-check-input" type="radio"  name="gender" id="male"  value="Male" >
@@ -326,13 +326,13 @@ $pthana_queries = mysqli_query($conn,$pthana);
                   </div>
                   <!-- Gender Part End -->
                   <!-- capcha Start -->
-                  <div class="form-group col-4 float-left">
+                  <div class="form-group col-4 float-left mt-3">
                     <label>Captcha Code</label>
                     <img src="capcha.php" class="form-control "  alt="PHP Captcha" id="capcha_code"  >
                     <!-- <img src="img/refresh-icon.png" class="form-group" width="30px" height="30px" style="border-redius:10%;" alt="PHP Captcha" id="captcha_code" onClick="Document.getElementById('capcha').src = 'chapcha.php?' + Math.random()"> -->
                     <!-- <input type="hidden" class="form-control" name="capcha_code" id="capcha_code" src="capcha.php"> -->
                   </div>
-                  <div class="form-group col-4 float-left">
+                  <div class="form-group col-4 float-left mt-3">
                     <label>Enter Captcha</label>
                     <input type="text" class="form-control" name="captcha" id="capcha">
                     <p class="input_sms text-warning" id="capcha_error"></p>

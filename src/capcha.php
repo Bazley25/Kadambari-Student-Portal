@@ -8,7 +8,7 @@
   // Assign captcha in session
   $_SESSION['CAPTCHA_CODE'] = $captcha_code;
   // Create captcha image
-  $layer = imagecreatetruecolor(168, 30);
+  $layer = imagecreatetruecolor(160, 30);
   $captcha_bg = imagecolorallocate($layer, 247, 174, 55);
   imagefill($layer, 0, 0, $captcha_bg);
   $captcha_text_color = imagecolorallocate($layer, 0, 0, 0);
