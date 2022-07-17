@@ -1,0 +1,73 @@
+//  ****************************                Permanent Address information *************************************
+
+    if (!theForm.copy.checked) {
+
+        // Present  care of
+
+        if (theForm.permanent_care.value == "") {
+            alert("Please fill up Permanent Care Of.");
+            theForm.permanent_care.focus();
+            return (false);
+        }
+
+        if (theForm.permanent_care.value.length > 150) {
+            alert("Please Enter at Most 150 Characters in Care of Field of Permanent Address.");
+            theForm.permanent_care.focus();
+            return (false);
+        }
+
+
+        // Permanent Village
+        if (theForm.permanent_vill.value == "") {
+            alert("Please Fill up Permanent Village/Town/Road/House/Flat no.");
+            theForm.permanent_vill.focus();
+            return (false);
+        }
+        if (theForm.permanent_vill.value.length > 150) {
+            alert("Please Enter at Most 150 Characters in the Village Field of Permanent Address.");
+            theForm.permanent_vill.focus();
+            return (false);
+        }
+
+
+        // Permanent District
+        if (theForm.menu_two.selectedIndex <= 0) {
+            alert("Please Select District in the Permanent Address.");
+            theForm.menu_two.focus();
+            return (false);
+        }
+
+
+        // Permanent Upazilla
+        if (theForm.menu_two_list.selectedIndex <= 0) {
+            alert("Please Select Upazila/PS in the Permanent Address.");
+            theForm.menu_two_list.focus();
+            return (false);
+        }
+        if (theForm.menu_two_list.value == "Others") {
+            if (theForm.ops2.value == "") {
+                alert("Please Mention Upazila/PS in the Permanent Address.");
+                theForm.ops2.focus();
+                return (false);
+            }
+        }
+
+
+
+        // Permanent Post Office
+        if (theForm.permanent_post.value == "") {
+            alert("Please Enter Name of Post Office in the Permanent Address.");
+            theForm.permanent_post.focus();
+            return (false);
+        }
+
+
+
+        // Present Post Code
+        if (theForm.permanent_pcode.value == "") {
+            alert("Please  Enter Post Code in the Permanent Address.");
+            theForm.permanent_pcode.focus();
+            return (false);
+        }
+
+    }

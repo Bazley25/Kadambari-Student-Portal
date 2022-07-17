@@ -8,6 +8,26 @@ include("header.php");
 include("db.php");
 $sql= "SELECT *FROM students";
 $result = mysqli_query($conn,$sql);
+// present Address start
+$divisions = "SELECT * FROM divisions";
+$divisions_queries = mysqli_query($conn,$divisions);
+
+$districts = "SELECT * FROM districts";
+$districts_queries = mysqli_query($conn,$districts);
+
+$thana = "SELECT * FROM upazilas";
+$thana_queries = mysqli_query($conn,$thana);
+// Parmanent Address Start
+$pdivisions = "SELECT * FROM divisions";
+$pdivisions_queries = mysqli_query($conn,$pdivisions);
+
+$pdistricts = "SELECT * FROM districts";
+$pdistricts_queries = mysqli_query($conn,$pdistricts);
+
+$pthana = "SELECT * FROM upazilas";
+$pthana_queries = mysqli_query($conn,$pthana);
+
+
 ?>
 
 <section id="information" class="form bg-info">
@@ -48,28 +68,30 @@ $result = mysqli_query($conn,$sql);
                   <legend style="color:white ">
                     Fill Up The Form Bellow!
                   </legend>
-                <div class="form-group">
-                <label for="name">Name <span class="text-white">(According To SSC Registration)</span> <span class="text-denger">*</span></label>
-                <input type="text" class="form-control"  name="name" id="name"  placeholder="Enter Your Name According To SSC Registration">
+                  <div class="form-group  ">
+                <div class="form-group col-md-4 float-left ml-0 pl-0">
+                <label for="name">Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
+                <input type="text" class="form-control"  name="name" id="name"  placeholder="Enter Your Name ">
               <p class="input_sms text-warning" id="name_error" ></p>
             </div>
-            <div class="form-group">
-                <label for="father_name">Father's Name <span class="text-white">(According To SSC Registration)</span> <span class="text-denger">*</span></label>
-                <input type="text" class="form-control"  name="father_name" id="father_name" placeholder="Enter Your Father's Name According To SSC Registration">
+            <div class="form-group col-md-4 float-left ml-0 pl-0">
+                <label for="father_name">Father's Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
+                <input type="text" class="form-control"  name="father_name" id="father_name" placeholder="Enter Your Father's Name">
                 <p class="input_sms text-warning" id="father_name_error"></p>
             </div>
-            <div class="form-group">
-                <label for="mother_name">Mother's Name <span class="text-white">(According To SSC Registration)</span> <span class="text-denger">*</span></label>
-                <input type="text" class="form-control"  name="mother_name" id="mother_name" placeholder="Enter Your Mother's Name According To SSC Registration">
+            <div class="form-group col-md-4 float-left ml-0 pl-0">
+                <label for="mother_name">Mother's Name <span class="text-white">(According To SSC Exam)</span> <span class="text-denger">*</span></label>
+                <input type="text" class="form-control"  name="mother_name" id="mother_name" placeholder="Enter Your Mother's Name">
                 <p class="input_sms text-warning" id="mother_name_error"></p>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group col-md-4 float-left ml-0 pl-0">
                 <label for="email">Email <span class="text-white">(Optional)</span></label>
                 <input type="email" class="form-control"  name="email" id="email" placeholder="Enter Your Email Address">
                 <p class="input_sms text-warning" id="email_error"></p>
+            </div> -->
             </div>
               <!-- removed clearfix tag brom below -->
-            <div class="form-group  m-o clearfix">
+            <div class="form-group  ">
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="dob">Date Of Birth<span class="text-denger">*</span></label>
                   <input type="date"  class="form-control"  name="dob" id="dob" value="<?php echo date('Y-m-d')?>">
@@ -80,24 +102,46 @@ $result = mysqli_query($conn,$sql);
                   <input type="text" class="form-control"  name="exam" id="exam" placeholder="Enter Your SSC Exam Year">
                   <p class="input_sms text-warning d-inline" id="exam_error"></p>
               </div>
-              <div class="form-group col-md-4 float-left mr-0 pr-0">
+              <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="last_edu">Last Education Level <span class="text-denger">*</span></label>
                   <input type="text" class="form-control"  name="last_edu" id="last_edu" placeholder="Enter Your Last Education Level">
                   <p class="input_sms text-warning" id="last_edu_error"></p>
               </div>
             </div>
-            <div class="form-group m-0 clearfix">
-              <div class="form-group col-md-4 float-left ml-0 pl-0 village">
+            <div class="form-group  ">
+              <div class="form-group col-md-4 float-left ml-0 pl-0">
+                  <label for="last_edu_ins">Last Educational Institute Name<span class="text-denger">*</span></label>
+                  <input type="text"  class="form-control"  name="last_edu_ins" id="last_edu_ins" placeholder="Enter Your Last Educational Institute Name">
+                  <p class="input_sms text-warning d-inline" id="last_edu_ins_error"></p>
+              </div>
+              <div class="form-group col-md-4 float-left ml-0 pl-0">
+                  <label for="ocupation">Ocupation <span class="text-denger">*</span></label>
+                  <input type="text" class="form-control"  name="occupation" id="occupation" placeholder="Enter Your Ocupation">
+                  <p class="input_sms text-warning d-inline" id="ocupation_error"></p>
+              </div>
+              <div class="form-group col-md-4 float-left ml-0 pl-0">
+                  <label for="workpalce">Workplase Address <span class="text-denger">*</span></label>
+                  <input type="text" class="form-control"  name="workpalce" id="workpalce" placeholder="Enter Your Workpalce Address">
+                  <p class="input_sms text-warning" id="workpalce_error"></p>
+              </div>
+            </div>
+            <div class="form-group ">
+              <div class="form-group col-md-4 float-left ml-0 pl-0 ">
+                  <label for="email">Email Address <span class="text-denger">*</span></label>
+                  <input type="email" class="form-control"  name="email" id="email" placeholder="Enter Your Email Address">
+                  <p class="input_sms text-warning" id="email_error"></p>
+              </div>
+              <!-- <div class="form-group col-md-4 float-left ml-0 pl-0 village">
                   <label for="village">Enter Your Village Nmae <span class="text-denger">*</span></label>
                   <input type="text" class="form-control"  name="village" id="village" placeholder="Enter Your Village Name">
                   <p class="input_sms text-warning" id="village_error" ></p>
-              </div>
+              </div> -->
               <div class="form-group col-md-4 float-left ml-0 pl-0 mobile">
-                  <label for="mobile">Enter Your Mobile Number <span class="text-denger">*</span></label>
+                  <label for="mobile">Mobile Number <span class="text-denger">*</span></label>
                   <input type="number_format" class="form-control"  name="mobile" id="mobile" placeholder="Enter Your 11 Digits Mobile Number">
                   <p class="input_sms text-warning" id="mobile_error" style=".error_number{color:red;}"></p>
               </div>
-              <div class="form-group col-md-4 float-left mr-0 pr-0 blood">
+              <div class="form-group col-md-4 float-left ml-0 pl-0 blood">
                   <label for="blood">Select Your Blood Group <span class="text-denger">*</span></label>
                   <select id="blood" name="blood" class="form-control" >
                     <option value="" selected>Select One</option>
@@ -114,7 +158,7 @@ $result = mysqli_query($conn,$sql);
               </div>
             </div>
 <!--  Start Payment section -->
-          <div class="form-group  m-o clearfix">
+          <div class="form-group  ">
                 <div class="form-group col-md-4 float-left ml-0 pl-0">
                     <label for="bkash">Bkash Mobile Number <span class="text-denger">*</span></label>
                     <input type="number_format" class="form-control"  name="bkash" id="bkash" placeholder="Enter Your Bkash Number ">
@@ -125,13 +169,147 @@ $result = mysqli_query($conn,$sql);
                     <input type="number_format" class="form-control"  name="taka" id="taka" placeholder="Enter Amount Of Taka ">
                     <p class="input_sms text-warning d-inline" id="taka_error"></p>
                 </div>
-                <div class="form-group col-md-4 float-left mr-0 pr-0">
+                <div class="form-group col-md-4 float-left ml-0 pl-0">
                     <label for="trxid">Bkash Tranjection ID <span class="text-denger">*</span></label>
                     <input type="text" class="form-control"  name="trxid" id="trxid" placeholder="Enter Bkash Transection ID">
                     <p class="input_sms text-warning" id="trxid_error"></p>
                 </div>
               </div>
 <!--  End Payment section -->
+<!-- Address part start -->
+<div class="form-group  ">
+      <div class="form-group col-md-6 float-left ml-0 pl-0">
+        <div class="present mr-2">
+          <div class="card ">
+            <h5 class="card-header">Present Address <span class="text-denger">*</span></h5>
+            <div class="card-body">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Village/Town/<br/>Road/House/Flat</td>
+                    <td>
+                      <!-- <input type="text" placeholder="Enter Village Name" class="form-control"> -->
+                      <textarea class="form-control" name="name" rows="2" cols="45"></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="form-group">Division</td>
+                    <td>
+                      <?php
+                      echo "<select class='form-control'>";
+                        echo "<option value='selected'>Select One</option>";
+
+                        while ($row = mysqli_fetch_row($divisions_queries)) {
+                          echo "<option value='$row[1]'>$row[1]</option>";
+                        }
+                      echo "<select>";
+                       ?>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="form-group">District</td>
+                    <td>
+                      <?php
+                      echo "<select class='form-control'>";
+                        echo "<option value='selected'>Select One</option>";
+
+                        while ($row = mysqli_fetch_row($districts_queries)) {
+                          echo "<option value='$row[2]'>$row[2]</option>";
+                        }
+                      echo "<select>";
+                       ?>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Upzilla</td>
+                    <td>
+                      <?php
+                      echo "<select class='form-control'>";
+                        echo "<option value='selected'>Select One</option>";
+
+                        while ($row = mysqli_fetch_row($thana_queries)) {
+                          echo "<option value='$row[2]'>$row[2]</option>";
+                        }
+                      echo "<select>";
+                       ?>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Parmanent address -->
+      <div class="form-group col-md-6 float-left mr-0 pl-0">
+        <div class="permanent">
+          <div class="card">
+            <h5 class="card-header">
+              Permanent Address <span class="text-denger">*</span>
+              <input type="checkbox" name="copy" id="copy" aria-label="Checkbox for following text input" >
+              <small>Same As Present Address</small>
+            </h5>
+            <div class="card-body">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Village/Town/<br/>Road/House/Flat</td>
+                    <td>
+                      <textarea class="form-control" name="name" rows="2" cols="45"></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="form-group">Division</td>
+                    <td>
+                      <?php
+                      echo "<select class='form-control'>";
+                        echo "<option value='selected'>Select One</option>";
+
+                        while ($row = mysqli_fetch_row($pdivisions_queries)) {
+                          echo "<option value='$row[1]'>$row[1]</option>";
+                        }
+                      echo "<select>";
+                       ?>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="form-group">District</td>
+                    <td>
+                      <?php
+                      echo "<select class='form-control'>";
+                        echo "<option value='selected'>Select One</option>";
+
+                        while ($row = mysqli_fetch_row($pdistricts_queries)) {
+                          echo "<option value='$row[2]'>$row[2]</option>";
+                        }
+                      echo "<select>";
+                       ?>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Upzilla</td>
+                    <td>
+                      <?php
+                      echo "<select class='form-control'>";
+                        echo "<option value='selected'>Select One</option>";
+
+                        while ($row = mysqli_fetch_row($pthana_queries)) {
+                          echo "<option value='$row[2]'>$row[2]</option>";
+                        }
+                      echo "<select>";
+                       ?>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Address part end -->
               <!-- gender part start -->
                 <div class="form-group  m-o clearfix">
                   <div class="col-md-4 float-left">
