@@ -31,17 +31,16 @@
   background-size: cover; }
 
 .fab {
-  font-size: 50px; }
-
-/* .form-group {
-  margin-bottom: 1rem; } */
+  font-size: 50px;
+}
 
   .form-group {
-      margin-bottom: 0;
-  }
+    margin-bottom: 0;
+}
 
 .slick-prev:before, .slick-next:before {
-  color: #000; }
+  color: #000;
+}
 
 .bg-image{
   background: url("../img/nice.gif");
