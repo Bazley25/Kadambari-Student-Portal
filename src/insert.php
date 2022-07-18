@@ -196,11 +196,11 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td class="form-group">Division</td>
                     <td>
                       <?php
-                      echo "<select class='form-control' id='division'>";
+                      echo "<select class='form-control' id='division' name='division'>";
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($divisions_queries)) {
-                          echo "<option value='$row[1]'>$row[1]</option>";
+                          echo "<option value='$row[0]'>$row[1]</option>";
                         }
                       echo "<select>";
                        ?>
@@ -214,7 +214,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($districts_queries)) {
-                          echo "<option value='$row[1]'>$row[2]</option>";
+                          echo "<option value='$row[0]'>$row[2]</option>";
                         }
                       echo "<select>";
                        ?>
@@ -229,7 +229,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($thana_queries)) {
-                          echo "<option value='$row[2]'>$row[2]</option>";
+                          echo "<option value='$row[0]'>$row[2]</option>";
                         }
                       echo "<select>";
                        ?>
@@ -267,7 +267,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($pdivisions_queries)) {
-                          echo "<option value='$row[1]'>$row[1]</option>";
+                          echo "<option value='$row[0]'>$row[1]</option>";
                         }
                       echo "<select>";
                        ?>
@@ -281,7 +281,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($pdistricts_queries)) {
-                          echo "<option value='$row[2]'>$row[2]</option>";
+                          echo "<option value='$row[0]'>$row[2]</option>";
                         }
                       echo "<select>";
                        ?>
@@ -295,7 +295,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($pthana_queries)) {
-                          echo "<option value='$row[2]'>$row[2]</option>";
+                          echo "<option value='$row[0]'>$row[2]</option>";
                         }
                       echo "<select>";
                        ?>
@@ -709,6 +709,43 @@ include("footer.php");
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"></script>
+
+
+<!-- division, district, thana changes script -->
+    <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const division = document.querySelector('#division');
+      let district = document.querySelector('#district');
+      let thana = document.querySelector('#thana');
+      let selectedItem =  document.querySelector('[name="division"]');
+
+      if(division != null){
+        division.addEventListener('change',function(e){
+          let divId = selectedItem.value;
+
+          getDistricptById(divId);
+
+        })
+      }
+
+
+      function getDistricptById(division_id){
+         const url = `/get-district.php?division_id=${division_id}`;
+
+             fetch(url)
+            .then(response => response.json())
+            .then(data => console.log(data));
+         }
+
+
+    });
+
+
+
+
+
+
+    </script>
 
     <!-- Form Validation end -->
 </body>
