@@ -159,11 +159,18 @@ $pthana_queries = mysqli_query($conn,$pthana);
             </div>
 <!--  Start Payment section -->
           <div class="form-group  m-o clearfix">
-                <div class="form-group col-md-4 float-left ml-0 pl-0">
-                    <label for="bkash">Bkash Mobile Number <span class="text-denger">*</span></label>
-                    <input type="number_format" class="form-control"  name="bkash" id="bkash" placeholder="Enter Your Bkash Number ">
-                    <p class="input_sms text-warning d-inline" id="bkash_error"></p>
+            <div class="form-group col-md-4 float-left ml-0 pl-0">
+                <div class="col-form-label  pt-0">Do You have Guest? <span class="text-denger">*</span></div>
+                <div class="form-check float-left mr-4">
+                  <input  type="radio" aria-label="Radio button for following text input"  name="guest" id="yes"  value="Yes" >
+                  <label class="form-check-label" for="yes">Yes</label>
                 </div>
+                <div class="form-check float-left ml-4">
+                  <input class="form-check-input" type="radio"  name="guest" id="no" value="No">
+                  <label class="form-check-label" for="no">No </label>
+                  <p class="input_sms text-warning" id="gender_error"></p>
+                </div>
+            </div>
                 <div class="form-group col-md-4 float-left ml-0 pl-0">
                     <label for="taka">Amount <span class="text-denger">*</span></label>
                     <input type="number_format" class="form-control"  name="taka" id="taka" placeholder="Enter Amount Of Taka ">
@@ -189,7 +196,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td>Village/Town/<br/>Road/House/Flat</td>
                     <td>
                       <!-- <input type="text" placeholder="Enter Village Name" class="form-control"> -->
-                      <textarea class="form-control" name="name" rows="2" cols="45"></textarea>
+                      <textarea class="form-control" name="village" rows="1" cols="45"></textarea>
                     </td>
                   </tr>
                   <tr>
@@ -210,7 +217,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td class="form-group">District</td>
                     <td>
                       <?php
-                      echo "<select class='form-control' id='district'>";
+                      echo "<select class='form-control' id='district' name='district'>";
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($districts_queries)) {
@@ -225,7 +232,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td>Upzilla</td>
                     <td>
                       <?php
-                      echo "<select class='form-control' id='thana'>";
+                      echo "<select class='form-control' id='thana' name='thana'>";
                         echo "<option value='selected'>Select One</option>";
 
                         while ($row = mysqli_fetch_row($thana_queries)) {
@@ -256,7 +263,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                   <tr>
                     <td>Village/Town/<br/>Road/House/Flat</td>
                     <td>
-                      <textarea class="form-control" name="name" rows="2" cols="45"></textarea>
+                      <textarea class="form-control" name="name" rows="1" cols="45"></textarea>
                     </td>
                   </tr>
                   <tr>
