@@ -723,13 +723,13 @@ include("footer.php");
         division.addEventListener('change',function(e){
           let divId = selectedItem.value;
 
-          getDistricptById(divId);
+          getDistrictById(divId);
 
         })
       }
 
 
-      function getDistricptById(division_id){
+      function getDistrictById(division_id){
          const url = `/get-district.php?division_id=${division_id}`;
 
              fetch(url)
