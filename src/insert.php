@@ -737,7 +737,7 @@ include("footer.php");
 
 
       function getDistrictById(division_id){
-         const url = `/get-district.php?division_id=${division_id}`;
+         const url = `/Kadambari-Student-Portal/src/api.php?division_id=${division_id}`;
 
              fetch(url)
             .then(response => response.json())
@@ -746,10 +746,6 @@ include("footer.php");
 
 
     });
-
-
-
-
 
 
     </script>
