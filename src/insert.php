@@ -27,7 +27,6 @@ $pdistricts_queries = mysqli_query($conn,$pdistricts);
 $pthana = "SELECT * FROM upazilas";
 $pthana_queries = mysqli_query($conn,$pthana);
 
-
 ?>
 
 <section id="information" class="form bg-info">
@@ -263,7 +262,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                   <tr>
                     <td>Village/Town/<br/>Road/House/Flat</td>
                     <td>
-                      <textarea class="form-control" name="name" rows="1" cols="45"></textarea>
+                      <textarea class="form-control" name="village" rows="1" cols="45"></textarea>
                     </td>
                   </tr>
                   <tr>

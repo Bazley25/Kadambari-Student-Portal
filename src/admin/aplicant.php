@@ -108,7 +108,8 @@ $std= mysqli_fetch_assoc($result);
                                                                     <td width="25%" align="center" valign="middle">
                                                                         <!-- <img src="11.jpg" width="150" height="150" border="1" alt=""> -->
                                                                         <img src="../uploads/<?php echo $std['image']?>" width="150" height="150" border="1" alt="Aplicant Image">
-                                                                        <img src="../barcode_images/<?php echo $std['barcode_image']?>" width="160px" height="80px">
+                                                                        <br>
+                                                                        <img src="../barcode_images/<?php echo $std['barcode_image']?>" width="160px" height="50px">
                                                                     </td>
                                                                     <td width="75%" align="center" valign="top">
                                                                         <table width="100%" border="1" cellpadding="2" cellspacing="1"  >
