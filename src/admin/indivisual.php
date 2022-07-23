@@ -70,16 +70,22 @@ tr:nth-child(even) {
 
            <div class="row">
              <div class="content_one">
-               <div class="card-group">
-                  <div class="card">
-                    <table class="table table-borderless text-center table-responsive ">
+
+                    <table  border="0" cellspacing="2" cellpadding="2">
                       <tr>
-                        <td class="text-center"><img class="card-img-top" src="../uploads/<?php echo $std['image']?>" width="300px" alt="Card image cap"> </td>
-                        <td class="text-center d-print-inline-block"><img class="card-img-top" src="../qr_code_images/<?php echo $std['qr_image']?>" width="300px" alt="Card image cap"></td>
+                        <!-- <td class="text-center"><img class="card-img-top" src="../uploads/<?php echo $std['image']?>" width="300px" alt="Card image cap"> </td>
+                        <td class="text-center d-print-inline-block"><img class="card-img-top" src="../barcode_images/<?php echo $std['barcode_image']?>" width="300px" alt="Card image cap"></td> -->
+
+                        <td width="100%" align="center" valign="middle">
+                            <!-- <img src="11.jpg" width="150" height="150" border="1" alt=""> -->
+                            <img src="../uploads/<?php echo $std['image']?>" width="160" height="150"  alt="Aplicant Image">
+                            <br>
+                            <br>
+                            <img src="../barcode_images/<?php echo $std['barcode_image']?>" width="160px" height="40px">
+                        </td>
                       </tr>
                     </table>
-                  </div>
-                </div>
+
              </div>
            </div>
            <br>

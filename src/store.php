@@ -87,7 +87,7 @@ list($width, $height, $type, $attr) = getimagesize($uploaded_file);
          // barcode start
          $barcode_file_name = $last_id.'.jpg';
          $generator = new Picqer\Barcode\BarcodeGeneratorJPG();
-         file_put_contents('barcode_images/'.$barcode_file_name, $generator->getBarcode($random_string, $generator::TYPE_CODE_128,1,100));
+         file_put_contents('barcode_images/'.$barcode_file_name, $generator->getBarcode($random_string, $generator::TYPE_CODE_128,2,80));
          // file_put_contents('barcode_images/barcode.jpg', $generator->getBarcode($fname . "/" . $lname . "/" . $mobile . "/" . $age, $generator::TYPE_CODE_128,1,100));
          // barcode end
 
