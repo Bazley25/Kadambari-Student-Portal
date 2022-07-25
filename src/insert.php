@@ -9,22 +9,22 @@ include("db.php");
 $sql= "SELECT *FROM students";
 $result = mysqli_query($conn,$sql);
 // present Address start
-$divisions = "SELECT * FROM divisions";
+$divisions = "SELECT * FROM divisions ORDER BY name ASC";
 $divisions_queries = mysqli_query($conn,$divisions);
 
-$districts = "SELECT * FROM districts";
+$districts = "SELECT * FROM districts ORDER BY name ASC";
 $districts_queries = mysqli_query($conn,$districts);
 
-$thana = "SELECT * FROM upazilas";
+$thana = "SELECT * FROM upazilas ORDER BY name ASC";
 $thana_queries = mysqli_query($conn,$thana);
 // Parmanent Address Start
-$pdivisions = "SELECT * FROM divisions";
+$pdivisions = "SELECT * FROM divisions ORDER BY name ASC";
 $pdivisions_queries = mysqli_query($conn,$pdivisions);
 
-$pdistricts = "SELECT * FROM districts";
+$pdistricts = "SELECT * FROM districts ORDER BY name ASC";
 $pdistricts_queries = mysqli_query($conn,$pdistricts);
 
-$pthana = "SELECT * FROM upazilas";
+$pthana = "SELECT * FROM upazilas ORDER BY name ASC";
 $pthana_queries = mysqli_query($conn,$pthana);
 
 ?>
@@ -201,44 +201,49 @@ $pthana_queries = mysqli_query($conn,$pthana);
                   <tr>
                     <td class="form-group">Division</td>
                     <td>
-                      <?php
-                      echo "<select class='form-control' id='division' name='division'>";
-                        echo "<option value='selected'>Select One</option>";
 
-                        while ($row = mysqli_fetch_row($divisions_queries)) {
-                          echo "<option value='$row[0]'>$row[1]</option>";
-                        }
-                      echo "<select>";
-                       ?>
+                      <select class='form-control' id='division' name='division'>
+                        <option value="">Select Division</option>
+                          <?php
+
+                          while ($row = mysqli_fetch_row($divisions_queries)) {
+                            echo "<option value='$row[0]'>$row[1]</option>";
+                          }
+
+                        ?>
+                      </select>
+
                     </td>
                   </tr>
                   <tr>
                     <td class="form-group">District</td>
                     <td>
-                      <?php
-                      echo "<select class='form-control' id='district' name='district'>";
-                        echo "<option value='selected'>Select One</option>";
 
+                      <select class='form-control' id='district' name='district'>
+                        <option value='selected'>Select District</option>
+                        <?php
                         while ($row = mysqli_fetch_row($districts_queries)) {
                           echo "<option value='$row[0]'>$row[2]</option>";
                         }
-                      echo "<select>";
-                       ?>
+                        ?>
+                      </select>
+
                     </td>
                   </tr>
 
                   <tr>
                     <td>Upzilla</td>
                     <td>
-                      <?php
-                      echo "<select class='form-control' id='thana' name='thana'>";
-                        echo "<option value='selected'>Select One</option>";
 
+                      <select class='form-control' id='thana' name='thana'>
+                        <option value='selected'>Select Thana</option>
+                        <?php
                         while ($row = mysqli_fetch_row($thana_queries)) {
                           echo "<option value='$row[0]'>$row[2]</option>";
                         }
-                      echo "<select>";
-                       ?>
+                        ?>
+                      </select>
+
                     </td>
                   </tr>
                 </tbody>
@@ -268,43 +273,45 @@ $pthana_queries = mysqli_query($conn,$pthana);
                   <tr>
                     <td class="form-group">Division</td>
                     <td>
-                      <?php
-                      echo "<select class='form-control' id='pdivision'>";
-                        echo "<option value='selected'>Select One</option>";
 
+                    <select class='form-control' id='pdivision'>
+                        <option value='selected'>Select Division</option>
+                        <?php
                         while ($row = mysqli_fetch_row($pdivisions_queries)) {
                           echo "<option value='$row[0]'>$row[1]</option>";
                         }
-                      echo "<select>";
-                       ?>
+                        ?>
+                      </select>
+
                     </td>
                   </tr>
                   <tr>
                     <td class="form-group">District</td>
                     <td>
-                      <?php
-                      echo "<select class='form-control' id='pdistrict'>";
-                        echo "<option value='selected'>Select One</option>";
 
+                      <select class='form-control' id='pdistrict'>
+                        <option value='selected'>Select District</option>
+                        <?php
                         while ($row = mysqli_fetch_row($pdistricts_queries)) {
                           echo "<option value='$row[0]'>$row[2]</option>";
                         }
-                      echo "<select>";
-                       ?>
+                        ?>
+                      </select>
+
                     </td>
                   </tr>
                   <tr>
                     <td>Upzilla</td>
                     <td>
-                      <?php
-                      echo "<select class='form-control' id='pthana' name='pthanas'>";
-                        echo "<option value='selected'>Select One</option>";
-
+                      <select class='form-control' id='pthana' name='pthanas'>
+                        <option value='selected'>Select Thana</option>
+                        <?php
                         while ($row = mysqli_fetch_row($pthana_queries)) {
                           echo "<option value='$row[0]'>$row[2]</option>";
                         }
-                      echo "<select>";
-                       ?>
+                         ?>
+                      </select>
+
                     </td>
                   </tr>
                 </tbody>
@@ -718,7 +725,7 @@ include("footer.php");
 
 
 <!-- division, district, thana changes script -->
-    <script>
+    <!-- <script>
     window.addEventListener('DOMContentLoaded', (event) => {
       const division = document.querySelector('#division');
       let district = document.querySelector('#district');
@@ -747,6 +754,29 @@ include("footer.php");
     });
 
 
+    </script> -->
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#division').on('change',function() {
+          let divisionID =$(this).val();
+          if(divisionID) {
+            $.ajax({
+              type:'POST',
+              url:'api.php',
+              data:'id='+divisionID,
+              success:function(html) {
+                $('#district').html(html);
+
+              }
+
+            });
+          }else {
+            $('#district').html('<option value="">Select Division First</option>');
+          }
+
+        });
+      });
     </script>
 
     <!-- Form Validation end -->
