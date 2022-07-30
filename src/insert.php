@@ -9,14 +9,14 @@ include("db.php");
 $sql= "SELECT *FROM students";
 $result = mysqli_query($conn,$sql);
 // present Address start
-$divisions = "SELECT * FROM divisions ORDER BY name ASC";
-$divisions_queries = mysqli_query($conn,$divisions);
-
-$districts = "SELECT * FROM districts ORDER BY name ASC";
-$districts_queries = mysqli_query($conn,$districts);
-
-$thana = "SELECT * FROM upazilas ORDER BY name ASC";
-$thana_queries = mysqli_query($conn,$thana);
+// $divisions = "SELECT * FROM divisions ORDER BY name ASC";
+// $divisions_queries = mysqli_query($conn,$divisions);
+//
+// $districts = "SELECT * FROM districts ORDER BY name ASC";
+// $districts_queries = mysqli_query($conn,$districts);
+//
+// $thana = "SELECT * FROM upazilas ORDER BY name ASC";
+// $thana_queries = mysqli_query($conn,$thana);
 // Parmanent Address Start
 $pdivisions = "SELECT * FROM divisions ORDER BY name ASC";
 $pdivisions_queries = mysqli_query($conn,$pdivisions);
