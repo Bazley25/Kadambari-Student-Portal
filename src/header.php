@@ -4,6 +4,7 @@ include("db.php");
 $sql= "SELECT * FROM news ";
 $result = mysqli_query($conn,$sql);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,16 +68,17 @@ $result = mysqli_query($conn,$sql);
 <section class="news bg-dark">
         <div class="container">
         <div class="row">
+
           <marquee class="text-light" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-            <?php
-            if(mysqli_num_rows($result) >0){
-              while($row = mysqli_fetch_assoc($result)) {
-                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **** &nbsp; <img src='img/new3.gif' width='60'> &nbsp;&nbsp;&nbsp;&nbsp;", $row["news_description"],"&nbsp;&nbsp;&nbsp;|&nbsp;|";
-              }
-            }
-            ?>
-            </marquee>
-            </div>
+        <?php
+        if(mysqli_num_rows($result) >0){
+          while($row = mysqli_fetch_assoc($result)) {
+            echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **** &nbsp; <img src='img/new3.gif' width='60'> &nbsp;&nbsp;&nbsp;&nbsp;", $row["news_description"],"&nbsp;&nbsp;&nbsp;|&nbsp;|";
+          }
+        }
+        ?>
+        </marquee>
+
         </div>
     </div>
 </section>
