@@ -1,9 +1,9 @@
 <?php
 include("db.php");
-$sql= "SELECT * FROM news";
+
+$sql= "SELECT * FROM news ";
 $result = mysqli_query($conn,$sql);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,13 +61,21 @@ $result = mysqli_query($conn,$sql);
   </div>
 </nav>
    </section>
-
+<!-- marquee file er karone pdf download hoy na -->
 <!-- News section-->
-
 <section class="news bg-dark">
         <div class="container">
         <div class="row">
-          
+          <marquee class="text-light" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+            <?php
+            if(mysqli_num_rows($result) >0){
+              while($row = mysqli_fetch_assoc($result)) {
+                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **** &nbsp;&nbsp;&nbsp;&nbsp;", $row["news_description"],"&nbsp;&nbsp;&nbsp;|&nbsp;|";
+              }
+            }
+            ?>
+            </marquee>
+            </div>
         </div>
     </div>
 </section>
