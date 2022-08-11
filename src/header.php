@@ -67,7 +67,7 @@ $result = mysqli_query($conn,$sql);
 <section class="news bg-dark">
         <div class="container">
         <div class="row">
-
+          
         </div>
     </div>
 </section>
