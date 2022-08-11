@@ -1,3 +1,9 @@
+<?php
+include("db.php");
+$sql= "SELECT * FROM news";
+$result = mysqli_query($conn,$sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,8 +52,8 @@
         sign up/log in
         </a>
         <div class="dropdown-menu bg-success text-light" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">sign up</a>
-          <a class="dropdown-item" href="#">log in</a>
+          <a class="dropdown-item" href="student_registration.php">sign up</a>
+          <a class="dropdown-item" href="user_login.php">log in</a>
         </div>
         </li>
       </ul>
@@ -61,10 +67,7 @@
 <section class="news bg-dark">
         <div class="container">
         <div class="row">
-            <div class="col-md">
-              <marquee class="text-light">*** কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০ এ আপনাকে স্বাগতম ***  আপনি  একবারই রেজিস্ট্রেশন করতে পারবেন। যদি কোন প্রকার ভুল করে থাকেন তবে আপনার তথ্য আপডেড করার জন্য ইমেইল করুন: shubhamandal70@gmail.com****
-            </marquee>
-            </div>
+
         </div>
     </div>
 </section>
