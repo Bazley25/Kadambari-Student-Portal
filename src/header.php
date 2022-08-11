@@ -71,7 +71,7 @@ $result = mysqli_query($conn,$sql);
             <?php
             if(mysqli_num_rows($result) >0){
               while($row = mysqli_fetch_assoc($result)) {
-                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **** &nbsp;&nbsp;&nbsp;&nbsp;", $row["news_description"],"&nbsp;&nbsp;&nbsp;|&nbsp;|";
+                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **** &nbsp; <img src='img/new3.gif' width='60'> &nbsp;&nbsp;&nbsp;&nbsp;", $row["news_description"],"&nbsp;&nbsp;&nbsp;|&nbsp;|";
               }
             }
             ?>

@@ -9,14 +9,14 @@ include("db.php");
 $sql= "SELECT *FROM students";
 $result = mysqli_query($conn,$sql);
 // present Address start
-// $divisions = "SELECT * FROM divisions ORDER BY name ASC";
-// $divisions_queries = mysqli_query($conn,$divisions);
-//
-// $districts = "SELECT * FROM districts ORDER BY name ASC";
-// $districts_queries = mysqli_query($conn,$districts);
-//
-// $thana = "SELECT * FROM upazilas ORDER BY name ASC";
-// $thana_queries = mysqli_query($conn,$thana);
+$divisions = "SELECT * FROM divisions ORDER BY name ASC";
+$divisions_queries = mysqli_query($conn,$divisions);
+
+$districts = "SELECT * FROM districts ORDER BY name ASC";
+$districts_queries = mysqli_query($conn,$districts);
+
+$thana = "SELECT * FROM upazilas ORDER BY name ASC";
+$thana_queries = mysqli_query($conn,$thana);
 // Parmanent Address Start
 $pdivisions = "SELECT * FROM divisions ORDER BY name ASC";
 $pdivisions_queries = mysqli_query($conn,$pdivisions);
@@ -221,11 +221,11 @@ $pthana_queries = mysqli_query($conn,$pthana);
 
                       <select class='form-control' id='district' name='district'>
                         <option value='selected'>Select District</option>
-                        <?php
+                        <!-- <?php
                         while ($row = mysqli_fetch_row($districts_queries)) {
                           echo "<option value='$row[0]'>$row[2]</option>";
                         }
-                        ?>
+                        ?> -->
                       </select>
 
                     </td>
@@ -759,12 +759,12 @@ include("footer.php");
     <script type="text/javascript">
       $(document).ready(function() {
         $('#division').on('change',function() {
-          let divisionID =$(this).val();
+          let divisionID = $(this).val();
           if(divisionID) {
             $.ajax({
               type:'POST',
               url:'api.php',
-              data:'id='+divisionID,
+              data:'division_id='+divisionID,
               success:function(html) {
                 $('#district').html(html);
 
