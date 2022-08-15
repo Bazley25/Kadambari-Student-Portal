@@ -18,8 +18,8 @@ $divisions_queries = mysqli_query($conn,$divisions);
 // $thana = "SELECT * FROM upazilas ORDER BY name ASC";
 // $thana_queries = mysqli_query($conn,$thana);
 // Parmanent Address Start
-// $pdivisions = "SELECT * FROM divisions ORDER BY name ASC";
-// $pdivisions_queries = mysqli_query($conn,$pdivisions);
+$pdivisions = "SELECT * FROM divisions ORDER BY name ASC";
+$pdivisions_queries = mysqli_query($conn,$pdivisions);
 //
 // $pdistricts = "SELECT * FROM districts ORDER BY name ASC";
 // $pdistricts_queries = mysqli_query($conn,$pdistricts);
@@ -201,8 +201,8 @@ $divisions_queries = mysqli_query($conn,$divisions);
                   <tr>
                     <td class="form-group">Division</td>
                     <td>
-                      <select class='form-control' id='division' name='division'>
-                        <option >Select Division</option>
+                      <select class='form-control' id="division" name="division">
+                        <option selected disabled >Select Division</option>
                           <?php  while ($row = mysqli_fetch_assoc($divisions_queries)) :?>
                              <option value="<?php echo $row['id'];?>"> <?php echo $row['name'];?></option>
                         <?php endwhile;?>
@@ -213,8 +213,8 @@ $divisions_queries = mysqli_query($conn,$divisions);
                   <tr>
                     <td class="form-group">District</td>
                     <td>
-                      <select class='form-control' id='district' name='district'>
-                        <option > Select District </option>
+                      <select class='form-control' id="district" name="district">
+                        <option selected disabled > Select District </option>
                       </select>
 
                     </td>
@@ -222,8 +222,8 @@ $divisions_queries = mysqli_query($conn,$divisions);
                   <tr>
                     <td class="form-group">Upzilla</td>
                     <td>
-                      <select class='form-control' id='thana' name='thana'>
-                        <option selected disabled>Select Thana</option>
+                      <select class='form-control' id="thana" name="thana">
+                        <option selected disabled>Select Upzilla</option>
                       </select>
                     </td>
                   </tr>
@@ -239,7 +239,7 @@ $divisions_queries = mysqli_query($conn,$divisions);
           <div class="card">
             <h5 class="card-header">
               Permanent Address <span class="text-denger">*</span>
-              <input type="checkbox" name="copy" id="copy" aria-label="Checkbox for following text input" >
+              <input type="checkbox" name="copy" id="copyaddress" aria-label="Checkbox for following text input" >
               <small>Same As Present Address</small>
             </h5>
             <div class="card-body">
@@ -256,7 +256,11 @@ $divisions_queries = mysqli_query($conn,$divisions);
                     <td>
 
                     <select class='form-control' id='pdivision' name="pdivision">
-                        <option >Select Division</option>
+
+                        <option selected disabled >Select Division</option>
+                          <?php  while ($row_division = mysqli_fetch_assoc($pdivisions_queries)) :?>
+                             <option value="<?php echo $row_division['id'];?>"> <?php echo $row_division['name'];?></option>
+                        <?php endwhile;?>
                       </select>
 
                     </td>
@@ -266,7 +270,7 @@ $divisions_queries = mysqli_query($conn,$divisions);
                     <td>
 
                       <select class='form-control' id='pdistrict' name="pdistrict">
-                        <option >Select District</option>
+                        <option selected disabled>Select District</option>
                       </select>
 
                     </td>
@@ -275,7 +279,7 @@ $divisions_queries = mysqli_query($conn,$divisions);
                     <td>Upzilla</td>
                     <td>
                       <select class='form-control' id='pthana' name='pthanas'>
-                        <option >Select Thana</option>
+                        <option selected disabled>Select Upzilla</option>
                       </select>
 
                     </td>
@@ -665,7 +669,6 @@ include("footer.php");
         //   document.getElementById('capcha_error').innerHTML="";
         // }
 
-
             if(image.value==''){
               document.getElementById('photo_error').innerHTML="Please Upload Your Photo 300<span>&times;</span>300 Pixels! And File Format must be JPG And Not more than 100 KB";
                 image.focus();
@@ -673,15 +676,8 @@ include("footer.php");
             }else{
               document.getElementById('photo_error').innerHTML="";
             }
+          }
 
-            }
-
-    //         // Present District
-    // if (division.selectedIndex <= 0) {
-    //     alert("Please Select Division in the Present Address.");
-    //     division.focus();
-    //     return false;
-    // }
     </script>
 
     <script
@@ -696,18 +692,72 @@ include("footer.php");
     var division_id = this.value;
     // console.log(division_id);
     $.ajax({
-      url: 'api.php',
-      type: "POST",
+      url: 'ajax/district.php',
+      type: 'POST',
       data: {
           division_data: division_id
       },
         success: function(result) {
         $('#district').html(result);
+
         // console.log(result);
       }
     })
   });
 
+// Thana Start
+  $('#district').on('change', function() {
+    var district_id = this.value;
+    // console.log(district_id);
+    $.ajax({
+      url: 'ajax/thana.php',
+      type: 'POST',
+      data: {
+          district_data: district_id
+      },
+        success: function(result) {
+        $('#thana').html(result);
+
+        // console.log(result);
+      }
+    })
+  });
+
+// parmanent address Start
+$('#pdivision').on('change', function() {
+  var pdivision_id = this.value;
+  // console.log(division_id);
+  $.ajax({
+    url: 'ajax/pdistrict.php',
+    type: 'POST',
+    data: {
+        pdivision_data: pdivision_id
+    },
+      success: function(result) {
+      $('#pdistrict').html(result);
+
+      // console.log(result);
+    }
+  })
+});
+
+// Thana Start
+$('#pdistrict').on('change', function() {
+  var pthana_id = this.value;
+  // console.log(division_id);
+  $.ajax({
+    url: 'ajax/pthana.php',
+    type: 'POST',
+    data: {
+        pthana_data: pthana_id
+    },
+      success: function(result) {
+      $('#pthana').html(result);
+
+      // console.log(result);
+    }
+  })
+});
     </script>
 
 
