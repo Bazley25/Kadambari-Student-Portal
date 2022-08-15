@@ -12,20 +12,20 @@ $result = mysqli_query($conn,$sql);
 $divisions = "SELECT * FROM divisions ORDER BY name ASC";
 $divisions_queries = mysqli_query($conn,$divisions);
 
-$districts = "SELECT * FROM districts ORDER BY name ASC";
-$districts_queries = mysqli_query($conn,$districts);
-
-$thana = "SELECT * FROM upazilas ORDER BY name ASC";
-$thana_queries = mysqli_query($conn,$thana);
+// $districts = "SELECT * FROM districts ORDER BY name ASC";
+// $districts_queries = mysqli_query($conn,$districts);
+//
+// $thana = "SELECT * FROM upazilas ORDER BY name ASC";
+// $thana_queries = mysqli_query($conn,$thana);
 // Parmanent Address Start
-$pdivisions = "SELECT * FROM divisions ORDER BY name ASC";
-$pdivisions_queries = mysqli_query($conn,$pdivisions);
-
-$pdistricts = "SELECT * FROM districts ORDER BY name ASC";
-$pdistricts_queries = mysqli_query($conn,$pdistricts);
-
-$pthana = "SELECT * FROM upazilas ORDER BY name ASC";
-$pthana_queries = mysqli_query($conn,$pthana);
+// $pdivisions = "SELECT * FROM divisions ORDER BY name ASC";
+// $pdivisions_queries = mysqli_query($conn,$pdivisions);
+//
+// $pdistricts = "SELECT * FROM districts ORDER BY name ASC";
+// $pdistricts_queries = mysqli_query($conn,$pdistricts);
+//
+// $pthana = "SELECT * FROM upazilas ORDER BY name ASC";
+// $pthana_queries = mysqli_query($conn,$pthana);
 
 ?>
 
@@ -201,16 +201,11 @@ $pthana_queries = mysqli_query($conn,$pthana);
                   <tr>
                     <td class="form-group">Division</td>
                     <td>
-
                       <select class='form-control' id='division' name='division'>
-                        <option value="">Select Division</option>
-                          <?php
-
-                          while ($row = mysqli_fetch_row($divisions_queries)) {
-                            echo "<option value='$row[0]'>$row[1]</option>";
-                          }
-
-                        ?>
+                        <option >Select Division</option>
+                          <?php  while ($row = mysqli_fetch_assoc($divisions_queries)) :?>
+                             <option value="<?php echo $row['id'];?>"> <?php echo $row['name'];?></option>
+                        <?php endwhile;?>
                       </select>
 
                     </td>
@@ -218,32 +213,18 @@ $pthana_queries = mysqli_query($conn,$pthana);
                   <tr>
                     <td class="form-group">District</td>
                     <td>
-
                       <select class='form-control' id='district' name='district'>
-                        <option value='selected'>Select District</option>
-                        <!-- <?php
-                        while ($row = mysqli_fetch_row($districts_queries)) {
-                          echo "<option value='$row[0]'>$row[2]</option>";
-                        }
-                        ?> -->
+                        <option > Select District </option>
                       </select>
 
                     </td>
                   </tr>
-
                   <tr>
-                    <td>Upzilla</td>
+                    <td class="form-group">Upzilla</td>
                     <td>
-
                       <select class='form-control' id='thana' name='thana'>
-                        <option value='selected'>Select Thana</option>
-                        <?php
-                        while ($row = mysqli_fetch_row($thana_queries)) {
-                          echo "<option value='$row[0]'>$row[2]</option>";
-                        }
-                        ?>
+                        <option selected disabled>Select Thana</option>
                       </select>
-
                     </td>
                   </tr>
                 </tbody>
@@ -274,13 +255,8 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td class="form-group">Division</td>
                     <td>
 
-                    <select class='form-control' id='pdivision'>
-                        <option value='selected'>Select Division</option>
-                        <?php
-                        while ($row = mysqli_fetch_row($pdivisions_queries)) {
-                          echo "<option value='$row[0]'>$row[1]</option>";
-                        }
-                        ?>
+                    <select class='form-control' id='pdivision' name="pdivision">
+                        <option >Select Division</option>
                       </select>
 
                     </td>
@@ -289,13 +265,8 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td class="form-group">District</td>
                     <td>
 
-                      <select class='form-control' id='pdistrict'>
-                        <option value='selected'>Select District</option>
-                        <?php
-                        while ($row = mysqli_fetch_row($pdistricts_queries)) {
-                          echo "<option value='$row[0]'>$row[2]</option>";
-                        }
-                        ?>
+                      <select class='form-control' id='pdistrict' name="pdistrict">
+                        <option >Select District</option>
                       </select>
 
                     </td>
@@ -304,12 +275,7 @@ $pthana_queries = mysqli_query($conn,$pthana);
                     <td>Upzilla</td>
                     <td>
                       <select class='form-control' id='pthana' name='pthanas'>
-                        <option value='selected'>Select Thana</option>
-                        <?php
-                        while ($row = mysqli_fetch_row($pthana_queries)) {
-                          echo "<option value='$row[0]'>$row[2]</option>";
-                        }
-                         ?>
+                        <option >Select Thana</option>
                       </select>
 
                     </td>
@@ -725,59 +691,26 @@ include("footer.php");
 
 
 <!-- division, district, thana changes script -->
-    <!-- <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-      const division = document.querySelector('#division');
-      let district = document.querySelector('#district');
-      let thana = document.querySelector('#thana');
-      let selectedItem =  document.querySelector('[name="division"]');
-
-      if(division != null){
-        division.addEventListener('change',function(e){
-          let divId = selectedItem.value;
-
-          getDistrictById(divId);
-
-        })
+    <script>
+  $('#division').on('change', function() {
+    var division_id = this.value;
+    // console.log(division_id);
+    $.ajax({
+      url: 'api.php',
+      type: "POST",
+      data: {
+          division_data: division_id
+      },
+        success: function(result) {
+        $('#district').html(result);
+        // console.log(result);
       }
+    })
+  });
 
-
-      function getDistrictById(division_id){
-         const url = `/Kadambari-Student-Portal/src/api.php?division_id=${division_id}`;
-
-             fetch(url)
-            .then(response => response.json())
-            .then(data => console.log(data));
-         }
-
-
-    });
-
-
-    </script> -->
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#division').on('change',function() {
-          let divisionID = $(this).val();
-          if(divisionID) {
-            $.ajax({
-              type:'POST',
-              url:'api.php',
-              data:'division_id='+divisionID,
-              success:function(html) {
-                $('#district').html(html);
-
-              }
-
-            });
-          }else {
-            $('#district').html('<option value="">Select Division First</option>');
-          }
-
-        });
-      });
     </script>
+
+
 
     <!-- Form Validation end -->
 </body>
