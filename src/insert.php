@@ -195,7 +195,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                     <td>Village/Town/<br/>Road/House/Flat</td>
                     <td>
                       <!-- <input type="text" placeholder="Enter Village Name" class="form-control"> -->
-                      <textarea class="form-control" name="village" rows="1" cols="45"></textarea>
+                      <textarea class="form-control" name="village" id="village" rows="1" cols="45"></textarea>
                     </td>
                   </tr>
                   <tr>
@@ -239,7 +239,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
           <div class="card">
             <h5 class="card-header">
               Permanent Address <span class="text-denger">*</span>
-              <input type="checkbox" name="copy" id="copyaddress" aria-label="Checkbox for following text input" >
+              <input type="checkbox" name="copy" id="parmanent_address" aria-label="Checkbox for following text input" >
               <small>Same As Present Address</small>
             </h5>
             <div class="card-body">
@@ -248,14 +248,14 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                   <tr>
                     <td>Village/Town/<br/>Road/House/Flat</td>
                     <td>
-                      <textarea class="form-control" name="village" rows="1" cols="45"></textarea>
+                      <textarea class="form-control" name="pvillage" id="pvillage" rows="1" cols="45"></textarea>
                     </td>
                   </tr>
                   <tr>
                     <td class="form-group">Division</td>
                     <td>
 
-                    <select class='form-control' id='pdivision' name="pdivision">
+                    <select class='form-control' id="pdivision" name="pdivision">
 
                         <option selected disabled >Select Division</option>
                           <?php  while ($row_division = mysqli_fetch_assoc($pdivisions_queries)) :?>
@@ -269,7 +269,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                     <td class="form-group">District</td>
                     <td>
 
-                      <select class='form-control' id='pdistrict' name="pdistrict">
+                      <select class='form-control' id="pdistrict" name="pdistrict">
                         <option selected disabled>Select District</option>
                       </select>
 
@@ -278,7 +278,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                   <tr>
                     <td>Upzilla</td>
                     <td>
-                      <select class='form-control' id='pthana' name='pthanas'>
+                      <select class='form-control' id="pthana" name="pthana">
                         <option selected disabled>Select Upzilla</option>
                       </select>
 
@@ -758,6 +758,35 @@ $('#pdistrict').on('change', function() {
     }
   })
 });
+</script>
+<!-- // copyaddress of present address -->
+<script type="text/javascript">
+   $(document).ready(function(){
+     $('#parmanent_address').click(function(){
+     if ($('#parmanent_address').is(":checked")) {
+      $('#pvillage').val($('#village').val());
+      var division = $('#division option:selected').val();
+      $('#pdivision option[value="' + division + '"]').prop('selected',true);
+
+      var district = $('#district option:selected').val();
+       $('#pdistrict option[value="' + division + '"]').prop('selected',true);
+
+      var thana = $('#thana option:selected').val();
+       $('#pthana option[value="' + thana + '"]').prop('selected',true);
+     } else { //Clear on uncheck
+      $('#pvillage').val("");
+
+      $('#pdivision option:eq(0)').prop('selected', true);
+
+      $('#pdistrict option:eq(1)').prop('selected', true);
+
+      $('#pthana option:eq(2)').prop('selected', true);
+     };
+
+    });
+
+   });
+
     </script>
 
 
