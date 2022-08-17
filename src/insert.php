@@ -291,7 +291,6 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
         </div>
       </div>
     </div>
-
 <!-- Address part end -->
               <!-- gender part start -->
                 <div class="form-group   clearfix">
