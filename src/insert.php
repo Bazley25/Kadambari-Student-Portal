@@ -165,9 +165,9 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                   <label class="form-check-label" for="yes">Yes</label>
                 </div>
                 <div class="form-check float-left ml-4">
-                  <input class="form-check-input" type="radio"  name="guest" id="no" value="No">
+                  <input class="form-check-input" type="radio"  name="guest" id="no" value="No" checked>
                   <label class="form-check-label" for="no">No </label>
-                  <p class="input_sms text-warning" id="gender_error"></p>
+                  <p class="input_sms text-warning" id="guest_error"></p>
                 </div>
             </div>
                 <div class="form-group col-md-4 float-left ml-0 pl-0">
@@ -765,22 +765,57 @@ $('#pdistrict').on('change', function() {
      $('#parmanent_address').click(function(){
      if ($('#parmanent_address').is(":checked")) {
       $('#pvillage').val($('#village').val());
+
       var division = $('#division option:selected').val();
       $('#pdivision option[value="' + division + '"]').prop('selected',true);
 
-      var district = $('#district option:selected').val();
-       $('#pdistrict option[value="' + division + '"]').prop('selected',true);
+      // console.log("manto",pdivision);
+      // console.log("sarker",$('#pdivision option:selected').val());
+//district Start
+var pdivision_id = $('#pdivision option:selected').val();
+// console.log(division_id);
+$.ajax({
+  url: 'ajax/district.php',
+  type: 'POST',
+  data: {
+      division_data: pdivision_id
+  },
+    success: function(result) {
+    $('#pdistrict').html(result);
 
-      var thana = $('#thana option:selected').val();
-       $('#pthana option[value="' + thana + '"]').prop('selected',true);
-     } else { //Clear on uncheck
+    var district = $('#district option:selected').val();
+    console.log("joy", district)
+     $('#pdistrict option[value="' + district + '"]').prop('selected',true);
+
+     // console.log("joyeee",$('#pdistrict option:selected').val());
+     // Thana start
+     var district_id = $('#pdistrict option:selected').val();
+     $.ajax({
+       url: 'ajax/thana.php',
+       type: 'POST',
+       data: {
+           district_data: district_id
+       },
+         success: function(result) {
+         $('#pthana').html(result);
+
+         var thana = $('#thana option:selected').val();
+
+          $('#pthana option[value="' + thana + '"]').prop('selected',true);
+
+         // console.log("shipan",result);
+       }
+     })
+  }
+});
+} else { //Clear on uncheck
       $('#pvillage').val("");
 
       $('#pdivision option:eq(0)').prop('selected', true);
 
-      $('#pdistrict option:eq(1)').prop('selected', true);
+      $('#pdistrict option:eq(0)').prop('selected', true);
 
-      $('#pthana option:eq(2)').prop('selected', true);
+      $('#pthana option:eq(0)').prop('selected', true);
      };
 
     });
