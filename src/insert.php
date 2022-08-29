@@ -6,7 +6,7 @@ session_start();
 include("header.php");
 
 include("db.php");
-$sql= "SELECT *FROM students";
+$sql= "SELECT * FROM students";
 $result = mysqli_query($conn,$sql);
 // present Address start
 $divisions = "SELECT * FROM divisions ORDER BY name ASC";
@@ -161,12 +161,24 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
             <div class="form-group col-md-4 float-left ml-0 pl-0">
                 <div class="col-form-label  pt-0">Do You have Guest? <span class="text-denger">*</span></div>
                 <div class="form-check float-left mr-4">
-                  <input  type="radio" aria-label="Radio button for following text input"  name="guest" id="yes"  value="Yes" >
-                  <label class="form-check-label" for="yes">Yes</label>
+                  <!-- <input  type="radio" aria-label="Radio button for following text input"  name="guest" id="yes"  value="Yes" > -->
+                  <label><input  type="radio" id="guest_yes" name="guest" value="1" onclick="test();"/> <span >Yes</span></label>
+                  <span id="extraOption" style="display: none;">
+                    <label><span class="black111">[Select Guest Type]</span> </label>
+                    <label> Friend</label>
+                    <input name="husband" id="xplod" type="checkbox">
+                    <label> Friend</label>
+                    <input name="fiend" id="xplod" type="checkbox">
+                    <label> chaild</label>
+                    <input name="child" id="xplod" type="checkbox">
+                    <label> othres</label>
+                </span>
+                  <!-- <label class="form-check-label" for="yes">Yes</label> -->
                 </div>
                 <div class="form-check float-left ml-4">
-                  <input class="form-check-input" type="radio"  name="guest" id="no" value="No" checked>
-                  <label class="form-check-label" for="no">No </label>
+                  <!-- <input class="form-check-input" type="radio"  name="guest" id="no" value="No" checked> -->
+                  <label><input type="radio" name="guest"  id="no_guest" onclick="test();"> <span >No</span></label>
+                  <!-- <label class="form-check-label" for="no">No </label> -->
                   <p class="input_sms text-warning" id="guest_error"></p>
                 </div>
             </div>
@@ -220,10 +232,10 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                     </td>
                   </tr>
                   <tr>
-                    <td class="form-group">Upzilla</td>
+                    <td class="form-group">Upzilla/Thana</td>
                     <td>
                       <select class='form-control' id="thana" name="thana">
-                        <option selected disabled>Select Upzilla</option>
+                        <option selected disabled>Select Upzilla/Thana</option>
                       </select>
                     </td>
                   </tr>
@@ -236,13 +248,13 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
       <!-- Parmanent address -->
       <div class="form-group col-md-6 float-left mr-0 pl-0">
         <div class="permanent">
-          <div class="card">
+          <div class="card ">
             <h5 class="card-header">
               Permanent Address <span class="text-denger">*</span>
               <input type="checkbox" name="copy" id="parmanent_address" aria-label="Checkbox for following text input" >
               <small>Same As Present Address</small>
             </h5>
-            <div class="card-body">
+            <div class="card-body ">
               <table class="table">
                 <tbody>
                   <tr>
@@ -276,10 +288,10 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                     </td>
                   </tr>
                   <tr>
-                    <td>Upzilla</td>
+                    <td>Upzilla/Thana</td>
                     <td>
                       <select class='form-control' id="pthana" name="pthana">
-                        <option selected disabled>Select Upzilla</option>
+                        <option selected disabled>Select Upzilla/Thana</option>
                       </select>
 
                     </td>
@@ -309,13 +321,14 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                   <!-- Gender Part End -->
                   <!-- capcha Start -->
                   <div class="form-group col-4 float-left mt-3">
-                    <label>Captcha Code</label>
+                    <label >Validation Code</label>
                     <img src="capcha.php" class="form-control "  alt="PHP Captcha" id="capcha_code"  >
+
                     <!-- <img src="img/refresh-icon.png" class="form-group" width="30px" height="30px" style="border-redius:10%;" alt="PHP Captcha" id="captcha_code" onClick="Document.getElementById('capcha').src = 'chapcha.php?' + Math.random()"> -->
                     <!-- <input type="hidden" class="form-control" name="capcha_code" id="capcha_code" src="capcha.php"> -->
                   </div>
                   <div class="form-group col-4 float-left mt-3">
-                    <label>Enter Captcha</label>
+                    <label>Enter Code</label>
                     <input type="text" class="form-control" name="captcha" id="capcha">
                     <p class="input_sms text-warning" id="capcha_error"></p>
                   </div>
@@ -358,6 +371,28 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
 include("footer.php");
  ?>
 
+<!-- Guest selection option Start -->
+<script type="text/javascript">
+
+        function test(){
+            let selectedSize;
+            const radioButtons = document.querySelectorAll('input[name="guest"]');
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+
+            if(selectedSize == 1){
+                document.getElementById("extraOption").style.display = "inline"
+            }else {
+                document.getElementById("extraOption").style.display = "none"
+            }
+        }
+
+    </script>
+<!-- Guest selection option End -->
   <!-- Form Validation Start -->
     <script type="text/javascript">
 
