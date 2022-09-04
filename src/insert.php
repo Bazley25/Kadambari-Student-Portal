@@ -162,16 +162,20 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                 <div class="col-form-label  pt-0">Do You have Guest? <span class="text-denger">*</span></div>
                 <div class="form-check float-left mr-4">
                   <!-- <input  type="radio" aria-label="Radio button for following text input"  name="guest" id="yes"  value="Yes" > -->
-                  <label><input  type="radio" id="guest_yes" name="guest" value="1" onclick="test();"/> <span >Yes</span></label>
-                  <span id="extraOption" style="display: none;">
-                    <label><span class="black111">[Select Guest Type]</span> </label>
-                    <label> Friend</label>
-                    <input name="husband" id="xplod" type="checkbox">
-                    <label> Friend</label>
-                    <input name="fiend" id="xplod" type="checkbox">
-                    <label> chaild</label>
-                    <input name="child" id="xplod" type="checkbox">
-                    <label> othres</label>
+                  <label><input name="guest" type="radio" id="guest_yes" value="1" onclick="test()"/> <span >Yes</span></label>
+
+                <span id="extraOption" style="display: none;">
+                    <label><span >[Select Guest Type]</span> </label>
+                    <input  name="husband" id="husband" type="checkbox">
+                    <label> Husband</label>
+                    <input  name="wife" id="wife" type="checkbox">
+                    <label> Wife</label>
+                    <input onclick="child();" name="child" id="child" type="checkbox">
+                    <label> child</label>
+                    <input name="child" id="childRelation" type="number" max="12" min="5" style="display: none;">
+                    <input onclick="other();" name="others" id="other" type="checkbox">
+                    <label> others</label>
+                    <input name="others" id="otherRelation" type="text" style="display: none;">
                 </span>
                   <!-- <label class="form-check-label" for="yes">Yes</label> -->
                 </div>
@@ -182,11 +186,19 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                   <p class="input_sms text-warning" id="guest_error"></p>
                 </div>
             </div>
-                <div class="form-group col-md-4 float-left ml-0 pl-0">
+
+
+
+
+                <!-- <div class="form-group col-md-4 float-left ml-0 pl-0">
                     <label for="taka">Amount <span class="text-denger">*</span></label>
                     <input type="number_format" class="form-control"  name="taka" id="taka" placeholder="Enter Amount Of Taka ">
                     <p class="input_sms text-warning d-inline" id="taka_error"></p>
-                </div>
+                </div> -->
+
+
+
+
                 <div class="form-group col-md-4 float-left ml-0 pl-0">
                     <label for="trxid">Bkash Tranjection ID <span class="text-denger">*</span></label>
                     <input type="text" class="form-control"  name="trxid" id="trxid" placeholder="Enter Bkash Transection ID">
@@ -372,6 +384,8 @@ include("footer.php");
  ?>
 
 <!-- Guest selection option Start -->
+
+
 <script type="text/javascript">
 
         function test(){
@@ -388,6 +402,33 @@ include("footer.php");
                 document.getElementById("extraOption").style.display = "inline"
             }else {
                 document.getElementById("extraOption").style.display = "none"
+            }
+        }
+
+        function child(){
+           const checked_Child_Options = document.getElementById('child')
+
+           if(checked_Child_Options.checked){
+               document.getElementById("childRelation").style.display = "inline"
+
+           }else {
+               document.getElementById("childRelation").style.display = "none"
+           }
+           console.log(checked_Child_Options.checked)
+       }
+
+
+       function other(){
+            const checkedOptions = document.getElementById('other')
+
+            if(checkedOptions.checked){
+                document.getElementById("otherRelation").style.display = "inline";
+                document.getElementById("husband").checked = false;
+                document.getElementById("wife").checked = false;
+                document.getElementById("child").checked = false;
+                document.getElementById("childRelation").style.display = "none"
+            }else {
+                document.getElementById("otherRelation").style.display = "none";
             }
         }
 
@@ -721,7 +762,7 @@ include("footer.php");
 
 
 <!-- division, district, thana changes script -->
-    <script>
+    <script type="text/javascript">
   $('#division').on('change', function() {
     var division_id = this.value;
     // console.log(division_id);
