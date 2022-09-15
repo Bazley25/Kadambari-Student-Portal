@@ -158,30 +158,34 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
             </div>
 <!--  Start Payment section -->
           <div class="form-group  m-o clearfix">
-            <div class="form-group col-md-4 float-left ml-0 pl-0">
+            <div class="form-group col-md-8 float-left ml-0 pl-0">
                 <div class="col-form-label  pt-0">Do You have Guest? <span class="text-denger">*</span></div>
                 <div class="form-check float-left mr-4">
                   <!-- <input  type="radio" aria-label="Radio button for following text input"  name="guest" id="yes"  value="Yes" > -->
-                  <label><input name="guest" type="radio" id="guest_yes" value="1" onclick="test()"/> <span >Yes</span></label>
+                  <label>
+                <input name="guest" type="radio" id="guest_yes" value="1" onclick="test();" /> <span>Yes</span>
+              </label>
 
-                <span id="extraOption" style="display: none;">
-                    <label><span >[Select Guest Type]</span> </label>
-                    <input  name="husband" id="husband" type="checkbox">
-                    <label> Husband</label>
-                    <input  name="wife" id="wife" type="checkbox">
-                    <label> Wife</label>
-                    <input onclick="child();" name="child" id="child" type="checkbox">
-                    <label> child</label>
-                    <input name="child" id="childRelation" type="number" max="12" min="5" style="display: none;">
-                    <input onclick="other();" name="others" id="other" type="checkbox">
-                    <label> others</label>
-                    <input name="others" id="otherRelation" type="text" style="display: none;">
-                </span>
+              <span id="extraOption" style="display: none;">
+                <label><span>[Select Guest Type]</span> </label>
+                <input onclick="husband_check();" name="husband" id="husband" type="checkbox">
+                <label> Husband</label>
+                <input onclick="wife_check();" name="wife" id="wife" type="checkbox">
+                <label> Wife</label>
+
+                <input onclick="child_check();" name="child" id="child" type="checkbox">
+                <label> child</label>
+
+                <input name="child" id="childRelation" type="number" placeholder=" Age" max="12" min="5"  style="display: none;">
+                <input onclick="other_check();" name="child" id="other" type="checkbox">
+                <label> othres</label>
+                <input name="others" id="otherRelation" type="text" placeholder=" Wright Other Guset" style="display: none;">
+              </span>
                   <!-- <label class="form-check-label" for="yes">Yes</label> -->
                 </div>
                 <div class="form-check float-left ml-4">
                   <!-- <input class="form-check-input" type="radio"  name="guest" id="no" value="No" checked> -->
-                  <label><input type="radio" name="guest"  id="no_guest" onclick="test();"> <span >No</span></label>
+                  <label><input type="radio" name="guest" id="no_guest" value="0" onclick="test();" /> <span>No</span></label>
                   <!-- <label class="form-check-label" for="no">No </label> -->
                   <p class="input_sms text-warning" id="guest_error"></p>
                 </div>
@@ -388,51 +392,76 @@ include("footer.php");
 
 <script type="text/javascript">
 
-        function test(){
-            let selectedSize;
-            const radioButtons = document.querySelectorAll('input[name="guest"]');
-            for (const radioButton of radioButtons) {
-                if (radioButton.checked) {
-                    selectedSize = radioButton.value;
-                    break;
-                }
-            }
-
-            if(selectedSize == 1){
-                document.getElementById("extraOption").style.display = "inline"
-            }else {
-                document.getElementById("extraOption").style.display = "none"
-            }
+    function test() {
+      let selectedSize;
+      const radioButtons = document.querySelectorAll('input[name="guest"]');
+      for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+          selectedSize = radioButton.value;
+          break;
         }
+      }
 
-        function child(){
-           const checked_Child_Options = document.getElementById('child')
-
-           if(checked_Child_Options.checked){
-               document.getElementById("childRelation").style.display = "inline"
-
-           }else {
-               document.getElementById("childRelation").style.display = "none"
-           }
-           console.log(checked_Child_Options.checked)
-       }
+      if (selectedSize == 1) {
+        document.getElementById("extraOption").style.display = "inline"
+      } else {
+        document.getElementById("extraOption").style.display = "none"
+      }
+    }
 
 
-       function other(){
-            const checkedOptions = document.getElementById('other')
+    function child_check() {
+      const checked_Child_Options = document.getElementById('child')
 
-            if(checkedOptions.checked){
-                document.getElementById("otherRelation").style.display = "inline";
-                document.getElementById("husband").checked = false;
-                document.getElementById("wife").checked = false;
-                document.getElementById("child").checked = false;
-                document.getElementById("childRelation").style.display = "none"
-            }else {
-                document.getElementById("otherRelation").style.display = "none";
-            }
-        }
+      if (checked_Child_Options.checked) {
+        document.getElementById("childRelation").style.display = "inline"
+        document.getElementById('other').checked = false
+        document.getElementById("otherRelation").style.display = "none";
+      } else {
+        document.getElementById("childRelation").style.display = "none"
+      }
+      console.log(checked_Child_Options.checked)
+    }
 
-    </script>
+    function other_check() {
+      const checkedOptions = document.getElementById('other')
+
+      if (checkedOptions.checked) {
+        document.getElementById("otherRelation").style.display = "inline";
+        document.getElementById("husband").checked = false;
+        document.getElementById("wife").checked = false;
+        document.getElementById("child").checked = false;
+        document.getElementById("childRelation").style.display = "none"
+      } else {
+        document.getElementById("otherRelation").style.display = "none";
+      }
+    }
+
+    function husband_check() {
+      const checkedOptions = document.getElementById('husband')
+
+      if (checkedOptions.checked) {
+        document.getElementById("otherRelation").style.display = "none";
+        document.getElementById("other").checked = false;
+        document.getElementById("wife").checked = false;
+        // document.getElementById("child").checked = false;
+        // document.getElementById("childRelation").style.display = "none"
+      }
+    }
+
+    function wife_check() {
+      const checkedOptions = document.getElementById('wife')
+
+      if (checkedOptions.checked) {
+        document.getElementById("otherRelation").style.display = "none";
+        document.getElementById("other").checked = false;
+        document.getElementById("husband").checked = false;
+        // document.getElementById("child").checked = false;
+        // document.getElementById("childRelation").style.display = "none"
+      }
+    }
+
+  </script>
 <!-- Guest selection option End -->
   <!-- Form Validation Start -->
     <script type="text/javascript">
