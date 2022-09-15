@@ -389,7 +389,6 @@ include("footer.php");
 
 <!-- Guest selection option Start -->
 
-
 <script type="text/javascript">
 
     function test() {
