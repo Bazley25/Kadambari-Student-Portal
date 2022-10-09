@@ -4,13 +4,13 @@
 <div class="container">
 <div class="row">
 <div class="col-md text-light py-4">
-    <p><span>&#9400;</span>Copywright 2020 - <?php echo date('Y'); ?>. All Rights Reserved </p>
+    <p><span>&#9400; </span>Copywright 2020 - <?php echo date('Y'); ?>. All Rights Reserved </p>
 </div>
 <div class="col-md text-light py-4">
      <p>Powered By<a class="ml-2 text-light" href="http://shubhamandal.com/">shubhamandal.com</a></p>
 </div>
 <div class="col-md text-light py-4">
-    <p>Developed By<a class="ml-2 text-light" href="https://www.facebook.com/shubhamandal001">SHUBHA MANDAL</a></p>
+    <p>Developed By<a class="ml-2 text-light" href="https://www.facebook.com/shubha.mandal2">SHUBHA MANDAL</a></p>
 </div>
 </div>
 </div>
