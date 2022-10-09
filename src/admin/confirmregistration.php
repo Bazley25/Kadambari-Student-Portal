@@ -33,8 +33,8 @@ header("location:registration.php");
     if(mysqli_query($conn,$sql)){
 
       $subject = "Account Varification";
-      $body = "Hi, $name Click here to varify your Email http://localhost/Kadambari-PHP-Dynamic-2/src/admin/sendmail.php?token=$token";
-      $sender = "from: shubha@ergo-ventures.com";
+      $body = "Hi, $name Click here to varify your Email http://localhost/Kadambari-Student-Portal/src/admin/sendmail.php?token=$token";
+      $sender = "from: litabiswas46@gmail.com";
 
       if (mail($email, $subject, $body, $sender)) {
         $query =" UPDATE users SET  expire_link=DATE_ADD(NOW(), INTERVAL 5 MINUTE) WHERE email='$email'";

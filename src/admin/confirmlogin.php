@@ -13,7 +13,7 @@ if($result->num_rows > 0){
  $rowcount=$result->fetch_array();
 if(password_verify($pass,$rowcount['password'])){
 
-if ($result->num_rows==1 && $user_type=='admin') {
+if ($result->num_rows == 1 && $user_type == 'admin') {
   if(isset($_POST['remember_me'])){
 
       setcookie('email_cookie',$email,time()+86400);
@@ -27,7 +27,7 @@ if ($result->num_rows==1 && $user_type=='admin') {
     $_SESSION['login']=true;
     header("location:gen_admin/index.php");
   }
-} elseif($result->num_rows == 1 && $user_type=='super_admin'){
+} elseif($result->num_rows == 1 && $user_type == 'super_admin'){
   if(isset($_POST['remember_me'])){
 
       setcookie('email_cookie',$email,time()+86400);
@@ -41,7 +41,7 @@ if ($result->num_rows==1 && $user_type=='admin') {
     $_SESSION['login']=true;
     header("location:index.php");
   }
-}elseif($result->num_rows == 1 && $user_type=='moderatore'){
+}elseif($result->num_rows == 1 && $user_type == 'moderatore'){
   if(isset($_POST['remember_me'])){
 
       setcookie('email_cookie',$email,time()+86400);
@@ -57,17 +57,20 @@ if ($result->num_rows==1 && $user_type=='admin') {
   }
 }
 else {
+  // ($result->num_rows == 0 && $user_type !== $user_type);
   session_start();
   $_SESSION['wrong_user']=1;
   header("location:login.php");
 }
 
 
-} else{
-    session_start();
-    $_SESSION['error']=true;
-    header("location:login.php");
-  }
+}
+
+// else{
+//     session_start();
+//     $_SESSION['error']=true;
+//     header("location:login.php");
+//   }
 }
 
 

@@ -24,8 +24,8 @@ $name=$userdata['name'];
 $token =$userdata['token'];
 
   $subject = "Reset Password";
-  $body = "Hi, $name Click on the link to reset your password <a href='http://localhost/Kadambari-PHP-Dynamic-5/src/admin/admin_reset_password.php?token=$token'>Reset Password</a>";
-  $sender = "from: shubha@ergo-ventures.com";
+  $body = 'Hi, $name Click on the link to reset your password <a href="http://localhost/Kadambari-Student-Portal/src/admin/admin_reset_password.php?token=$token">Reset Password</a>';
+  $sender = "from:litabiswas46@gmail.com";
 
   if (mail($email, $subject, $body, $sender)) {
     $_SESSION['password_reset'] ="Hi, $name, Check your Inbox To Reset your password.";
