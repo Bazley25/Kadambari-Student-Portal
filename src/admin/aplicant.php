@@ -152,7 +152,7 @@ $std= mysqli_fetch_assoc($result);
                                                                                         Date Of Birth
                                                                                     </th>
                                                                                     <td width="66%" align="left" valign="middle" class="black11 pl-2">
-                                                                                        <?php echo date('d-M-Y',strtotime($std['dob']));?> ["DD-M-YY"]
+                                                                                        <?php echo date('d-M-Y',strtotime($std['dob']));?> <?php $bday = date_create($std["dob"]); $submit_day = date_create(date('d-m-Y',strtotime($std["date"])));  $age = date_diff($submit_day,$bday); echo "[ ".$age ->y." " ."Years " ; echo $age->m ." " ."Months "; echo $age->d ." " ."Days ]"; ?>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
