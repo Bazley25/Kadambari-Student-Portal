@@ -20,9 +20,16 @@ include("../db.php");
   <div class="login-wrap">
     <div class="login-content">
         <div class="col-md-6 col-md-offset-3 center">
+
           <?php if(isset($_SESSION['error'])) { ?>
              <div class="alert alert-success mt-3" role="alert">
               <strong>Ops!</strong> Email Or Password is Wrong. Provide Correct Information
+            </div>
+          <?php }?>
+
+          <?php if(isset($_SESSION['user_not_exits'])) { ?>
+             <div class="alert alert-warning mt-3" role="alert">
+              <strong>Ops!</strong> "User Not Exits !! Please Try Another !!"
             </div>
           <?php }?>
 
@@ -187,3 +194,4 @@ include("../db.php");
 <?php unset($_SESSION['user_not_active']);?>
 <?php unset($_SESSION['pass_update']);?>
 <?php unset($_SESSION['wrong_user']);?>
+<?php unset($_SESSION['user_not_exits']);?>
