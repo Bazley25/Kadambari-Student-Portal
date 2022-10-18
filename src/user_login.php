@@ -25,7 +25,7 @@ include("header.php");
             </div>
           <?php }?>
 
-           <h1 class="mt-2">User Login </h1>
+           <h1 class="mt-2">Student Login </h1>
            <hr>
            <!-- msm start  -->
            <?php if(isset($_SESSION['user_activation'])) { ?>

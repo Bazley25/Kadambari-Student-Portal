@@ -120,8 +120,8 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
               </div>
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="workpalce">Workplase Address <span class="text-denger">*</span></label>
-                  <input type="text" class="form-control"  name="workpalce" id="workpalce" placeholder="Enter Your Workpalce Address">
-                  <p class="input_sms text-warning" id="workpalce_error"></p>
+                  <input type="text" class="form-control"  name="workpalce" id="workplase" placeholder="Enter Your Workpalce Address">
+                  <p class="input_sms text-warning" id="workplase_error"></p>
               </div>
             </div>
             <div class="form-group m-o clearfix">
@@ -158,6 +158,22 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
             </div>
 <!--  Start Payment section -->
           <div class="form-group  m-o clearfix">
+
+            <!-- gender part start -->
+            <div class="col-md-4 float-left ">
+              <div class="col-form-label  pt-0">Select Gender <span class="text-denger">*</span></div>
+              <div class="form-check float-left mr-4">
+                <input class="form-check-input" type="radio"  name="gender" id="male"  value="Male" >
+                <label class="form-check-label" for="male">Male</label>
+              </div>
+              <div class="form-check float-left ml-4">
+                <input class="form-check-input" type="radio"  name="gender" id="female" value="Female">
+                <label class="form-check-label" for="female">Female </label>
+                <p class="input_sms text-warning" id="gender_error"></p>
+              </div>
+            </div>
+            <!-- Gender Part End -->
+
             <div class="form-group col-md-8 float-left ml-0 pl-0">
                 <div class="col-form-label  pt-0">Do You have Guest? <span class="text-denger">*</span></div>
                 <div class="form-check float-left mr-4">
@@ -192,22 +208,34 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
             </div>
 
 
-
-
                 <!-- <div class="form-group col-md-4 float-left ml-0 pl-0">
-                    <label for="taka">Amount <span class="text-denger">*</span></label>
-                    <input type="number_format" class="form-control"  name="taka" id="taka" placeholder="Enter Amount Of Taka ">
-                    <p class="input_sms text-warning d-inline" id="taka_error"></p>
-                </div> -->
-
-
-
-
-                <div class="form-group col-md-4 float-left ml-0 pl-0">
                     <label for="trxid">Bkash Tranjection ID <span class="text-denger">*</span></label>
                     <input type="text" class="form-control"  name="trxid" id="trxid" placeholder="Enter Bkash Transection ID">
                     <p class="input_sms text-warning" id="trxid_error"></p>
-                </div>
+                </div> -->
+              </div>
+
+              <div class="form-group m-0 clearfix">
+                  <div class="form-group col-md-4 float-left ml-0 pl-0">
+                      <label for="taka">Payment This Amount <span class="text-denger">*</span></label>
+                      <input type="number_format" class="form-control"  name="taka" id="taka" placeholder="Enter Amount Of Taka ">
+                      <p class="input_sms text-warning d-inline" id="taka_error"></p>
+                  </div>
+
+                  <!-- capcha Start -->
+                  <div class="form-group  col-md-4 float-left ml-0 pl-0 ">
+                    <label >Validation Code</label>
+                    <img src="capcha.php" class="form-control "  alt="PHP Captcha" id="capcha_code"  >
+
+                    <!-- <img src="img/refresh-icon.png" class="form-group" width="30px" height="30px" style="border-redius:10%;" alt="PHP Captcha" id="captcha_code" onClick="Document.getElementById('capcha').src = 'chapcha.php?' + Math.random()"> -->
+                    <!-- <input type="hidden" class="form-control" name="capcha_code" id="capcha_code" src="capcha.php"> -->
+                  </div>
+                  <div class="form-group col-md-4 float-left ml-0 pl-0 ">
+                    <label>Enter Code</label>
+                    <input type="text" class="form-control" name="captcha" id="capcha">
+                    <p class="input_sms text-warning" id="capcha_error"></p>
+                  </div>
+                  <!-- capcha end -->
               </div>
 <!--  End Payment section -->
 <!-- Address part start -->
@@ -216,14 +244,15 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
         <div class="present mr-2">
           <div class="card ">
             <h5 class="card-header">Present Address <span class="text-denger">*</span></h5>
-            <div class="card-body">
-              <table class="table">
+            <div class="card-body bg-secondary text-white">
+              <table class="table bg-secondary text-white">
                 <tbody>
                   <tr>
                     <td>Village/Town/<br/>Road/House/Flat</td>
                     <td>
                       <!-- <input type="text" placeholder="Enter Village Name" class="form-control"> -->
                       <textarea class="form-control" name="village" id="village" rows="1" cols="45"></textarea>
+                      <p class="input_sms text-warning" id="village_error"></p>
                     </td>
                   </tr>
                   <tr>
@@ -235,7 +264,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                              <option value="<?php echo $row['id'];?>"> <?php echo $row['name'];?></option>
                         <?php endwhile;?>
                       </select>
-
+                      <p class="input_sms text-warning" id="division_error"></p>
                     </td>
                   </tr>
                   <tr>
@@ -244,7 +273,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                       <select class='form-control' id="district" name="district">
                         <option selected disabled > Select District </option>
                       </select>
-
+                      <p class="input_sms text-warning" id="district_error"></p>
                     </td>
                   </tr>
                   <tr>
@@ -253,6 +282,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                       <select class='form-control' id="thana" name="thana">
                         <option selected disabled>Select Upzilla/Thana</option>
                       </select>
+                      <p class="input_sms text-warning" id="thana_error"></p>
                     </td>
                   </tr>
                 </tbody>
@@ -270,37 +300,35 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
               <input type="checkbox" name="copy" id="parmanent_address" aria-label="Checkbox for following text input" >
               <small>Same As Present Address</small>
             </h5>
-            <div class="card-body ">
-              <table class="table">
-                <tbody>
+            <div class="card-body bg-secondary text-white">
+              <table class="table bg-secondary text-white " style="border: none !important">
+                <tbody class="">
                   <tr>
                     <td>Village/Town/<br/>Road/House/Flat</td>
                     <td>
                       <textarea class="form-control" name="pvillage" id="pvillage" rows="1" cols="45"></textarea>
+                      <p class="input_sms text-warning" id="pthana_error"></p>
                     </td>
                   </tr>
                   <tr>
                     <td class="form-group">Division</td>
                     <td>
-
                     <select class='form-control' id="pdivision" name="pdivision">
-
                         <option selected disabled >Select Division</option>
                           <?php  while ($row_division = mysqli_fetch_assoc($pdivisions_queries)) :?>
                              <option value="<?php echo $row_division['id'];?>"> <?php echo $row_division['name'];?></option>
                         <?php endwhile;?>
                       </select>
-
+                      <p class="input_sms text-warning" id="pdivision_error"></p>
                     </td>
                   </tr>
                   <tr>
                     <td class="form-group">District</td>
                     <td>
-
                       <select class='form-control' id="pdistrict" name="pdistrict">
                         <option selected disabled>Select District</option>
                       </select>
-
+                      <p class="input_sms text-warning" id="pdistrict_error"></p>
                     </td>
                   </tr>
                   <tr>
@@ -309,7 +337,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                       <select class='form-control' id="pthana" name="pthana">
                         <option selected disabled>Select Upzilla/Thana</option>
                       </select>
-
+                      <p class="input_sms text-warning" id="pthana_error"></p>
                     </td>
                   </tr>
                 </tbody>
@@ -320,40 +348,10 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
       </div>
     </div>
 <!-- Address part end -->
-              <!-- gender part start -->
-                <div class="form-group   clearfix">
-                  <div class="col-md-4 float-left mt-3">
-                    <div class="col-form-label  pt-0">Select Gender <span class="text-denger">*</span></div>
-                    <div class="form-check float-left mr-4">
-                      <input class="form-check-input" type="radio"  name="gender" id="male"  value="Male" >
-                      <label class="form-check-label" for="male">Male</label>
-                    </div>
-                    <div class="form-check float-left ml-4">
-                      <input class="form-check-input" type="radio"  name="gender" id="female" value="Female">
-                      <label class="form-check-label" for="female">Female </label>
-                      <p class="input_sms text-warning" id="gender_error"></p>
-                    </div>
-                  </div>
-                  <!-- Gender Part End -->
-                  <!-- capcha Start -->
-                  <div class="form-group col-4 float-left mt-3">
-                    <label >Validation Code</label>
-                    <img src="capcha.php" class="form-control "  alt="PHP Captcha" id="capcha_code"  >
 
-                    <!-- <img src="img/refresh-icon.png" class="form-group" width="30px" height="30px" style="border-redius:10%;" alt="PHP Captcha" id="captcha_code" onClick="Document.getElementById('capcha').src = 'chapcha.php?' + Math.random()"> -->
-                    <!-- <input type="hidden" class="form-control" name="capcha_code" id="capcha_code" src="capcha.php"> -->
-                  </div>
-                  <div class="form-group col-4 float-left mt-3">
-                    <label>Enter Code</label>
-                    <input type="text" class="form-control" name="captcha" id="capcha">
-                    <p class="input_sms text-warning" id="capcha_error"></p>
-                  </div>
-                  <!-- capcha end -->
-              </div>
-
-
+                <div class="form-group   clearfix"></div>
                   <!-- photo Part start -->
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12 clearfix mt-3">
                      <label for="image">Photo <span class="text-denger">*</span> <span style="color:white;">[Photo Sholud be JPG Format And 300<span>&times;</span>300 Pixels and not more than 100KB]</span></label><br>
                      <label for="imagepreview">Image Preview</label>
                      <img src="img/default_user.png" alt="Avatar"  id="preimge" width="100" height="100" class="p-1 avatar">
