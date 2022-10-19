@@ -46,6 +46,19 @@
     });
     </script> -->
 
+    <!-- date picker start -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+        <script>
+        config ={
+        altInput: true,
+        altFormat: "j-M-Y",
+        dateFormat: "Y-m-d",
+        }
+            flatpickr("input[type=date]", config);
+        </script>
+    <!-- date picker end -->
+
     <!-- Ctrl + u disabale code -->
     <script type="text/javascript">
     document.onkeydown = function(e) {
