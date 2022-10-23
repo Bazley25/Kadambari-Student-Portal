@@ -16,7 +16,7 @@ $name=$userdata['name'];
 $token =$userdata['token'];
 
   $subject = "Reset Password";
-  $body = "Hi, $name Click on the link to reset your password http://localhost/Kadambari-PHP-Dynamic-2/src/user_reset_password.php?token=$token";
+  $body = "Hi, $name Click on the link to reset your password http://localhost/Kadambari-Student-Portal/src/user_reset_password.php?token=$token";
   $sender = "from: shubha@ergo-ventures.com";
 
   if (mail($email, $subject, $body, $sender)) {
@@ -27,7 +27,7 @@ $token =$userdata['token'];
   }
 }
 else {
-  echo "No Email Found";
+  echo "There is No account associate with this email !!";
 }
 
 

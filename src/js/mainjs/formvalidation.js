@@ -56,7 +56,8 @@
         var regex_number = /^[\p{L}]/ug;
         // var village_regex = /[\p{Script=Bengali}\s]{4,20}$/ug;
         var regex_mobile = /(^(01){1}[3456789]{1}(\d){8})$/;
-        var regex_traxid = /^[A-Z0-9\s]{10}$/;
+        // var regex_traxid = /^[A-Z0-9\s]{10}$/;
+         var workplace_regex = /^[A-Za-z0-9\s,'-']*$/i;
 
 
         if(name.value==''){
@@ -280,11 +281,11 @@
         }
 
         // for bangla number
-        if(regex_number.test(occupation.value) === false) {
-       document.getElementById('occupation_error').innerHTML="** Only Alphabets is allowed !** **";
-       occupation.focus();
-       return false;
-      }
+      //   if(regex_number.test(occupation.value) === false) {
+      //  document.getElementById('occupation_error').innerHTML="** Only Alphabets is allowed !** **";
+      //  occupation.focus();
+      //  return false;
+      // }
 
       if(regex.test(occupation.value) === false) {
        document.getElementById('occupation_error').innerHTML="** Please enter a valid Name, minimum 4  & maximum 20 Characters **";
@@ -303,13 +304,6 @@
             return false;
         }
 
-        // for english number
-        // if(!isNaN(occupation.value)){
-        //     document.getElementById('occupation_error').innerHTML="** Only Alphabets is allowed !**";
-        //     occupation.focus();
-        //     return false;
-        // }
-
         // for bangla number
       //   if(regex_number.test(workplase.value) === false) {
       //  document.getElementById('workplase_error').innerHTML="** Only Alphabets is allowed !** **";
@@ -317,7 +311,7 @@
       //  return false;
       // }
 
-      if(regex.test(workplace.value) === false) {
+      if(workplace_regex.test(workplace.value) === false) {
        document.getElementById('workplace_error').innerHTML="** Please enter a valid Name, minimum 4  & maximum 20 Characters **";
        workplace.focus();
        return false;
@@ -358,29 +352,26 @@
 
 
 
-
-
-
-        if(village.value==''){
-          document.getElementById('village_error').innerHTML="** Please Enter Your Village Name ! **";
-            village.focus();
-            return false;
-        }
-
-        if(!isNaN(village.value)){
-            document.getElementById('village_error').innerHTML="** Only Alphabets is allowed !**";
-            village.focus();
-            return false;
-        }
-
-        if(village_regex.test(village.value) === false) {
-        document.getElementById('village_error').innerHTML="** Please enter a valid Name, minimum 4  & maximum 20 Characters **";
-        village.focus();
-        return false;
-        }
-        else {
-          document.getElementById('village_error').innerHTML="";
-        }
+        // if(village.value==''){
+        //   document.getElementById('village_error').innerHTML="** Please Enter Your Village Name ! **";
+        //     village.focus();
+        //     return false;
+        // }
+        //
+        // if(!isNaN(village.value)){
+        //     document.getElementById('village_error').innerHTML="** Only Alphabets is allowed !**";
+        //     village.focus();
+        //     return false;
+        // }
+        //
+        // if(village_regex.test(village.value) === false) {
+        // document.getElementById('village_error').innerHTML="** Please enter a valid Name, minimum 4  & maximum 20 Characters **";
+        // village.focus();
+        // return false;
+        // }
+        // else {
+        //   document.getElementById('village_error').innerHTML="";
+        // }
 
         if(mobile.value==''){
           document.getElementById('mobile_error').innerHTML="** Please Enter Your Mobile Number ! **";
@@ -405,45 +396,45 @@
           document.getElementById('blood_error').innerHTML="";
         }
 
-        if(bkash.value==''){
-            document.getElementById('bkash_error').innerHTML="** Please Enter Bkash Number! **";
-            bkash.focus();
-            return false;
-        }
-        if(regex_mobile.test(bkash.value) === false){
-          document.getElementById('bkash_error').innerHTML="** Please Enter a Valid Bkash Number ! **";
-            bkash.focus();
-            return false;
-        }
-
-        else{
-          document.getElementById('bkash_error').innerHTML="";
-        }
-
-        if(taka.value==''){
-            document.getElementById('taka_error').innerHTML="** Please Enter Amount Of Taka! **";
-
-            taka.focus();
-            return false;
-        }else{
-          document.getElementById('taka_error').innerHTML="";
-        }
-
-
-        if(trxid.value==''){
-            document.getElementById('trxid_error').innerHTML="** Please Enter Bkash Tranjection ID! **";
-
-            trxid.focus();
-            return false;
-        }
-        if(regex_traxid.test(trxid.value) === false) {
-       document.getElementById('trxid_error').innerHTML="** Invalid Transection ID **";
-       trxid.focus();
-       return false;
-      }
-        else{
-          document.getElementById('trxid_error').innerHTML="";
-        }
+      //   if(bkash.value==''){
+      //       document.getElementById('bkash_error').innerHTML="** Please Enter Bkash Number! **";
+      //       bkash.focus();
+      //       return false;
+      //   }
+      //   if(regex_mobile.test(bkash.value) === false){
+      //     document.getElementById('bkash_error').innerHTML="** Please Enter a Valid Bkash Number ! **";
+      //       bkash.focus();
+      //       return false;
+      //   }
+      //
+      //   else{
+      //     document.getElementById('bkash_error').innerHTML="";
+      //   }
+      //
+      //   if(taka.value==''){
+      //       document.getElementById('taka_error').innerHTML="** Please Enter Amount Of Taka! **";
+      //
+      //       taka.focus();
+      //       return false;
+      //   }else{
+      //     document.getElementById('taka_error').innerHTML="";
+      //   }
+      //
+      //
+      //   if(trxid.value==''){
+      //       document.getElementById('trxid_error').innerHTML="** Please Enter Bkash Tranjection ID! **";
+      //
+      //       trxid.focus();
+      //       return false;
+      //   }
+      //   if(regex_traxid.test(trxid.value) === false) {
+      //  document.getElementById('trxid_error').innerHTML="** Invalid Transection ID **";
+      //  trxid.focus();
+      //  return false;
+      // }
+      //   else{
+      //     document.getElementById('trxid_error').innerHTML="";
+      //   }
 
       if (!valid){
         document.getElementById('gender_error').innerHTML="** Please Select Your Gender! **";

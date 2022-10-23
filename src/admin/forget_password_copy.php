@@ -34,14 +34,14 @@ require '../librery/PHPMailer/src/SMTP.php';
 
 $mail = new PHPMailer();
 $mail->address($email);
-$mail->setFrom(address:"shubha@ergo-ventures.com", name:"Admin");
+$mail->setFrom(address:"smsoftware76@gmail.com", name:"Admin");
 $mail->subject = "Reset Password";
 $mail->isHTML(true);
 $mail->body = "
               Hi, <br><br>
 
               In order to reset your password, please click on the link below:<br>
-              <a href='http://localhost/Kadambari%20PHP%20Dynamic%202/src/admin/Forget_password.php?email=$email&token=$token'>http://localhost/Kadambari%20PHP%20Dynamic%202/src/admin/Forget_password.php?email=$email&token=$token</a> <br><br>
+              <a href='http://localhost/Kadambari-Student-Portal/src/admin/forget_password.php?email=$email&token=$token'>http://localhost/Kadambari-Student-Portal/src/admin/forget_password.php?email=$email&token=$token</a> <br><br>
 
 
               kind Regards<br>

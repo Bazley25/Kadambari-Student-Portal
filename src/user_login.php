@@ -8,9 +8,21 @@ include("header.php");
   <div class="login-wrap">
     <div class="login-content">
         <div class="col-md-6 col-md-offset-3 center">
-          <?php if(isset($_SESSION['error'])) { ?>
+          <?php if(isset($_SESSION['student_error'])) { ?>
              <div class="alert alert-success mt-3" role="alert">
               <strong>Ops!</strong> Email Or Password is Wrong. Provide Correct Information
+            </div>
+          <?php }?>
+
+          <?php if(isset($_SESSION['student_not_exit'])) { ?>
+             <div class="alert alert-success mt-3" role="alert">
+              <strong>Ops !</strong> This Student Mail Not Exits !!
+            </div>
+          <?php }?>
+
+          <?php if(isset($_SESSION['wrong_student'])) { ?>
+             <div class="alert alert-success mt-3" role="alert">
+              <strong>Ops!</strong> Invalid Student Login !!
             </div>
           <?php }?>
 
@@ -19,6 +31,13 @@ include("header.php");
               <strong>Success!</strong> <?php echo $_SESSION['reg_msg'];?>
             </div>
           <?php }?>
+
+            <?php if(isset($_SESSION['email_not_verified'])) { ?>
+             <div class="alert alert-success mt-3" role="alert">
+              <strong>Ops !</strong> <?php echo $_SESSION['email_not_verified'];?>
+            </div>
+          <?php }?>
+
             <?php if(isset($_SESSION['reg_msg_error'])) { ?>
              <div class="alert alert-denger mt-3" role="alert">
               <strong>Ohs!</strong> <?php echo $_SESSION['reg_msg_error'];?>
@@ -83,7 +102,10 @@ include("header.php");
     </script>
     <br>
   <?php include("footer.php"); ?>
-<?php unset($_SESSION['error']);?>
+<?php unset($_SESSION['student_error']);?>
 <?php unset($_SESSION['reg_msg']);?>
 <?php unset($_SESSION['reg_msg_error']);?>
 <?php unset($_SESSION['user_activation']);?>
+<?php unset($_SESSION['student_not_exit']);?>
+<?php unset($_SESSION['wrong_student']);?>
+<?php unset($_SESSION['email_not_verified']);?>

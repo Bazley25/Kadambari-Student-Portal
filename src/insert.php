@@ -116,12 +116,12 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
               <div class="form-group col-md-4 float-left ml-0 pl-0">
                   <label for="ocupation">Ocupation <span class="text-denger">*</span></label>
                   <input type="text" class="form-control"  name="occupation" id="occupation" placeholder="Enter Your Ocupation">
-                  <p class="input_sms text-warning " id="ocupation_error"></p>
+                  <p class="input_sms text-warning " id="occupation_error"></p>
               </div>
               <div class="form-group col-md-4 float-left ml-0 pl-0">
-                  <label for="workpalce">Workplase Address <span class="text-denger">*</span></label>
-                  <input type="text" class="form-control"  name="workpalce" id="workplase" placeholder="Enter Your Workpalce Address">
-                  <p class="input_sms text-warning" id="workplase_error"></p>
+                  <label for="workpalce">Workplace Address <span class="text-denger">*</span></label>
+                  <input type="text" class="form-control"  name="workplace" id="workplace" placeholder="Enter Your Workpalce Address">
+                  <p class="input_sms text-warning" id="workplace_error"></p>
               </div>
             </div>
             <div class="form-group m-o clearfix">
@@ -160,7 +160,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
           <div class="form-group  m-o clearfix">
 
             <!-- gender part start -->
-            <div class="col-md-4 float-left ">
+            <div class="col-md-5 float-left ">
               <div class="col-form-label  pt-0">Select Gender <span class="text-denger">*</span></div>
               <div class="form-check float-left mr-4">
                 <input class="form-check-input" type="radio"  name="gender" id="male"  value="Male" >
@@ -174,7 +174,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
             </div>
             <!-- Gender Part End -->
 
-            <div class="form-group col-md-8 float-left ml-0 pl-0">
+            <div class="form-group col-md-7 float-left ml-0 pl-0">
                 <div class="col-form-label  pt-0">Do You have Guest? <span class="text-denger">*</span></div>
                 <div class="form-check float-left mr-4">
                   <!-- <input  type="radio" aria-label="Radio button for following text input"  name="guest" id="yes"  value="Yes" > -->

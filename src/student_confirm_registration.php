@@ -28,7 +28,7 @@ header("location:student_registration.php");
     $sql= "INSERT INTO users (name,email,user_type,password,token,status) VALUES ('$name','$email','gen_user','$hash','$token','inactive')";
     if(mysqli_query($conn,$sql)){
       $subject = "Account Activation";
-      $body = "Hi, $name. Click here to varify your Email http://localhost/Kadambari-PHP-Dynamic-2/src/user_activation_mail.php?token=$token";
+      $body = "Hi, $name. Click here to varify your Email http://localhost/Kadambari-Student-Portal/src/user_activation_mail.php?token=$token";
       $sender = "From: shubha@ergo-ventures.com";
 
       if (mail($email, $subject, $body, $sender)) {
