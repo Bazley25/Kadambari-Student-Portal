@@ -68,7 +68,6 @@ $total_count= mysqli_num_rows($result);
                 </div>
             </div>
             </div>
-
       <form  action="entry.php" name="scan_data" method="post" enctype="multipart/form-data">
             <div class="proccess text-center">
                 <input type="submit" name="submit" class="btn btn-primary" value="Proced"  id='submit'>
@@ -76,8 +75,7 @@ $total_count= mysqli_num_rows($result);
             <table class="table table-bordered  mt-3 text-white " >
           <tr>
               <th>Security Code</th>
-              <td ><span id="security_code"></span> </td>
-
+              <td ><span id="security_code"></span></td>
           </tr>
           <tr>
               <th>Student Name</th>
@@ -133,9 +131,7 @@ $total_count= mysqli_num_rows($result);
           </tr>
            <tr>
               <th width="30%">Extra Person </th>
-
               <td> <input type="number" class="form-control" min="0" max="5" id="extra_person" value="0" name="extra_person"></td>
-
           </tr>
   <!-- *********************************************** -->
            <!-- <tr>

@@ -43,9 +43,7 @@
           <a class="nav-link" href="contact.php">contact </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        sign up/log in
-        </a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">sign up/log in</a>
         <div class="dropdown-menu bg-success text-light" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="student_registration.php">sign up</a>
           <a class="dropdown-item" href="user_login.php">log in</a>
