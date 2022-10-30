@@ -1,9 +1,15 @@
+<?php
+include("db.php");
+
+$sql= "SELECT * FROM news ";
+$result = mysqli_query($conn,$sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="css/uikit.min.css">
   <link rel="stylesheet" href="css/slick.css">
   <link rel="stylesheet" href="css/slick-theme.css">
@@ -20,9 +26,8 @@
   <title>কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০</title>
 </head>
 <body>
-
    <section id="showcase" class="bg-success">
-        <nav class="navbar navbar-dark  navbar-expand-md" uk-sticky="top: 5; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
+  <nav class="navbar navbar-dark  navbar-expand-md" uk-sticky="top: 5; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
   <div class="container ">
     <a href="index.php" class="navbar-brand ">কদমবাড়ী উচ্চবিদ্যালয় </a>
     <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav">
@@ -56,14 +61,19 @@
   </div>
 </nav>
    </section>
-
+<!-- marquee file er karone pdf download hoy na -->
 <!-- News section-->
-
 <section class="news bg-dark">
         <div class="container">
         <div class="row">
-            <div class="col-md">
-              <marquee class="text-light">*** কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০ এ আপনাকে স্বাগতম ***  আপনি  একবারই রেজিস্ট্রেশন করতে পারবেন। যদি কোন প্রকার ভুল করে থাকেন তবে আপনার তথ্য আপডেড করার জন্য ইমেইল করুন: shubhamandal70@gmail.com****
+          <marquee class="text-light" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+            <?php
+            if(mysqli_num_rows($result) >0){
+              while($row = mysqli_fetch_assoc($result)){
+                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ****  &nbsp;&nbsp;&nbsp;&nbsp;", $row["news_description"],"&nbsp;&nbsp;&nbsp;|&nbsp;|";
+              }
+            }
+            ?>
             </marquee>
             </div>
         </div>

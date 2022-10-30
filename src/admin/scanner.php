@@ -132,7 +132,7 @@ $total_count= mysqli_num_rows($result);
               <td><span id="gender"></span></td>
           </tr>
            <tr>
-              <th>Extra Person </th>
+              <th width="30%">Extra Person </th>
 
               <td> <input type="number" class="form-control" min="0" max="5" id="extra_person" value="0" name="extra_person"></td>
 
