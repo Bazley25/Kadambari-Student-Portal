@@ -59,9 +59,7 @@ $total_count= mysqli_num_rows($result);
                   <strong>Success!</strong> Process Completed !!
                 </div>
             </div>
-
             <!-- sweet allert -->
-
             <div class="" id="fail" style="display:none">
                  <div class="alert alert-success mt-3" role="alert" >
                   <strong>Sorry!</strong> Already Entered !!
@@ -249,9 +247,7 @@ html5QrcodeScanner.render(onScanSuccess, onScanError);
 
               console.error('Error:', error);
             });
-
       });
-
     }
  });
 
