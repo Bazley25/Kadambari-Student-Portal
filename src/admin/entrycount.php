@@ -83,7 +83,7 @@ $total_count= mysqli_num_rows($count_result);
                                    <td><?php echo $row['father_name']?></td>
                                    <td><?php echo $row['mother_name']?></td>
                                    <td><?php echo $row['email']?></td>
-                                   <td><?= date('d-m-Y',strtotime($row["dob"]));?></td>
+                                   <td><?= date('d/M/Y',strtotime($row["dob"]));?></td>
                                    <td><?php echo $row['exam']?></td>
                                    <td><?php echo $row['last_edu']?></td>
                                    <td><?php echo $row['village']?></td>
@@ -91,7 +91,7 @@ $total_count= mysqli_num_rows($count_result);
                                    <td><?php echo $row['blood']?></td>
                                    <td><?php echo $row['gender']?></td>
                                    <td><?php echo $row['extra_person']?></td>
-                                   <td><?php echo date('d/M/y h:i A',strtotime($row["date"]));?></td>
+                                   <td><?php echo date('d/M/Y',strtotime($row["date"]));?></td>
                                    <td>
                                      <div class="dropdown">
                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -28,27 +28,25 @@ $total_count= mysqli_num_rows($result);
 <div class="container-fluid bg-secondary text-white">
   <div class="container bg-info text-white">
   <div class="row">
-    <div class="col-sm-4 mt-10">
-      <div class="card mt-5">
-        <div class="card-body bg-info text-white ">
-          <!-- <div class="">
+    <div class="col-sm-4 mt-3">
+      <div class="card">
+        <div class="card-body ">
+          <div class="">
             <h2>Scan Here</h2>
-          </div> -->
+          </div>
       <div  id="reader">  </div>
-
+      <br>
+      <br>
       <div class="total_count">
         <table class="table table-bordered ">
           <tr>
-            <td bg-info text-white>Total Count </td>
-            <td bg-info text-white> <?php
+            <td>Total Count</td>
+            <td> <?php
                echo $total_count;
               ?>
             </td>
           </tr>
         </table>
-        <div class="scan_input_div" style="">
-          <input id="scan_codde" type="text" name=""  value="" style="color:#fff; opacity:0" >
-        </div>
       </div>
       </div>
       </div>
@@ -139,64 +137,36 @@ $total_count= mysqli_num_rows($result);
                <td><span id="image"></span>   </td>
           </tr> -->
       </table>
-    </form>
-  </div>
+</form>
+    </div>
 
   </div>
   </div>
 </div>
 
 <script type="text/javascript">
+function onScanSuccess(qrCodeMessage) {
+  let info = qrCodeMessage.split(":")
+   document.getElementById('security_code').innerHTML = '<span class="">'+info[0]+'</span>';
+    document.getElementById('name').innerHTML = '<span class="">'+info[1]+'</span>';
+    document.getElementById('father_name').innerHTML = '<span class="">'+info[2]+'</span>';
+    document.getElementById('mother_name').innerHTML = '<span class="">'+info[3]+'</span>';
+    document.getElementById('email').innerHTML = '<span class="">'+info[4]+'</span>';
+    document.getElementById('dob').innerHTML = '<span class="">'+info[5]+'</span>';
+    document.getElementById('exam').innerHTML = '<span class="">'+info[6]+'</span>';
+    document.getElementById('last_edu').innerHTML = '<span class="">'+info[7]+'</span>';
+    document.getElementById('village').innerHTML = '<span class="">'+info[8]+'</span>';
+    document.getElementById('mobile').innerHTML = '<span class="">'+info[9]+'</span>';
+    document.getElementById('blood').innerHTML = '<span class="">'+info[10]+'</span>';
+    document.getElementById('gender').innerHTML = '<span class="">'+info[11]+'</span>';
+}
 
-let scan_codde = document.getElementById('scan_codde');
-
-window.addEventListener("load", function(){
-  scan_codde.select();
-  scan_codde.focus();
-});
-
-scan_codde.addEventListener("change", function(){
-  let output = scan_codde.value.split(":");
-
-   document.getElementById('security_code').innerHTML = output[0];
-   document.getElementById('name').innerHTML = output[1];
-   document.getElementById('father_name').innerHTML = output[2];
-   document.getElementById('mother_name').innerHTML = output[3];
-   document.getElementById('email').innerHTML = output[4];
-   document.getElementById('dob').innerHTML = output[5];
-   document.getElementById('exam').innerHTML = output[6];
-   document.getElementById('last_edu').innerHTML = output[7];
-   document.getElementById('village').innerHTML = output[8];
-   document.getElementById('mobile').innerHTML = output[9];
-   document.getElementById('blood').innerHTML = output[10];
-   document.getElementById('gender').innerHTML = output[11];
-});
-
-
-//
-//
-// function onScanSuccess(qrCodeMessage) {
-//   let info = qrCodeMessage.split(":")
-//    document.getElementById('security_code').innerHTML = '<span class="">'+info[0]+'</span>';
-//     document.getElementById('name').innerHTML = '<span class="">'+info[1]+'</span>';
-//     document.getElementById('father_name').innerHTML = '<span class="">'+info[2]+'</span>';
-//     document.getElementById('mother_name').innerHTML = '<span class="">'+info[3]+'</span>';
-//     document.getElementById('email').innerHTML = '<span class="">'+info[4]+'</span>';
-//     document.getElementById('dob').innerHTML = '<span class="">'+info[5]+'</span>';
-//     document.getElementById('exam').innerHTML = '<span class="">'+info[6]+'</span>';
-//     document.getElementById('last_edu').innerHTML = '<span class="">'+info[7]+'</span>';
-//     document.getElementById('village').innerHTML = '<span class="">'+info[8]+'</span>';
-//     document.getElementById('mobile').innerHTML = '<span class="">'+info[9]+'</span>';
-//     document.getElementById('blood').innerHTML = '<span class="">'+info[10]+'</span>';
-//     document.getElementById('gender').innerHTML = '<span class="">'+info[11]+'</span>';
-// }
-//
-// function onScanError(errorMessage) {
-//   //handle scan error
-// }
-// var html5QrcodeScanner = new Html5QrcodeScanner(
-//     "reader", { fps: 10, qrbox: 250 });
-// html5QrcodeScanner.render(onScanSuccess, onScanError);
+function onScanError(errorMessage) {
+  //handle scan error
+}
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess, onScanError);
 </script>
 <!-- scanner javascript  end-->
 

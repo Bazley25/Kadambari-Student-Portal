@@ -59,7 +59,6 @@ $std= mysqli_fetch_assoc($result);
                                                                                                     <a href="http://www.shubhamandal.com/" target="_blank" style="color:#fff">www.shubhamandal.com/students</a>
                                                                                                 </b>
 
-
                                                                                             </font>
                                                                                         </font>
                                                                                     </font>
@@ -231,17 +230,10 @@ $std= mysqli_fetch_assoc($result);
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td width="25%" align="left" valign="middle">
-                                                                        Birth Registration                                                              </td>
-                                                                    <td width="25%" align="left" valign="middle">
-                                                                        N/A
-                                                                    </td>
-                                                                    <td width="25%" align="left" valign="middle">
-                                                                        Employee Status
-                                                                    </td>
-                                                                    <td width="25%" align="left" valign="middle">
-                                                                        Not Employee
-                                                                    </td>
+                                                                    <td width="25%" align="left" valign="middle">Birth Registration</td>
+                                                                    <td width="25%" align="left" valign="middle">N/A</td>
+                                                                    <td width="25%" align="left" valign="middle">Employee Status</td>
+                                                                    <td width="25%" align="left" valign="middle">Not Employee</td>
                                                                 </tr>
 
                                                             </tbody>
