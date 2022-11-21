@@ -184,24 +184,24 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
 
               <span id="extraOption" style="display: none;">
                 <label><span>[Select Guest Type]</span> </label>
-                <input onclick="husband_check();" name="husband" id="husband" type="checkbox">
+                <input onclick="husband_check();" name="guests[]" value="Husband" id="husband" type="checkbox">
                 <label> Husband</label>
-                <input onclick="wife_check();" name="wife" id="wife" type="checkbox">
+                <input onclick="wife_check();" name="guests[]" value="Wife" id="wife" type="checkbox">
                 <label> Wife</label>
 
-                <input onclick="child_check();" name="child" id="child" type="checkbox">
+                <input onclick="child_check();" name="guests[]" value="Child" id="child" type="checkbox">
                 <label> child</label>
 
-                <input name="child" id="childRelation" type="number" placeholder=" Age" max="12" min="5"  style="display: none;">
-                <input onclick="other_check();" name="child" id="other" type="checkbox">
+                <input name="guests[]" id="childRelation" type="number" placeholder=" Age" max="12" min="5"  style="display: none;">
+                <input onclick="other_check();" name="guests[]" value="Others" id="other" type="checkbox">
                 <label> othres</label>
-                <input name="others" id="otherRelation" type="text" placeholder=" Wright Other Guset" style="display: none;">
+                <input name="guests[]" id="otherRelation" type="text" placeholder=" Enter Name" style="display: none;">
               </span>
                   <!-- <label class="form-check-label" for="yes">Yes</label> -->
                 </div>
                 <div class="form-check float-left ml-4">
                   <!-- <input class="form-check-input" type="radio"  name="guest" id="no" value="No" checked> -->
-                  <label><input type="radio" name="guest" id="no_guest" value="0" onclick="test();" /> <span>No</span></label>
+                  <label><input type="radio" name="guests[]" id="no_guest" value="N/A" onclick="test();" /> <span>No</span></label>
                   <!-- <label class="form-check-label" for="no">No </label> -->
                   <p class="input_sms text-warning" id="guest_error"></p>
                 </div>
@@ -232,7 +232,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
                   </div>
                   <div class="form-group col-md-4 float-left ml-0 pl-0 ">
                     <label>Enter Code</label>
-                    <input type="text" class="form-control" name="captcha" id="capcha">
+                    <input type="text" class="form-control" name="captcha" id="capcha_code">
                     <p class="input_sms text-warning" id="capcha_error"></p>
                   </div>
                   <!-- capcha end -->

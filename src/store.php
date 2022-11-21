@@ -7,20 +7,25 @@ include("db.php");
 include('librery/phpqrcode/qrlib.php');
 include('librery/barcode/vendor/autoload.php');
 
- $name=($_POST['name']);
- $father_name= ($_POST['father_name']);
- $mother_name=($_POST['mother_name']);
- $email=($_POST['email']);
- $dob=($_POST['dob']);
- $exam=($_POST['exam']);
- $last_edu=($_POST['last_edu']);
- $village=($_POST['village']);
- $mobile=($_POST['mobile']);
- $blood=($_POST['blood']);
- $bkash=($_POST['bkash']);
- $taka=($_POST['taka']);
- $trxid=($_POST['trxid']);
- $gender=($_POST['gender']);
+ $name=$_POST['name'];
+ $father_name= $_POST['father_name'];
+ $mother_name=$_POST['mother_name'];
+ $dob=$_POST['dob'];
+ $exam=$_POST['exam'];
+ $last_edu =$_POST['last_edu'];
+ $last_edu_ins=$_POST['last_edu_ins'];
+ $occupation=$_POST['occupation'];
+ $workplace=$_POST['workplace'];
+ $email=$_POST['email'];
+ // $village=($_POST['village']);
+ $mobile=$_POST['mobile'];
+ $blood=$_POST['blood'];
+ // $bkash=($_POST['bkash']);
+ // $taka=($_POST['taka']);
+ // $trxid=($_POST['trxid']);
+ $gender=$_POST['gender'];
+ $guests= $_POST['guests'];
+ $guest_item = implode(" ",$guests);
  // **************************************************************
 
  $sql2= "SELECT * FROM students WHERE  mobile='$mobile'";
@@ -41,7 +46,7 @@ list($width, $height, $type, $attr) = getimagesize($uploaded_file);
      $allowed_extention = array('jpg');
      if(in_array($extention, $allowed_extention)){
        if($uploaded_file['size'] <= 100000 && ($width == 300 && $height == 300)){
-         $insert_query = "INSERT INTO students(name,father_name,mother_name,email,dob,exam,last_edu,village,mobile,blood,bkash,taka,trxid,gender,status) VALUES('$name','$father_name','$mother_name','$email','$dob','$exam','$last_edu','$village','$mobile','$blood','$bkash','$taka','$trxid', '$gender','pending')";
+         $insert_query = "INSERT INTO students(name,father_name,mother_name,dob,exam,last_edu,last_edu_ins,occupation,workplace,email,mobile,blood,gender,guest_item,status) VALUES('$name','$father_name','$mother_name','$dob','$exam','$last_edu','$last_edu_ins','$occupation','$workplace','$email','$mobile','$blood','$gender','$guest_item','pending')";
          $result = mysqli_query($conn,$insert_query);
          $last_id = mysqli_insert_id($conn);
          $file_name = $last_id.'.'.$extention;
@@ -65,7 +70,7 @@ list($width, $height, $type, $attr) = getimagesize($uploaded_file);
          //  'Mobile '=> $mobile,
          //    /* Add here all the data you need*/
          //  ];
-         $codeContents = $random_string . ":". $name . ":". $father_name .":" . $mother_name .":". $email .":". $dob .":". $exam .":". $last_edu .":". $village .":". $mobile .":". $blood .":". $gender;
+         $codeContents = $random_string . ":". $name . ":". $father_name .":" . $mother_name .":". $email .":". $dob .":". $exam .":". $last_edu .":". $mobile .":". $blood .":". $gender .":". $guest_item;
          // $codeContents = array('Name' => $name,
          //                        'Father Name '=>$father_name,
          //                        'Mother Name'=> $mother_name,

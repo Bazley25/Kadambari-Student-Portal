@@ -26,11 +26,11 @@ $email = real_escape_string($input['email']);
 $dob = real_escape_string($input['dob']);
 $exam = real_escape_string($input['exam']);
 $last_edu = real_escape_string($input['last_edu']);
-$village = real_escape_string($input['village']);
 $mobile = real_escape_string($input['mobile']);
 $blood = real_escape_string($input['blood']);
 $gender = real_escape_string($input['gender']);
-$extra_person = real_escape_string($input['extra_person']);
+$guest_item = real_escape_string($input['guest_item']);
+// $guest_type = real_escape_string(implode(" ",$guest_item));
 
 $verify_sql= "SELECT * FROM total_entry_counts WHERE  mobile='$mobile' ";
 
@@ -41,7 +41,8 @@ if($rowcount >= 1){
     $status = false;
 
 }else {
-  $insert_query = "INSERT INTO total_entry_counts(security_code,name,father_name,mother_name,email,dob,exam,last_edu,village,mobile,blood,gender,extra_person) VALUES('$security_code','$name','$father_name','$mother_name','$email','$dob','$exam','$last_edu','$village','$mobile','$blood','$gender','$extra_person')";
+
+  $insert_query = "INSERT INTO total_entry_counts(security_code,name,father_name,mother_name,email,dob,exam,last_edu,mobile,blood,gender,guest_item) VALUES('$security_code','$name','$father_name','$mother_name','$email','$dob','$exam','$last_edu','$mobile','$blood','$gender','$guest_item')";
 
   $result = mysqli_query($conn,$insert_query);
 

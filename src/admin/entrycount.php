@@ -61,11 +61,10 @@ $total_count= mysqli_num_rows($count_result);
                           <th>Date Of Birth</th>
                           <th>SSC Year</th>
                           <th>Edu Level</th>
-                          <th>Village</th>
                           <th>Mobile No</th>
                           <th>Blood Group</th>
                           <th>Gender</th>
-                          <th>Extra Person</th>
+                          <th>Guest Type</th>
                           <th>Entry Time</th>
                           <th>Action</th>
                       </thead>
@@ -86,11 +85,11 @@ $total_count= mysqli_num_rows($count_result);
                                    <td><?= date('d/M/Y',strtotime($row["dob"]));?></td>
                                    <td><?php echo $row['exam']?></td>
                                    <td><?php echo $row['last_edu']?></td>
-                                   <td><?php echo $row['village']?></td>
+
                                    <td><?php echo $row['mobile']?> </td>
                                    <td><?php echo $row['blood']?></td>
                                    <td><?php echo $row['gender']?></td>
-                                   <td><?php echo $row['extra_person']?></td>
+                                   <td><?php echo $row['guest_item']?></td>
                                    <td><?php echo date('d/M/Y',strtotime($row["date"]));?></td>
                                    <td>
                                      <div class="dropdown">

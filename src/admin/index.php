@@ -67,13 +67,16 @@ $total_count= mysqli_num_rows($count_result);
                           <th>Date Of Birth</th>
                           <th>SSC Year</th>
                           <th>Edu Level</th>
-                          <th>Village</th>
+                          <th>Last Edu Inst Name</th>
+                          <th>Occupation</th>
+                          <th>Workplace</th>
                           <th>Mobile No</th>
                           <th>Blood Group</th>
-                          <th>Bkash No </th>
-                          <th>Amount </th>
-                          <th>Trx ID</th>
+                          <th>Gender </th>
+                          <th>Guest Type </th>
+                          <!-- <th>Trx ID</th>
                           <th>Gender</th>
+                          <th>Guest Type</th> -->
                           <th>Image</th>
                           <th >Date</th>
                           <th >Status</th>
@@ -95,13 +98,16 @@ $total_count= mysqli_num_rows($count_result);
                               <td ><?= date('d/m/Y',strtotime($row["dob"]));?></td>
                               <td ><?= $row['exam']?></td>
                               <td ><?= $row['last_edu']?></td>
-                              <td ><?= $row['village']?></td>
+                              <td ><?= $row['last_edu_ins']?></td>
+                              <td ><?= $row['occupation']?></td>
+                              <td width="50%"><?= $row['workplace']?></td>
                               <td ><?= $row['mobile']?></td>
                               <td ><?= $row['blood']?></td>
-                              <td ><?= $row['bkash']?></td>
+                              <!-- <td ><?= $row['bkash']?></td>
                               <td ><?= $row['taka']?></td>
-                              <td ><?= $row['trxid']?></td>
+                              <td ><?= $row['trxid']?></td> -->
                               <td ><?= $row['gender']?></td>
+                              <td ><?= $row['guest_item']?></td>
                               <td > <img src="../uploads/<?= $row['image']?>" width="50">  </td>
                               <td > <?php echo date('d/M/y h:i A',strtotime($row["date"]));?></td>
                               <td >

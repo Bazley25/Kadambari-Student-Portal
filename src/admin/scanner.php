@@ -110,10 +110,7 @@ $total_count= mysqli_num_rows($result);
               <th>Last Eduction Level</th>
               <td><span id="last_edu"></span></td>
           </tr>
-           <tr>
-              <th>Village Name</th>
-              <td><span id="village"></span></td>
-          </tr>
+
   <!-- *********************************************** -->
            <tr>
               <th>Student Mobile</th>
@@ -130,8 +127,8 @@ $total_count= mysqli_num_rows($result);
               <td><span id="gender"></span></td>
           </tr>
            <tr>
-              <th width="30%">Extra Person </th>
-              <td> <input type="number" class="form-control" min="0" max="5" id="extra_person" value="0" name="extra_person"></td>
+              <th width="30%">Guset Type </th>
+              <td><span id="guest_item"></span></td>
           </tr>
   <!-- *********************************************** -->
            <!-- <tr>
@@ -166,10 +163,10 @@ scan_codde.addEventListener("change", function(){
    document.getElementById('dob').innerHTML = output[5];
    document.getElementById('exam').innerHTML = output[6];
    document.getElementById('last_edu').innerHTML = output[7];
-   document.getElementById('village').innerHTML = output[8];
-   document.getElementById('mobile').innerHTML = output[9];
-   document.getElementById('blood').innerHTML = output[10];
-   document.getElementById('gender').innerHTML = output[11];
+   document.getElementById('mobile').innerHTML = output[8];
+   document.getElementById('blood').innerHTML = output[9];
+   document.getElementById('gender').innerHTML = output[10];
+   document.getElementById('guest_item').innerHTML = output[11];
 });
 
 
@@ -221,11 +218,10 @@ scan_codde.addEventListener("change", function(){
             let dob = document.querySelector('#dob').innerText;
             let exam = document.querySelector('#exam').innerText;
             let last_edu = document.querySelector('#last_edu').innerText;
-            let village = document.querySelector('#village').innerText;
             let mobile = document.querySelector('#mobile').innerText;
             let blood = document.querySelector('#blood').innerText;
             let gender = document.querySelector('#gender').innerText;
-            let extra_person = document.getElementById('extra_person').value;
+            let guest_item = document.querySelector('#guest_item').innerText;
 
             e.preventDefault();
             if (mobile === "") {
@@ -243,11 +239,10 @@ scan_codde.addEventListener("change", function(){
              data.dob = dob;
              data.exam = exam;
              data.last_edu = last_edu;
-             data.village = village;
              data.mobile = mobile;
              data.blood = blood;
              data.gender = gender;
-             data.extra_person = extra_person;
+             data.guest_item = guest_item;
 
             const url = 'entry.php';
 
