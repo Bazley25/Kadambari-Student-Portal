@@ -22,7 +22,8 @@ if($mail_search){
 $userdata = mysqli_fetch_array($result);
 $name=$userdata['name'];
 $token =$userdata['token'];
-
+print_r($token);
+die();
   $subject = "Reset Password";
   $body = 'Hi, $name Click on the link to reset your password <a href="http://localhost/Kadambari-Student-Portal/src/admin_reset_password.php?token=$token">Reset Password</a>';
   $sender = "from:smsoftware76@gmail.com";

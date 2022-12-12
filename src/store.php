@@ -17,15 +17,21 @@ include('librery/barcode/vendor/autoload.php');
  $occupation=$_POST['occupation'];
  $workplace=$_POST['workplace'];
  $email=$_POST['email'];
- // $village=($_POST['village']);
  $mobile=$_POST['mobile'];
  $blood=$_POST['blood'];
- // $bkash=($_POST['bkash']);
- // $taka=($_POST['taka']);
- // $trxid=($_POST['trxid']);
  $gender=$_POST['gender'];
  $guests= $_POST['guests'];
  $guest_item = implode(" ",$guests);
+ $captcha= $_POST['captcha'];
+ $village= $_POST['village'];
+ $division= $_POST['division'];
+ $district= $_POST['district'];
+ $thana= $_POST['thana'];
+ $pvillage= $_POST['pvillage'];
+ $pdivision = $_POST['pdivision'];
+ $pdistrict = $_POST['pdistrict'];
+ $pthana = $_POST['pthana'];
+
  // **************************************************************
 
  $sql2= "SELECT * FROM students WHERE  mobile='$mobile'";
@@ -46,7 +52,7 @@ list($width, $height, $type, $attr) = getimagesize($uploaded_file);
      $allowed_extention = array('jpg');
      if(in_array($extention, $allowed_extention)){
        if($uploaded_file['size'] <= 100000 && ($width == 300 && $height == 300)){
-         $insert_query = "INSERT INTO students(name,father_name,mother_name,dob,exam,last_edu,last_edu_ins,occupation,workplace,email,mobile,blood,gender,guest_item,status) VALUES('$name','$father_name','$mother_name','$dob','$exam','$last_edu','$last_edu_ins','$occupation','$workplace','$email','$mobile','$blood','$gender','$guest_item','pending')";
+         $insert_query = "INSERT INTO students(name,father_name,mother_name,dob,exam,last_edu,last_edu_ins,occupation,workplace,email,mobile,blood,gender,guest_item,captcha,village,division,district,thana,pvillage,pdivision,pdistrict,pthana,status) VALUES('$name','$father_name','$mother_name','$dob','$exam','$last_edu','$last_edu_ins','$occupation','$workplace','$email','$mobile','$blood','$gender','$guest_item','$captcha','$village','$division','$district','$thana','$pvillage','$pdivision','$pdistrict','$pthana','pending')";
          $result = mysqli_query($conn,$insert_query);
          $last_id = mysqli_insert_id($conn);
          $file_name = $last_id.'.'.$extention;
