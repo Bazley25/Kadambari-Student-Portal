@@ -7,7 +7,7 @@ include("admin_header.php");
 
 include("../db.php");
 // ******** Important *******************
-$sql= "SELECT * FROM students";
+$sql= "SELECT * FROM students ORDER BY id DESC";
 $result = mysqli_query($conn,$sql);
 
 // total register count

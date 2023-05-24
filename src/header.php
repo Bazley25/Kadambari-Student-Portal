@@ -21,6 +21,16 @@
 </head>
 <body>
 
+  <section class="news bg-dark">
+          <div class="container">
+          <div class="row">
+              <div class="col-md">
+                <marquee behavior="alternate"  class="text-light">কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০  </marquee>
+              </div>
+          </div>
+      </div>
+  </section>
+
    <section id="showcase" class="bg-success">
         <nav class="navbar navbar-dark  navbar-expand-md" uk-sticky="top: 5; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
   <div class="container ">
