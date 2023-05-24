@@ -31,7 +31,7 @@ $result = mysqli_query($conn,$sql);
           <div class="container">
           <div class="row">
               <div class="col-md">
-                <marquee behavior="alternate"  class="text-light">কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০  </marquee>
+                <marquee behavior="alternate"  ><h2 class="text-light pt-1">কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০</h2>  </marquee>
               </div>
           </div>
       </div>
