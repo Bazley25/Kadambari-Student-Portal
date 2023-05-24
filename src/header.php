@@ -1,3 +1,9 @@
+<?php
+include("db.php");
+
+$sql= "SELECT * FROM news ";
+$result = mysqli_query($conn,$sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,8 +76,14 @@
 <section class="news bg-dark">
         <div class="container">
         <div class="row">
-            <div class="col-md">
-              <marquee class="text-light">*** কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০ এ আপনাকে স্বাগতম ***  আপনি  একবারই রেজিস্ট্রেশন করতে পারবেন। যদি কোন প্রকার ভুল করে থাকেন তবে আপনার তথ্য আপডেড করার জন্য ইমেইল করুন: shubhamandal70@gmail.com****
+          <marquee class="text-light" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+            <?php
+            if(mysqli_num_rows($result) >0){
+              while($row = mysqli_fetch_assoc($result)){
+                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ****  &nbsp;&nbsp;&nbsp;&nbsp;", $row["news_description"],"&nbsp;&nbsp;&nbsp;|&nbsp;|";
+              }
+            }
+            ?>
             </marquee>
             </div>
         </div>
