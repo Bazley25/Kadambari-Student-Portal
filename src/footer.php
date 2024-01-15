@@ -24,7 +24,15 @@
   <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js.map"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/mainjs/copyaddress.js"></script>
+<script type="text/javascript" src="js/mainjs/division_district_thana.js"></script>
+<script type="text/javascript" src="js/mainjs/formvalidation.js"></script>
+<script type="text/javascript" src="js/mainjs/guest.js"></script>
   <script>
     $(document).ready( function () {
     $('#noticeTable').DataTable();
@@ -38,18 +46,7 @@ document.addEventListener("contextmenu", function(i){
 });
 </script> -->
 
-<!-- date picker start -->
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-    <script>
-    config ={
-    altInput: true,
-    altFormat: "j-M-Y",
-    dateFormat: "Y-m-d",
-    }
-        flatpickr("input[type=date]", config);
-    </script>
-<!-- date picker end -->
 
 <!-- Ctrl + u disabale code -->
 <script type="text/javascript">

@@ -8,34 +8,32 @@ $result = mysqli_query($conn,$sql);
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/uikit.min.css">
   <link rel="stylesheet" href="css/slick.css">
   <link rel="stylesheet" href="css/slick-theme.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="css/responsive.dataTables.min.css">
-  <script src="https://kit.fontawesome.com/0b5a974696.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+
+  <!-- <script src="https://kit.fontawesome.com/0b5a974696.js" crossorigin="anonymous"></script> -->
+<link rel="stylesheet" href="css/webfonts/fa-brands-400.ttf">
+<link rel="stylesheet" href="css/fontawsome.min.css">
   <link rel="stylesheet" href="scss/style.scss">
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+
+  <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" type="image/x-icon" href="favicon/khs.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <title>কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০</title>
+
 </head>
 <body>
-
-  <section class="news bg-dark">
-          <div class="container">
-          <div class="row">
-              <div class="col-md">
-                <marquee behavior="alternate"  ><h2 class="text-light pt-1">কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০</h2>  </marquee>
-              </div>
-          </div>
-      </div>
-  </section>
 
    <section id="showcase" class="bg-success">
         <nav class="navbar navbar-dark  navbar-expand-md" uk-sticky="top: 5; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
@@ -47,10 +45,13 @@ $result = mysqli_query($conn,$sql);
     <div id="navbarNav" class="collapse navbar-collapse ">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="index.php">home</a>
+          <a class="nav-link" href="index.php"><i class="fas fa-home"></i> home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="insert.php">registration</a>
+          <a class="nav-link" href="insert.php"> registration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"> Verify Payment</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="support.php">notice</a>
@@ -59,7 +60,9 @@ $result = mysqli_query($conn,$sql);
           <a class="nav-link" href="contact.php">contact </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">sign up/log in</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        sign up/log in
+        </a>
         <div class="dropdown-menu bg-success text-light" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="student_registration.php">sign up</a>
           <a class="dropdown-item" href="user_login.php">log in</a>
@@ -79,8 +82,8 @@ $result = mysqli_query($conn,$sql);
           <marquee class="text-light" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
             <?php
             if(mysqli_num_rows($result) >0){
-              while($row = mysqli_fetch_assoc($result)){
-                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ****  &nbsp;&nbsp;&nbsp;&nbsp;", $row["news_description"],"&nbsp;&nbsp;&nbsp;|&nbsp;|";
+              while($row = mysqli_fetch_assoc($result)) {
+                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **** &nbsp;&nbsp;&nbsp;&nbsp;", $row["news_description"],"&nbsp;&nbsp;&nbsp;|&nbsp;|";
               }
             }
             ?>

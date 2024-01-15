@@ -34,13 +34,15 @@ $total_count= mysqli_num_rows($count_result);
           </div>
           <!-- flas sms -->
           <div class=" ml-auto">
-            <div class=" m-3 float-right p-1 text-light bg-info">
-                       <span > Total Entry :</span>
+            <div class=" m-3 float-right p-1 bg-secondary ">
+                       <span class="text-light"> Total Entry :</span>
 
-                    <?php
+                    <span class="text-light">
+                      <?php
                     // $sum =$total_count+$guest_total_count;
                     echo $total_count;
                     ?>
+                    </span>
             </div>
 
           </div>

@@ -127,7 +127,7 @@ $total_count= mysqli_num_rows($result);
               <td><span id="gender"></span></td>
           </tr>
            <tr>
-              <th width="30%">Guset Type </th>
+              <th width="30%">Guest Type </th>
               <td><span id="guest_item"></span></td>
           </tr>
   <!-- *********************************************** -->

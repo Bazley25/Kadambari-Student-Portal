@@ -68,7 +68,7 @@ $total_count= mysqli_num_rows($result);
             </div>
       <form  action="entry.php" name="scan_data" method="post" enctype="multipart/form-data">
             <div class="proccess text-center">
-                <input type="submit" name="submit" class="btn btn-primary" value="Proced"  id='submit'>
+                <input type="submit" name="submit" class="btn btn-primary" value="Proced"  id='submit' >
             </div>
             <table class="table table-bordered  mt-3 text-white " >
           <tr>
@@ -178,6 +178,7 @@ html5QrcodeScanner.render(onScanSuccess, onScanError);
      const submit = document.querySelector('#submit');
      const place = document.querySelector('#success');
      const fail = document.querySelector('#fail');
+     
 
      if(submit != null){
 

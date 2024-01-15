@@ -177,7 +177,6 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
             <div class="form-group col-md-7 float-left ml-0 pl-0">
                 <div class="col-form-label  pt-0">Do You have Guest? <span class="text-denger">*</span></div>
                 <div class="form-check float-left mr-4">
-                  <!-- <input  type="radio" aria-label="Radio button for following text input"  name="guest" id="yes"  value="Yes" > -->
                   <label>
                 <input name="guest" type="radio" id="guest_yes" value="1" onclick="test();" /> <span>Yes</span>
               </label>
@@ -191,18 +190,19 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
 
                 <input onclick="child_check();" name="guests[]" value="Child" id="child" type="checkbox">
                 <label> child</label>
+                <input name="guests[]"  id="childRelation" type="number" placeholder="Age" max="12" min="5" style="display: none;">
 
-                <input name="guests[]" id="childRelation" type="number" placeholder=" Age" max="12" min="5"  style="display: none;">
-                <input onclick="other_check();" name="guests[]" value="Others" id="other" type="checkbox">
+
+
+                <input onclick="other_check();" name="guests[]" value="Others"  id="other" type="checkbox">
                 <label> othres</label>
-                <input name="guests[]" id="otherRelation" type="text" placeholder=" Enter Name" style="display: none;">
+                <input  name="guests[]"  id="otherRelation" type="text" placeholder="Enter name" style="display: none;">
               </span>
-                  <!-- <label class="form-check-label" for="yes">Yes</label> -->
+
                 </div>
                 <div class="form-check float-left ml-4">
-                  <!-- <input class="form-check-input" type="radio"  name="guest" id="no" value="No" checked> -->
-                  <label><input type="radio" name="guests[]" id="no_guest" value="N/A" onclick="test();" /> <span>No</span></label>
-                  <!-- <label class="form-check-label" for="no">No </label> -->
+                  <label><input type="radio" name="guest" id="no_guest" value="0" onclick="test();" />
+                    <span>No</span></label>
                   <p class="input_sms text-warning" id="guest_error"></p>
                 </div>
             </div>
@@ -243,7 +243,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
       <div class="form-group col-md-6 float-left ml-0 pl-0">
         <div class="present mr-2">
           <div class="card ">
-            <h5 class="card-header">Present Address <span class="text-denger">*</span></h5>
+            <h5 class="card-header bg-secondary">Present Address <span class="text-denger">*</span></h5>
             <div class="card-body bg-secondary text-white">
               <table class="table bg-secondary text-white">
                 <tbody>
@@ -295,7 +295,7 @@ $pdivisions_queries = mysqli_query($conn,$pdivisions);
       <div class="form-group col-md-6 float-left mr-0 pl-0">
         <div class="permanent">
           <div class="card ">
-            <h5 class="card-header">
+            <h5 class="card-header bg-secondary">
               Permanent Address <span class="text-denger">*</span>
               <input type="checkbox" name="copy" id="parmanent_address" aria-label="Checkbox for following text input" >
               <small>Same As Present Address</small>
