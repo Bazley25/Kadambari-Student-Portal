@@ -57,7 +57,7 @@ include("../db.php");
                     <input type="password" class="form-control" required name="confirm_password" placeholder="Enter Confirm Password">
                 </div>
 
-                <button type="submit" class="btn btn-outline-primary">Registration</button> Already Have An account?
+                <button type="submit" name="register_btn" class="btn btn-outline-primary">Registration</button> Already Have An account?
                 <a class="btn btn-outline-primary" href="login.php"> Login</a>
             </form>
         </div>

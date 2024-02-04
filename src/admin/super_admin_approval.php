@@ -10,7 +10,7 @@ include("../db.php");
 $id= $_GET['id'];
 
 <form class="" action="" method="post">
-  <input type="hidden" name="id" value=" <<?= $row['id']; ?> ">
+  <input type="hidden" name="id" value="<?$row['id']; ? ">
   <input type="submit" name="approve" value="Approved">
   <input type="submit" name="decline" value="Decline ">
 </form>

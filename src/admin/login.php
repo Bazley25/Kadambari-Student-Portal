@@ -3,6 +3,7 @@ session_start();
 ob_start();
 include("../db.php");
 
+
 ?>
 
 <!doctype html>
@@ -16,14 +17,15 @@ include("../db.php");
     <title>Login</title>
   </head>
   <body>
-<div class="container ">
+<div class="py-5">
+  <div class="container ">
   <div class="login-wrap">
     <div class="login-content">
-        <div class="col-md-6 col-md-offset-3 center">
+        <div class="col-md-6 col-md-offset-3 ">
 
           <?php if(isset($_SESSION['error'])) { ?>
-             <div class="alert alert-success mt-3" role="alert">
-              <strong>Ops!</strong> Email Or Password is Wrong. Provide Correct Information
+             <div class="alert alert-danger mt-3" role="alert">
+              <strong>Ops! <?php echo $_SESSION['error'];?></strong> 
             </div>
           <?php }?>
 
@@ -34,28 +36,24 @@ include("../db.php");
           <?php }?>
 
           <?php if(isset($_SESSION['wrong_user'])) { ?>
-             <div class="alert alert-success mt-3" role="alert">
-              <strong>Ops!</strong> You have Select Wrong User!
+             <div class="alert alert-danger mt-3" role="alert">
+              <strong>Ops! <?php echo $_SESSION['wrong_user'];?> </strong> 
             </div>
           <?php }?>
 
 
 
-          <!-- <?php if(isset($_SESSION['user_active'])) { ?>
+           <?php if(isset($_SESSION['status'])) { ?>
              <div class="alert alert-success mt-3" role="alert">
-              <strong>Ops!</strong> Email Active
+              <strong><?php echo $_SESSION['status'];?></strong> 
             </div>
           <?php }?>
 
-          <?php if(isset($_SESSION['user_not_active'])) { ?>
-             <div class="alert alert-success mt-3" role="alert">
-              <strong>Ops!</strong> Email not Active
-            </div>
-          <?php }?> -->
+          
 
           <?php if(isset($_SESSION['password_reset'])) { ?>
            <div class="alert alert-success mt-3" role="alert">
-            <strong>Success!</strong> <?php echo $_SESSION['password_reset'];?>
+           <?php echo $_SESSION['password_reset'];?>
           </div>
         <?php }?>
 
@@ -121,7 +119,7 @@ include("../db.php");
                 <label class="form-check-label" for="remember_me">Remember Me</label>
               </div>
 
-                <button type="submit" class="btn btn-outline-primary ">Login</button>
+                <button type="submit" name="login_btn" class="btn btn-outline-primary ">Login</button>
 
                 <a class="btn btn-outline-primary" href="registration.php"> Sign Up</a>
                 <a class="btn btn-outline-primary" href="forget_password.php"> Forgot Password?</a>
@@ -131,6 +129,7 @@ include("../db.php");
         </div>
         </div>
         </div>
+</div>
 </div>
 
 
@@ -190,8 +189,8 @@ include("../db.php");
 <?php unset($_SESSION['password_reset']);?>
 
 <?php unset($_SESSION['user_type_error_selection']);?>
-<?php unset($_SESSION['user_active']);?>
-<?php unset($_SESSION['user_not_active']);?>
+<?php unset($_SESSION['status']);?>
+
 <?php unset($_SESSION['pass_update']);?>
 <?php unset($_SESSION['wrong_user']);?>
 <?php unset($_SESSION['user_not_exits']);?>

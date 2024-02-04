@@ -16,7 +16,7 @@
 
            <h2 class="mt-2">Reset Your Password</h2>
            <hr>
-                <form  action="recover_account.php" method="post"  enctype="multipart/form-data">
+                <form  action="recover_account.php" method="post" >
                   <div class="form-group">
                       <label for="email">Email</label>
                       <br>

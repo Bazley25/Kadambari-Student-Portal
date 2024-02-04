@@ -36,7 +36,7 @@ include("header.php");
                     <label for="confirm_password">Confirm Password</label>
                     <input type="password" class="form-control" required name="confirm_password" placeholder="Enter Confirm Password">
                 </div>
-                <button type="submit" class="btn btn-outline-primary">Sign Up</button> Already Have An account?
+                <button type="submit" name="stu_register_btn" class="btn btn-outline-primary">Sign Up</button> Already Have An account?
                 <a class="btn btn-outline-primary" href="user_login.php"> Login</a>
             </form>
         </div>

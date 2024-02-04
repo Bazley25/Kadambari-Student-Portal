@@ -22,7 +22,7 @@ $sql= "SELECT * FROM users WHERE email='$email'";
 $result = mysqli_query($conn,$sql);
  $rowcount=mysqli_num_rows($result);
 if($rowcount !== 1){
-    $_SESSION['student_not_exit']=1;
+    $_SESSION['student_not_exit']= "This Student Mail Not Exits !!";
     header("location:user_login.php");
 }else{
   $sql= "SELECT * FROM users WHERE email='$email' and user_type='gen_user'";

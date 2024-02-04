@@ -19,6 +19,11 @@ include("header.php");
               <strong>Ops !</strong> This Student Mail Not Exits !!
             </div>
           <?php }?>
+          <?php if(isset($_SESSION['status'])) { ?>
+             <div class="alert alert-success mt-3" role="alert">
+              <strong> <?php echo $_SESSION['status'];?></strong> 
+            </div>
+          <?php }?>
 
           <?php if(isset($_SESSION['wrong_student'])) { ?>
              <div class="alert alert-success mt-3" role="alert">

@@ -27,7 +27,7 @@ $result = mysqli_query($conn,$sql);
   <link rel="stylesheet" href="../scss/style.scss">
   <link rel="shortcut icon" type="image/x-icon" href="../favicon/khs.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <title>কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০</title>
+  <title><?php if(isset($page_title)){echo "$page_title";}?></title>
 </head>
 <body>
 

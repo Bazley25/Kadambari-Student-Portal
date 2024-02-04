@@ -1,20 +1,73 @@
 <?php
 session_start();
 include("../db.php");
+
+
+//Load Composer's autoloader
+require "../librery/php_mailer/vendor/autoload.php";
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-require '../librery/php_mailer/src/Exception.php';
-require '../librery/php_mailer/src/PHPMailer.php';
-require '../librery/php_mailer/src/SMTP.php';
+
+// require '../librery/php_mailer/vendor/phpmailer/phpmailer/src/Exception.php';
+// require '../librery/php_mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+//  require '../librery/php_mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+
+function sendemail_verify($name,$email,$token)
+{
+
+    $mail = new PHPMailer(true);
+    //Server settings
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'shubhamandalwebguru@gmail.com';                     //SMTP username
+    $mail->Password   = 'xusjjhxwwrqnlped ';                               //SMTP password
+    $mail->SMTPSecure = "tls";            //Enable implicit TLS encryption
+    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom("shubhamandalwebguru@gmail.com", $name);
+    $mail->addAddress($email);     //Add a recipient
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Email Varification';
+    $mail_template = "
+                      <h2> You have Registered  With KHS </h2>
+                      <h5> Verify Your Email Address to Login with the Below Given Links</h5>
+                      <br/>
+                      <a href='http://localhost/Kadambari-Student-Portal/src/admin/verify_email.php?token=$token && email=$email'>Click Here</a>
+                      ";
 
 
-$name=$_POST['name'];
-$email=$_POST['email'];
-$user_type=$_POST['user_type'];
-$password= $_POST['password'];
-$con_password= $_POST['confirm_password'];
+    $mail->Body    = $mail_template;
 
-$token =bin2hex(random_bytes(15));
+    $mail->send();
+    // echo 'Message has been sent';
+
+
+// end 
+
+}
+
+
+
+
+
+
+if (isset($_POST['register_btn'])) {
+
+
+
+$name = $_POST['name'];
+$email = $_POST['email'];
+$user_type = $_POST['user_type'];
+$password = $_POST['password'];
+$con_password = $_POST['confirm_password'];
+
+$token = bin2hex(random_bytes(15));
 
 if($password != $con_password){
 $_SESSION['error_msg'] ="Password And Confirm Password Did not Match !!";
@@ -32,23 +85,20 @@ header("location:registration.php");
     $sql= "INSERT INTO users (name,email,user_type,password,token,status) VALUES ('$name','$email','$user_type','$hash','$token','inactive')";
     if(mysqli_query($conn,$sql)){
 
-      $subject = "Account Varification";
-      $body = "Hi, $name Click here to varify your Email http://localhost/Kadambari-Student-Portal/src/admin/sendmail.php?token=$token";
-      $sender = "from: litabiswas46@gmail.com";
+      sendemail_verify("$name","$email","$token");
 
-      if (mail($email, $subject, $body, $sender)) {
-        $query =" UPDATE users SET  expire_link=DATE_ADD(NOW(), INTERVAL 5 MINUTE) WHERE email='$email'";
-        $token_result = mysqli_query($conn,$query);
-
-        $_SESSION['reg_msg'] ="Hi, $name, Check your Inbox of this Email $email";
-        header("location:login.php");
-      } else {
-          echo "Email sending failed";
-
-      }
+      $_SESSION['reg_msg'] = "Hi, $name, Check your Inbox of this Email <strong>$email</strong> To Verify.";
+      header('location:index.php');
 
     }
+    else
+    {
+      $_SESSION['status'] = "Registration Failed!";
+      header('location:registration.php');
+    }
   }
+}
+
 }
 
 
