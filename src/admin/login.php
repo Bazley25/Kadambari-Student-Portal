@@ -22,21 +22,24 @@ include("../db.php");
   <div class="login-wrap">
     <div class="login-content">
         <div class="col-md-6 col-md-offset-3 ">
+        
+        <h1 class="mt-2">Admin Login </h1>
+           <hr>
 
           <?php if(isset($_SESSION['error'])) { ?>
-             <div class="alert alert-danger mt-3" role="alert">
+             <div class="text-danger mt-3" role="alert">
               <strong>Ops! <?php echo $_SESSION['error'];?></strong> 
             </div>
           <?php }?>
 
           <?php if(isset($_SESSION['user_not_exits'])) { ?>
-             <div class="alert alert-warning mt-3" role="alert">
+             <div class="text-warning mt-3" role="alert">
               <strong>Ops!</strong> "User Not Exits !! Please Try Another !!"
             </div>
           <?php }?>
 
           <?php if(isset($_SESSION['wrong_user'])) { ?>
-             <div class="alert alert-danger mt-3" role="alert">
+             <div class="text-danger mt-3" role="alert">
               <strong>Ops! <?php echo $_SESSION['wrong_user'];?> </strong> 
             </div>
           <?php }?>
@@ -44,7 +47,7 @@ include("../db.php");
 
 
            <?php if(isset($_SESSION['status'])) { ?>
-             <div class="alert alert-success mt-3" role="alert">
+             <div class="text-success mt-3" role="alert">
               <strong><?php echo $_SESSION['status'];?></strong> 
             </div>
           <?php }?>
@@ -52,39 +55,38 @@ include("../db.php");
           
 
           <?php if(isset($_SESSION['password_reset'])) { ?>
-           <div class="alert alert-success mt-3" role="alert">
+           <div class="text-success mt-3" role="alert">
            <?php echo $_SESSION['password_reset'];?>
           </div>
         <?php }?>
 
             <?php if(isset($_SESSION['reg_msg'])) { ?>
-             <div class="alert alert-success mt-3" role="alert">
+             <div class="text-success mt-3" role="alert">
               <strong>Success!</strong> <?php echo $_SESSION['reg_msg'];?>
             </div>
           <?php }?>
 
             <?php if(isset($_SESSION['reset_password'])) { ?>
-             <div class="alert alert-success mt-3" role="alert">
+             <div class="text-success mt-3" role="alert">
               <strong>Success!</strong> <?php echo $_SESSION['reg_msg'];?>
             </div>
           <?php }?>
 
             <?php if(isset($_SESSION['reg_msg_error'])) { ?>
-             <div class="alert alert-denger mt-3" role="alert">
+             <div class="text-denger mt-3" role="alert">
               <strong>Ohs!</strong> <?php echo $_SESSION['reg_msg_error'];?>
             </div>
           <?php }?>
 
           <?php if(isset($_SESSION['pass_update'])) { ?>
-             <div class="alert alert-success mt-3" role="alert">
+             <div class="text-success mt-3" role="alert">
               <strong>Success!</strong> <?php echo $_SESSION['pass_update'];?>
             </div>
           <?php }?>
 
+          
 
-
-           <h1 class="mt-2">Admin Login </h1>
-           <hr>
+          <br>
 
 
 

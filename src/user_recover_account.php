@@ -1,34 +1,72 @@
 <?php
 session_start();
 include("db.php");
+//Load Composer's autoloader
+require "librery/php_mailer/vendor/autoload.php";
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-require 'librery/php_mailer/src/Exception.php';
-require 'librery/php_mailer/src/PHPMailer.php';
-require 'librery/php_mailer/src/SMTP.php';
+
+function sendemail_verify($name,$email,$token)
+{
+
+    $mail = new PHPMailer(true);
+    //Server settings
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'shubhamandalwebguru@gmail.com';                     //SMTP username
+    $mail->Password   = 'xusjjhxwwrqnlped ';                               //SMTP password
+    $mail->SMTPSecure = "tls";            //Enable implicit TLS encryption
+    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom("shubhamandalwebguru@gmail.com", $name);
+    $mail->addAddress($email);     //Add a recipient
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Reset Password';
+    $mail_template = "
+                      <h2> Requested For Reset Password  </h2>
+                      <h5> Do You  Requested For Reset Password? If you want to reset Password Click on the Below Given Links. Not You? Ignore This.</h5>
+                      <br/>
+                      <a href='http://localhost/Kadambari-Student-Portal/src/admin/admin_reset_password.php?token=$token&email=$email'>Reset Password</a>
+                      ";
+
+    $mail->Body    = $mail_template;
+    $mail->send();
+
+// end
+
+}
+
+
 $email = $_POST['email'];
-$mail_query = "SELECT * FROM users WHERE email='$email'";
+
+
+$mail_query = "SELECT * FROM users WHERE email='$email'  LIMIT 1";
 $result = mysqli_query($conn,$mail_query);
-$mail_search =mysqli_num_rows($result);
+
+$mail_search = mysqli_num_rows($result);
+
 if($mail_search){
+
 $userdata = mysqli_fetch_array($result);
-$name=$userdata['name'];
-$token =$userdata['token'];
+$name = $userdata['name'];
+$token = $userdata['token'];
 
-  $subject = "Reset Password";
-  $body = "Hi, $name Click on the link to reset your password http://localhost/Kadambari-Student-Portal/src/user_reset_password.php?token=$token";
-  $sender = "from: shubha@ergo-ventures.com";
+sendemail_verify("$name","$email","$token");
 
-  if (mail($email, $subject, $body, $sender)) {
-    $_SESSION['password_reset'] ="Hi, $name, Check your Inbox To Reset your password.";
+    $_SESSION['password_reset'] ="Hi, $name, Check your Email To Reset your password.";
     header("location:user_login.php");
-  } else {
-      echo "Email sending failed";
+  } elseif ($mail_search == false) {
+      echo " Not Found";
+  }else{
+    echo "Email sending failed";
   }
-}
-else {
-  echo "There is No account associate with this email !!";
-}
+
 
 
 ?>

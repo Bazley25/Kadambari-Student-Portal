@@ -48,7 +48,7 @@ if($rowcount !== 1){
   }
 
   } else{
-      $_SESSION['student_error']=true;
+      $_SESSION['student_error']="Email Or Password is Wrong. Provide Correct Information";
       header("location:user_login.php");
     }
   }else {

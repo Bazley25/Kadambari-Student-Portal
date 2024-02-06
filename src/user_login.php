@@ -10,7 +10,7 @@ include("header.php");
         <div class="col-md-6 col-md-offset-3 center">
           <?php if(isset($_SESSION['student_error'])) { ?>
              <div class="alert alert-success mt-3" role="alert">
-              <strong>Ops!</strong> Email Or Password is Wrong. Provide Correct Information
+              <strong>Ops! <?php echo $_SESSION['student_error'];?></strong> 
             </div>
           <?php }?>
 
@@ -34,6 +34,12 @@ include("header.php");
             <?php if(isset($_SESSION['reg_msg'])) { ?>
              <div class="alert alert-success mt-3" role="alert">
               <strong>Success!</strong> <?php echo $_SESSION['reg_msg'];?>
+            </div>
+          <?php }?>
+
+            <?php if(isset($_SESSION['password_reset'])) { ?>
+             <div class="alert alert-success mt-3" role="alert">
+              <strong>Success!</strong> <?php echo $_SESSION['password_reset'];?>
             </div>
           <?php }?>
 
@@ -114,3 +120,4 @@ include("header.php");
 <?php unset($_SESSION['student_not_exit']);?>
 <?php unset($_SESSION['wrong_student']);?>
 <?php unset($_SESSION['email_not_verified']);?>
+<?php unset($_SESSION['password_reset']);?>

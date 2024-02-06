@@ -2,16 +2,11 @@
 session_start();
 include("../db.php");
 
-
 //Load Composer's autoloader
 require "../librery/php_mailer/vendor/autoload.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
-// require '../librery/php_mailer/vendor/phpmailer/phpmailer/src/Exception.php';
-// require '../librery/php_mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-//  require '../librery/php_mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 
 function sendemail_verify($name,$email,$token)
 {

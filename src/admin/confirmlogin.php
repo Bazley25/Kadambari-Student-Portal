@@ -5,7 +5,6 @@ include("../db.php");
 if(isset($_POST['login_btn']))
 {
 
-
 $email=$_POST['email'];
 $pass=$_POST['password'];
 $user_type=$_POST['user_type'];
