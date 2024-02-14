@@ -23,7 +23,7 @@
                           <strong>Ops! <?php echo $_SESSION['user_not_exits'];?> </strong>
                         </div>
                       <?php }?>
-                      
+
                       <br>
                       <p id="response"></p>
                       <label for="email">Email</label>
