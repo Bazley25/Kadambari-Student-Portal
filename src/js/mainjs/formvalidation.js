@@ -15,7 +15,8 @@
       // var amount=document.getElementById('bkash');
       // var taka=document.getElementById('taka');
       // var trxid=document.getElementById('trxid');
-      var capcha = document.getElementById("capcha");
+      var captcha = document.getElementById("captcha");
+      var captcha_code = document.getElementById("captcha_code");
 
       // *************** Address part start ******************
 
@@ -32,17 +33,17 @@
 
       // **** gender part Start *************************************
       var radios = document.getElementsByName("gender");
-      var valid = false;
+      var valids = false;
       var i = 0;
-      while (!valid && i < radios.length) {
-        if (radios[i].checked) valid = true;
+      while (!valids && i < radios.length) {
+        if (radios[i].checked) valids = true;
         i++;
       }
 
       // **** gender part End *************************************
 
       // **** Guest part Start *************************************
-      var radios = document.getElementsByName("gender");
+      var radios = document.getElementsByName("guest");
       var valid = false;
       var i = 0;
       while (!valid && i < radios.length) {
@@ -470,12 +471,22 @@
       //     document.getElementById('trxid_error').innerHTML="";
       //   }
 
-      if (!valid) {
+      if (!valids) {
         document.getElementById("gender_error").innerHTML =
           "** Please Select Your Gender! **";
-        return valid;
+        
+        return valids;
       } else {
         document.getElementById("gender_error").innerHTML = "";
+      }
+
+      if (!valid) {
+        document.getElementById("guest_error").innerHTML =
+          "** Please Select Guest Type! **";
+        
+        return valid;
+      } else {
+        document.getElementById("guest_error").innerHTML = "";
       }
 
       if (captcha.value == "") {
@@ -484,16 +495,16 @@
         captcha.focus();
         return false;
       }
-      if (capcha.value != capcha.value) {
+      if (captcha_code.value  != captcha.value) {
         document.getElementById("captcha_error").innerHTML =
           "** Invalid Captcha Code **";
-        captcha_error.focus();
+        captcha.focus();
         return false;
       }
 
-      // else{
-      //   document.getElementById('capcha_error').innerHTML="";
-      // }
+      else{
+        document.getElementById("captcha_error").innerHTML = "";
+      }
 
       if (image.value == "") {
         document.getElementById("photo_error").innerHTML =

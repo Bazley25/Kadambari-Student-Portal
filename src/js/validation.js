@@ -1,6 +1,6 @@
 <script type="text/javascript">
 
-    function valid(){
+    function valid2(){
         var name=document.getElementById('name');
         var father=document.getElementById('father_name');
         var mother=document.getElementById('mother_name');

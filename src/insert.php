@@ -238,12 +238,12 @@ function generateRandomString()  {
            <div class="card mb-2">
              <div class="card-body bg-secondary">
                <div class="col-md-6 form-group float-left"><label for="captcha-code">Captcha Code</label>
-                 <div class="captcha"><?php echo generateRandomString();?></div>
+                 <div class="captcha" id="captcha_code"><?php echo json_encode(generateRandomString());?></div>
                </div>
 
-               <div class="col-md-6 form-group float-left"><label for="captcha">Captcha</label><input type="text"
-                   name="captcha" id="captcha" placeholder="Enter Captcha"  class="form-control" /><input
-                   type="hidden" name="captcha" value="<?php echo generateRandomString(); ?>">
+               <div class="col-md-6 form-group float-left"><label for="captcha">Captcha</label>
+               <input type="text" name="captcha" id="captcha" placeholder="Enter Captcha"  class="form-control" />
+               
                    <p class="input_sms text-warning" id="captcha_error"></p>
                </div>
              </div>

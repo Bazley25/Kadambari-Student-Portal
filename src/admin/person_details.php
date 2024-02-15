@@ -40,7 +40,7 @@ ob_start();
 
 include('indivisual.php');
 
-$html=ob_get_clean();
+$html = ob_get_clean();
 $mpdf->WriteHTML($html);
 $file_name = $std['name'] . "_". $std['id'] . ".pdf";
 $mpdf->Output($file_name, 'I');
