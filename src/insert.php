@@ -238,7 +238,8 @@ function generateRandomString()  {
            <div class="card mb-2">
              <div class="card-body bg-secondary">
                <div class="col-md-6 form-group float-left"><label for="captcha-code">Captcha Code</label>
-                 <div class="captcha" id="captcha_code"><?php echo json_encode(generateRandomString());?></div>
+                 <div class="captcha " id="captcha_code"><?php echo json_encode(generateRandomString());?></div>
+                 <div class=" "><button>Reload</button></div>
                </div>
 
                <div class="col-md-6 form-group float-left"><label for="captcha">Captcha</label>
@@ -316,8 +317,8 @@ function generateRandomString()  {
                         aria-label="Checkbox for following text input">
                       <small>Same As Present Address</small>
                     </h5>
-                    <div class="card-body bg-secondary text-white">
-                      <table class="table bg-secondary text-white " style="border: none !important">
+                    <div class="card-body bg-secondary text-white col-md-12 col-sm-12">
+                      <table class="table bg-secondary text-white col-md-12 col-sm-12" style="border: none !important">
                         <tbody class="">
                           <tr>
                             <td>Village/Town/<br />Road/House/Flat</td>
@@ -328,9 +329,9 @@ function generateRandomString()  {
                             </td>
                           </tr>
                           <tr>
-                            <td class="form-group">Division</td>
+                            <td class="form-group col-md-12 col-sm-12">Division</td>
                             <td>
-                              <select class='form-control' id="pdivision" name="pdivision">
+                              <select class='form-control col-md-12 col-sm-12' id="pdivision" name="pdivision">
                                 <option selected disabled>Select Division</option>
                                 <?php  while ($row_division = mysqli_fetch_assoc($pdivisions_queries)) :?>
                                 <option value="<?php echo $row_division['id'];?>"> <?php echo $row_division['name'];?>

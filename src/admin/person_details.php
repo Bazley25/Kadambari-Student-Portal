@@ -6,7 +6,7 @@ $mpdf = new \Mpdf\Mpdf([
             'default_font' => 'bangla',
 
             'mode' => 'utf-8',
-            'format' => 'A4',
+            'format' => 'A4-L',
             'orientation' => 'L',
         ]);
 

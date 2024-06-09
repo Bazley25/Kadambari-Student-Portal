@@ -40,7 +40,7 @@ function sendemail_verify($name,$email,$token)
 
 // end
 
-}
+} // end mail Function
 
 if(isset($_POST['reset_pass_btn']))
 {
@@ -84,7 +84,7 @@ else
   {
     
     $_SESSION['wrong_user']="You have Select Wrong User!";
-    header("location:login.php");
+    header("location:forget_password.php");
   }
 
   }

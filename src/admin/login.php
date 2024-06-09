@@ -12,18 +12,18 @@ include("../db.php");
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="shortcut icon" type="image/png" href="../favicon/khs.png">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="shortcut icon" type="image/png" href="../favicon/khs.png">
     <title>Login</title>
   </head>
-  <body>
-<div class="py-5">
-  <div class="container ">
-  <div class="login-wrap">
-    <div class="login-content">
-        <div class="col-md-6 col-md-offset-3 ">
-        
-        <h1 class="mt-2">Admin Login </h1>
+  <body >
+
+  <div class="container mt-4">
+  <div class="row d-flex justify-content-center">
+        <div class="col-12  col-lg-6 col-md-8 col-sm-10 py-5">
+        <div class="card border-0 shadow-lg bg-white rounded px-5 py-5">
+        <h3 class="mt-2 text-center">Admin Login </h3>
            <hr>
 
           <?php if(isset($_SESSION['error'])) { ?>
@@ -130,9 +130,10 @@ include("../db.php");
             </div>
         </div>
         </div>
+        
         </div>
 </div>
-</div>
+
 
 
 
@@ -178,11 +179,11 @@ include("../db.php");
 
     <!-- prevent Inspect Element (disabale right click on the page)-->
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     document.addEventListener("contextmenu", function(i){
       i.preventDefault();
     });
-    </script>
+    </script> -->
   </body>
 </html>
 <?php unset($_SESSION['error']);?>

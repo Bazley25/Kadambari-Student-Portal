@@ -9,13 +9,15 @@ include("../db.php");
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="shortcut icon" type="image/png" href="../favicon/khs.png">
     <title>Registration</title>
   </head>
-  <body>
-    <div class="container">
-        <div class="col-md-6 col-md-offset-3">
+  <body >
+    <div class="container mt-3">
+      <div class="row d-flex justify-content-center">
+        <div class="col-12 col-lg-6 col-md-8 col-sm-10 py-5">
+          <div class="card border-0 shadow-lg px-5 py-5 rounded-5">
           <?php if(isset($_SESSION['error_msg'])) { ?>
              <div class="alert alert-success mt-3" role="alert">
               <strong>Warning!</strong> <?php echo $_SESSION['error_msg'];?>
@@ -27,8 +29,9 @@ include("../db.php");
             </div>
           <?php }?>
 
-           <h1 class="mt-2">Create an account</h1>
+           <h3 class="text-center">Create an account</h3>
            <hr>
+           
             <form action="confirmregistration.php" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -60,6 +63,8 @@ include("../db.php");
                 <button type="submit" name="register_btn" class="btn btn-outline-primary">Registration</button> Already Have An account?
                 <a class="btn btn-outline-primary" href="login.php"> Login</a>
             </form>
+        </div>
+        </div>
         </div>
 </div>
     <script src="js/jquery-slim.min.js" ></script>

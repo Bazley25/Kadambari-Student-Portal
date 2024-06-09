@@ -5,9 +5,9 @@ include("header.php");
 ?>
 
 <div class="container ">
-  <div class="login-wrap">
-    <div class="login-content">
-        <div class="col-md-6 col-md-offset-3 center">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-6 col-md-8 col-sm-10 py-5">
+        <div class="card border-0 shadow-lg px-5 py-5 rounded-5">
           <?php if(isset($_SESSION['student_error'])) { ?>
              <div class="alert alert-success mt-3" role="alert">
               <strong>Ops! <?php echo $_SESSION['student_error'];?></strong> 
@@ -55,7 +55,7 @@ include("header.php");
             </div>
           <?php }?>
 
-           <h1 class="mt-2">Student Login </h1>
+           <h3 class="text-center">Student Login </h3>
            <hr>
            <!-- msm start  -->
            <?php if(isset($_SESSION['user_activation'])) { ?>

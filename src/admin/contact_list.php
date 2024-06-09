@@ -39,7 +39,7 @@ $result = mysqli_query($conn,$sql);
                       <thead>
                           <th>First Name</th>
                           <th>Last Name</th>
-                          <th>Email</th>
+                          <th width="15%">Email</th>
                           <th>Mobile</th>
                           <th>Subject</th>
                           <th width="6%">Date</th>

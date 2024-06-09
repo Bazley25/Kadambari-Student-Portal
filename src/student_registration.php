@@ -5,7 +5,9 @@ include("header.php");
 ?>
 
     <div class="container">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="row d-flex justify-content-center">
+        <div class="col-12 col-lg-6 col-md-8 col-sm-10 py-5">
+            <div class="card border-0 shadow-lg px-5 py-5 rounded-5">
           <?php if(isset($_SESSION['error_msg'])) { ?>
              <div class="alert alert-success mt-3" role="alert">
               <strong>Warning!</strong> <?php echo $_SESSION['error_msg'];?>
@@ -39,6 +41,8 @@ include("header.php");
                 <button type="submit" name="stu_register_btn" class="btn btn-outline-primary">Sign Up</button> Already Have An account?
                 <a class="btn btn-outline-primary" href="user_login.php"> Login</a>
             </form>
+        </div>
+        </div>
         </div>
 </div>
 <br>

@@ -5,15 +5,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="shortcut icon" type="image/png" href="favicon/khs.png">
     <title>Forget Password</title>
   </head>
   <body>
-    <div class="container" style="margin-top:100px;">
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-md-offset-3" align="center">
-           <h2 class="mt-2">Reset Your Password</h2>
+    <div class="container mt-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-12 col-lg-6 col-md-8 col-sm-10 py-5">
+          <div class="card border-0 shadow-lg px-5 py-5 rounded-5">
+           <h3 class="text-center">Reset Your Password</h3>
            <hr>
                 <form  action="user_recover_account.php" method="post"  enctype="multipart/form-data">
                   <div class="form-group">
@@ -22,9 +23,13 @@
                       <p id="response"></p>
                       <input  class="form-control" name="email"  placeholder="Enter Email">
                         <br>
-                      <input type="submit" class="btn btn-primary" value="Reset Password">
+
+                      <div class="col-12 text-center">
+                        <button type="submit" name="reset_pass_btn" class="btn btn-primary ">Reset Password</button>
+                      </div>
                   </div>
                 </form>
+              </div>
               </div>
             </div>
           </div>

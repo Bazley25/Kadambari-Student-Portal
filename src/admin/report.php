@@ -34,7 +34,7 @@ $mpdf = new \Mpdf\Mpdf([
 
 
 $mpdf->SetCreator('কদমবাড়ী উচ্চ বিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২১');
-// $mpdf->SetHTMLHeader('কদমবাড়ী উচ্চ বিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২১');
+//$mpdf->SetHTMLHeader('কদমবাড়ী উচ্চ বিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২১');
 $mpdf->SetHTMLFooter('<div>2020 - {DATE Y} &copy; Copyright - কউবিপ্রাশিস-{DATE Y} *** Page: {PAGENO}, *** Download Time: {DATE d-m-Y, h:i A},   *** Powered By <a href="http://www.shubhamandal.com/" style="text-decoration:none;">shubhamandal.com</a></div>');
 
 ob_start();

@@ -8,30 +8,21 @@ $result = mysqli_query($conn,$sql);
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/uikit.min.css">
   <link rel="stylesheet" href="css/slick.css">
   <link rel="stylesheet" href="css/slick-theme.css">
-  <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="css/responsive.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-
-
-  <!-- <script src="https://kit.fontawesome.com/0b5a974696.js" crossorigin="anonymous"></script> -->
-<link rel="stylesheet" href="css/webfonts/fa-brands-400.ttf">
-<link rel="stylesheet" href="css/fontawsome.min.css">
-  <link rel="stylesheet" href="scss/style.scss">
-
+  <script src="https://kit.fontawesome.com/0b5a974696.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/bootstrap.css">
-
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="scss/style.scss">
   <link rel="shortcut icon" type="image/x-icon" href="favicon/khs.png">
-
+  <title>কদমবাড়ী উচ্চবিদ্যালয় প্রাক্তন শিক্ষার্থী সম্মিলন ২০২০</title>
 </head>
 <body>
 
@@ -45,13 +36,10 @@ $result = mysqli_query($conn,$sql);
     <div id="navbarNav" class="collapse navbar-collapse ">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="index.php"><i class="fas fa-home"></i> home</a>
+          <a class="nav-link" href="index.php">home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="insert.php"> registration</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"> Verify Payment</a>
+          <a class="nav-link" href="insert.php">registration</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="support.php">notice</a>
@@ -78,7 +66,7 @@ $result = mysqli_query($conn,$sql);
 
 <section class="news bg-dark">
         <div class="container">
-        <div class="row">
+          <div class="row">
           <marquee class="text-light" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
             <?php
             if(mysqli_num_rows($result) >0){
@@ -90,6 +78,6 @@ $result = mysqli_query($conn,$sql);
             </marquee>
             </div>
         </div>
-    </div>
+    
 </section>
 <!-- News section end-->
